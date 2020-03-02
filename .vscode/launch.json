@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<siscondominio>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.siscondominio.siscondominio.DemoApplication",
+            "projectName": "siscondominio",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Main<siscondominio>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.siscondominio.Main",
+            "projectName": "siscondominio",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Apllication<siscondominio>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.siscondominio.Apllication",
+            "projectName": "siscondominio",
+            "args": ""
+        }
+    ]
+}
