@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - DemoApplication",
+            "request": "launch",
+            "mainClass": "DemoApplication",
+            "projectName": "sistema-condominio.herokuapp.com_4a27087e"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-DemoApplication<siscondominio>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
@@ -28,6 +35,16 @@
             "console": "internalConsole",
             "mainClass": "com.siscondominio.Apllication",
             "projectName": "siscondominio",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<sistema-condominio>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.siscondominio.sistemacondominio.DemoApplication",
+            "projectName": "sistema-condominio",
             "args": ""
         }
     ]
