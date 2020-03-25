@@ -6,8 +6,15 @@ CREATE TABLE usuarios(
     email VARCHAR(50) NOT NULL,
     nome VARCHAR(100) NOT NULL,
     data_acesso TIMESTAMP,
+    data_cadastro DATE, -- capturar data do sistema
+    senha VARCHAR(20), -- configurar validacao da senha e encriptacao no banco usando SHA
     arquivado BOOLEAN,
-    newsletter_user_fk INTEGER REFERENCES newsletter(id)
+    admininistrador BOOLEAN,
+    bloqueado BOOLEAN, -- configurar validacao para que o administrador libere o cadastro do usuario
+    newsletter_user_fk INTEGER REFERENCES newsletter(id),
+    noticias_user_fk INTEGER REFERENCES noticias_avisos(id),
+    documentos_user_fk INTEGER REFERENCES documentos(id),
+    chamado_user_fk INTEGER REFERENCES chamado(numero)
  );
 
 CREATE TABLE newsletter(
@@ -22,6 +29,7 @@ CREATE TABLE legislacao(
     assunto VARCHAR(200) NOT NULL,
     data_leg DATE NOT NULL,
     tipo VARCHAR(200) NOT NULL,
+    anexo VACHAR(100), -- tela de anexar arquivo somente para o administrador
     arquivado BOOLEAN
 );
 
@@ -32,13 +40,43 @@ CREATE TABLE usuarios_legislacao(
     leg_consulta_fk INTEGER REFERENCES legislacao(id)
 );
 
-CREATE TABLE condomino(
+CREATE TABLE condominos(
     id SERIAL PRIMARY KEY,
     apartamento VARCHAR(3) NOT NULL,
     cpf VARCHAR(11) UNIQUE NOT NULL, -- configurar validacao soh de numeros 
     data_cadastro DATE, -- capturar data do sistema
     nome VARCHAR(100) NOT NULL,
     observacao VARCHAR(200),
-    arquivado BOOLEAN
-    --FALTOU DEFINIR A CHAVE ESTRANGEIRA --> PAREI AQUI
+    arquivado BOOLEAN,
+    usuarios_condominos_fk INTEGER REFERENCES usuarios(id)
 );
+
+CREATE TABLE noticias_avisos(
+    id SERIAL PRIMARY KEY,
+    texto VARCHAR(200), -- configurar referencia e validacao de caracteres
+    arquivado BOOLEAN
+);
+
+CREATE TABLE documentos(
+    id SERIAL PRIMARY KEY,
+    obs VARCHAR(200) NOT NULL,
+    data_doc DATE,
+    tipo VARCHAR(200) NOT NULL,
+    adicionar VARCHAR(100), -- configurar referencia
+    arquivado BOOLEAN
+);
+
+CREATE TABLE chamado(
+    numero SERIAL PRIMARY KEY,
+    assunto VARCHAR(200),
+    email VARCHAR(50) NOT NULL,
+    contato VARCHAR(20),
+    nome VARCHAR(100) NOT NULL,
+    resposta VARCHAR(400), 
+    anexo VARCHAR(100), -- configurar referencia
+    arquivado BOOLEAN
+);
+
+-- parei aqui
+
+
