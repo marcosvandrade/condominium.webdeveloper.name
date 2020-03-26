@@ -14,7 +14,9 @@ CREATE TABLE usuarios(
     newsletter_user_fk INTEGER REFERENCES newsletter(id),
     noticias_user_fk INTEGER REFERENCES noticias_avisos(id),
     documentos_user_fk INTEGER REFERENCES documentos(id),
-    chamado_user_fk INTEGER REFERENCES chamado(numero)
+    chamado_user_fk INTEGER REFERENCES chamado(numero),
+    estacionamento_user_fk INTEGER REFERENCES estacionamento(id),
+    funcionarios_user_fk INTEGER REFERENCES funcionarios(id)
  );
 
 CREATE TABLE newsletter(
@@ -77,6 +79,36 @@ CREATE TABLE chamado(
     arquivado BOOLEAN
 );
 
--- parei aqui
+CREATE TABLE estacionamento(
+    id SERIAL PRIMARY KEY,
+    apartamento VARCHAR(3) NOT NULL,
+    morador VARCHAR(100) NOT NULL,
+    obs VARCHAR(200),
+    vaga CHAR(2) NOT NULL,
+    arquivado BOOLEAN 
+);
 
+CREATE TABLE funcionarios(
+    id SERIAL PRIMARY KEY,
+    data_admissao DATE,
+    cpf VARCHAR(11) UNIQUE NOT NULL, -- configurar validacao soh de numeros 
+    arquivado BOOLEAN
+);
 
+CREATE TABLE relatorios(
+    id SERIAL PRIMARY KEY,
+    tipo VARCHAR(30)    
+);
+
+CREATE TABLE usuarios_relatorios(
+    id SERIAL PRIMARY KEY,
+    data_acesso TIMESTAMP,
+    user_acesso_fk INTEGER REFERENCES usuarios(id),
+    relatorios_acesso_fk INTEGER REFERENCES relatorios(id)
+);
+
+CREATE TABLE condominio(
+    mes CHAR(2), -- configurar validacao
+    ano VARCHAR(4), -- configurar validacao
+    CONSTRAINT pk_mes_ano PRIMARY KEY(mes,ano)
+);
