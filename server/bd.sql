@@ -16,8 +16,31 @@ CREATE TABLE usuarios(
     documentos_user_fk INTEGER REFERENCES documentos(id),
     chamado_user_fk INTEGER REFERENCES chamado(numero),
     estacionamento_user_fk INTEGER REFERENCES estacionamento(id),
-    funcionarios_user_fk INTEGER REFERENCES funcionarios(id)
+    funcionarios_user_fk INTEGER REFERENCES funcionarios(id),
+    depositos_user_fk INTEGER REFERENCES depositos(id)
  );
+
+CREATE TABLE depositos(
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    apartamento VARCHAR(3) NOT NULL,
+    data_deposito DATE NOT NULL,
+    valor FLOAT NOT NULL,
+    obs VARCHAR(200)
+);
+
+CREATE TABLE inadimplentes( -- logica de calculo de juros e multa no backend
+    id SERIAL PRIMARY KEY,
+    apartamento VARCHAR(3) NOT NULL,
+    mes CHAR(2) NOT NULL,
+    ano CHAR(4) NOT NULL,
+    vmensal FLOAT NOT NULL,
+    vdevido FLOAT NOT NULL,
+    juros FLOAT NOT NULL,
+    multa FLOAT NOT NULL,
+    vrestante FLOAT NOT NULL,
+    arquivado BOOLEAN
+);
 
 CREATE TABLE newsletter(
     id SERIAL PRIMARY KEY,
@@ -96,19 +119,55 @@ CREATE TABLE funcionarios(
 );
 
 CREATE TABLE relatorios(
-    id SERIAL PRIMARY KEY,
-    tipo VARCHAR(30)    
+    dia CHAR(2),
+    mes CHAR(2), -- configurar validacao
+    ano VARCHAR(4), -- configurar validacao
+    tipo VARCHAR(30),
+    CONSTRAINT pk_dia_mes_ano PRIMARY KEY(dia,mes,ano),    
 );
 
-CREATE TABLE usuarios_relatorios(
+CREATE TABLE user_relatorios(
     id SERIAL PRIMARY KEY,
-    data_acesso TIMESTAMP,
-    user_acesso_fk INTEGER REFERENCES usuarios(id),
-    relatorios_acesso_fk INTEGER REFERENCES relatorios(id)
+    data_acesso TIMESTAMP, -- capturar a data hora do sistema
+    CONSTRAINT user_acesso_fk REFERENCES usuarios(id),
+    CONSTRAINT relatorios_acesso_fk REFERENCES relatorios(dia,mes,ano)
 );
 
 CREATE TABLE condominio(
+    dia CHAR(2),
     mes CHAR(2), -- configurar validacao
     ano VARCHAR(4), -- configurar validacao
-    CONSTRAINT pk_mes_ano PRIMARY KEY(mes,ano)
+    lancamento VARCHAR(200) NOT NULL,
+    vtotal FLOAT NOT NULL, -- funcao de calculo por unidade(48) no backend
+    arquivado BOOLEAN,
+    CONSTRAINT pk_dia_mes_ano PRIMARY KEY(dia,mes,ano),
+    CONSTRAINT relatorios_condominio_fk FOREIGN KEY(dia,mes,ano) REFERENCES  relatorios(dia,mes,ano)
+);
+
+CREATE TABLE consumo(
+    dia CHAR(2),
+    mes CHAR(2), -- configurar validacao
+    ano VARCHAR(4), -- configurar validacao
+    vtotal FLOAT NOT NULL,
+    consumo INTEGER NOT NULL,
+    arquivado BOOLEAN,
+    CONSTRAINT pk_dia_mes_ano PRIMARY KEY(dia,mes,ano),
+    CONSTRAINT relatorios_consumo_fk FOREIGN KEY(dia,mes,ano) REFERENCES  relatorios(dia,mes,ano)
+);
+
+CREATE TABLE conta( -- logica do saldo devera ser configurada no backend
+    dia CHAR(2),
+    mes CHAR(2), -- configurar validacao
+    ano VARCHAR(4), -- configurar validacao
+    lancamento VARCHAR(200) NOT NULL,
+    documento VARCHAR(30),
+    valor FLOAT NOT NULL,
+    identificacao VARCHAR(30),
+    arquivado BOOLEAN,
+    CONSTRAINT pk_dia_mes_ano PRIMARY KEY(dia,mes,ano),
+    CONSTRAINT relatorios_conta_fk FOREIGN KEY(dia,mes,ano) REFERENCES  relatorios(dia,mes,ano)
+);
+
+CREATE TABLE depositos(
+
 );
