@@ -54,7 +54,7 @@ CREATE TABLE legislacao(
     assunto VARCHAR(200) NOT NULL,
     data_leg DATE NOT NULL,
     tipo VARCHAR(200) NOT NULL,
-    anexo VACHAR(100), -- tela de anexar arquivo somente para o administrador
+    anexo VARCHAR(100), -- tela de anexar arquivo somente para o administrador
     arquivado BOOLEAN
 );
 
@@ -119,55 +119,51 @@ CREATE TABLE funcionarios(
 );
 
 CREATE TABLE relatorios(
-    dia CHAR(2),
-    mes CHAR(2), -- configurar validacao
+    dia VARCHAR(4),
+    mes VARCHAR(4), -- configurar validacao
     ano VARCHAR(4), -- configurar validacao
     tipo VARCHAR(30),
-    CONSTRAINT pk_dia_mes_ano PRIMARY KEY(dia,mes,ano),    
+    CONSTRAINT pk_dia_mes_ano PRIMARY KEY(dia,mes,ano)    
 );
 
-CREATE TABLE user_relatorios(
-    id SERIAL PRIMARY KEY,
-    data_acesso TIMESTAMP, -- capturar a data hora do sistema
-    CONSTRAINT user_acesso_fk REFERENCES usuarios(id),
-    CONSTRAINT relatorios_acesso_fk REFERENCES relatorios(dia,mes,ano)
-);
+-- CREATE TABLE user_relatorios(
+--     id SERIAL PRIMARY KEY,
+--     data_acesso TIMESTAMP, -- capturar a data hora do sistema
+--     user_acesso_fk INTEGER REFERENCES usuarios(id),
+--     relatorios_acesso_fk TIMESTAMP REFERENCES relatorios(data_acesso)
+-- );
 
 CREATE TABLE condominio(
-    dia CHAR(2),
-    mes CHAR(2), -- configurar validacao
+    dia VARCHAR(4),
+    mes VARCHAR(4), -- configurar validacao
     ano VARCHAR(4), -- configurar validacao
     lancamento VARCHAR(200) NOT NULL,
     vtotal FLOAT NOT NULL, -- funcao de calculo por unidade(48) no backend
     arquivado BOOLEAN,
-    CONSTRAINT pk_dia_mes_ano PRIMARY KEY(dia,mes,ano),
+    CONSTRAINT pk_dia_mes_ano_condominio PRIMARY KEY(dia,mes,ano),
     CONSTRAINT relatorios_condominio_fk FOREIGN KEY(dia,mes,ano) REFERENCES  relatorios(dia,mes,ano)
 );
 
 CREATE TABLE consumo(
-    dia CHAR(2),
-    mes CHAR(2), -- configurar validacao
+    dia VARCHAR(4),
+    mes VARCHAR(4), -- configurar validacao
     ano VARCHAR(4), -- configurar validacao
     vtotal FLOAT NOT NULL,
     consumo INTEGER NOT NULL,
     arquivado BOOLEAN,
-    CONSTRAINT pk_dia_mes_ano PRIMARY KEY(dia,mes,ano),
+    CONSTRAINT pk_dia_mes_ano_consumo PRIMARY KEY(dia,mes,ano),
     CONSTRAINT relatorios_consumo_fk FOREIGN KEY(dia,mes,ano) REFERENCES  relatorios(dia,mes,ano)
 );
 
 CREATE TABLE conta( -- logica do saldo devera ser configurada no backend
-    dia CHAR(2),
-    mes CHAR(2), -- configurar validacao
+    dia VARCHAR(4),
+    mes VARCHAR(4), -- configurar validacao
     ano VARCHAR(4), -- configurar validacao
     lancamento VARCHAR(200) NOT NULL,
     documento VARCHAR(30),
     valor FLOAT NOT NULL,
     identificacao VARCHAR(30),
     arquivado BOOLEAN,
-    CONSTRAINT pk_dia_mes_ano PRIMARY KEY(dia,mes,ano),
+    CONSTRAINT pk_dia_mes_ano_conta PRIMARY KEY(dia,mes,ano),
     CONSTRAINT relatorios_conta_fk FOREIGN KEY(dia,mes,ano) REFERENCES  relatorios(dia,mes,ano)
-);
-
-CREATE TABLE depositos(
-
 );
