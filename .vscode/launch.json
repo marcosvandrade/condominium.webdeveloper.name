@@ -2,49 +2,32 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - DemoApplication",
-            "request": "launch",
-            "mainClass": "DemoApplication",
-            "projectName": "sistema-condominio.herokuapp.com_4a27087e"
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-DemoApplication<siscondominio>",
+            "name": "Spring Boot-SpringBootApp<java-web-dev>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
-            "mainClass": "com.siscondominio.siscondominio.DemoApplication",
-            "projectName": "siscondominio",
+            "mainClass": "spring.SpringBootApp",
+            "projectName": "java-web-dev",
             "args": ""
         },
         {
             "type": "java",
-            "name": "Spring Boot-Main<siscondominio>",
+            "name": "Spring Boot-SpringBootApp<springboot>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
-            "mainClass": "com.siscondominio.Main",
-            "projectName": "siscondominio",
+            "mainClass": "app.SpringBootApp",
+            "projectName": "springboot",
             "args": ""
         },
         {
             "type": "java",
-            "name": "Spring Boot-Apllication<siscondominio>",
+            "name": "Spring Boot-SpringBootApp<springboot>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
-            "mainClass": "com.siscondominio.Apllication",
-            "projectName": "siscondominio",
-            "args": ""
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-DemoApplication<sistema-condominio>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "mainClass": "com.siscondominio.sistemacondominio.DemoApplication",
-            "projectName": "sistema-condominio",
+            "mainClass": "spring.SpringBootApp",
+            "projectName": "springboot",
             "args": ""
         }
     ]
