@@ -1,20 +1,47 @@
 <template>
-  <div class="flex-container">    
+  <div class="flex-container">
+    <h5>Acesso ao Portal do Condomínio</h5>
+    <br>    
     <form>
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <label for="exampleInputEmail1">Usuário</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Digite seu email">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <label for="exampleInputPassword1">Senha</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
       </div>
+      
+      <!-- GOTO - IMPLEMENTAR GOOGLE RECAPTCHA -->
+            
       <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Manter-me conectado</label>
+            </div>
+            <div class="col-sm">
+              <small id="passwordHelp" class="form-text text-muted">Esqueceu sua senha?</small>
+            </div>
+          </div>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary btn-block btn-sm">Acessar</button>
+      <br>
+      <div class="form-group">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              <small id="cadastrar" class="form-text text-muted">Ainda não tem conta?</small>
+            </div>
+            <div class="col-sm">
+              <button type="submit" id="cadastrar" class="btn btn-primary btn-sm">Cadastre-se</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 
@@ -23,10 +50,11 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 export default {
-  name: 'App'
+
+name: 'App',
   // components: {
   //   HelloWorld
-  }
+}
 
 </script>
 
@@ -40,10 +68,30 @@ export default {
   padding: 150px 0;  
 } */
 
-.flex-container {
-  display: flex;
-  background-color: #4b755505;
+h5 {
+  display: flexbox;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
+
+.flex-container {
+  display: flexbox;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 400px;
+  padding: 100px 0;
+}
+
+.captchaContainer {
+  display: flex;
+ 
+}
+
+/* .captcha {
+  display: flexbox;
+  
+} */
 
 /* 
 .form-group {
