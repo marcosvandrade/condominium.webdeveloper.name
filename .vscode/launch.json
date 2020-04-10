@@ -29,6 +29,16 @@
             "mainClass": "spring.SpringBootApp",
             "projectName": "springboot",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<sistema-condominio>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.siscondominio.sistemacondominio.DemoApplication",
+            "projectName": "sistema-condominio",
+            "args": ""
         }
     ]
 }

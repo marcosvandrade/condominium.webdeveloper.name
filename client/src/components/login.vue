@@ -74,4 +74,8 @@ h5 {
   padding: 50px 0;
 }
 
+.form-check-label {
+  font-size: 10pt;
+}
+
 </style>

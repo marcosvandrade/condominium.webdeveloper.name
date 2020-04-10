@@ -20,6 +20,11 @@ CREATE TABLE usuarios(
     depositos_user_fk INTEGER REFERENCES depositos(id)
  );
 
+ -- inserindo a coluna cpf em usuários
+    ALTER TABLE usuarios ADD COLUMN cpf VARCHAR(11);
+    ALTER TABLE usuarios ALTER COLUMN cpf SET NOT NULL;
+    ALTER TABLE usuarios ADD CONSTRAINT cpf_uk UNIQUE(cpf);
+
 CREATE TABLE depositos(
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,

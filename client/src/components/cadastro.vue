@@ -5,7 +5,11 @@
     <div class="form-group">
         <label for="nome">Nome Completo *</label>
         <input type="text" class="form-control" id="nome" placeholder="Digite seu nome completo">
-    </div>    
+    </div>
+    <div class="form-group">
+        <label for="cpf">CPF *</label>
+        <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF">
+    </div>     
     <div class="form-group">
         <label for="apartamento">Apartamento *</label>
         <input type="text" class="form-control" id="apartamento" placeholder="Digite o número do seu apartamento">
