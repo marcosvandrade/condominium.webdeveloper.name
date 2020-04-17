@@ -1,5 +1,6 @@
 CREATE TABLE usuarios(
     id SERIAL PRIMARY KEY,
+    cpf VARCHAR(11) NOT NULL UNIQUE,
     apartamento VARCHAR(3) NOT NULL,
     contato1 VARCHAR(20),
     contato2 VARCHAR(20),
@@ -20,10 +21,14 @@ CREATE TABLE usuarios(
     depositos_user_fk INTEGER REFERENCES depositos(id)
  );
 
- -- inserindo a coluna cpf em usuários
-    ALTER TABLE usuarios ADD COLUMN cpf VARCHAR(11);
-    ALTER TABLE usuarios ALTER COLUMN cpf SET NOT NULL;
-    ALTER TABLE usuarios ADD CONSTRAINT cpf_uk UNIQUE(cpf);
+--inserindo 1 usuario para teste do spring boot
+INSERT INTO usuarios(cpf,apartamento,contato1,contato2,email,nome,senha)
+VALUES('12345678910','507','(61)1234','(61)56789','teste@teste.com','teste','123');
+
+ -- inserindo a coluna cpf manualmente em usuarios
+--  ALTER TABLE usuarios ADD COLUMN cpf VARCHAR(11);
+--  ALTER TABLE usuarios ALTER COLUMN cpf SET NOT NULL;
+--  ALTER TABLE usuarios ADD CONSTRAINT cpf_uk UNIQUE(cpf);
 
 CREATE TABLE depositos(
     id SERIAL PRIMARY KEY,
