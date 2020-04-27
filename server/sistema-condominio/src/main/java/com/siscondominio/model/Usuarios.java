@@ -62,25 +62,25 @@ public class Usuarios implements Serializable {
     @Column(name = "bloqueado")
     private Boolean bloqueado;
 
-    public Usuarios() {
+    // public Usuarios() {
         
-    }
+    // }
 
-    public Usuarios(String apartamento, String contato1, String contato2,
-                    String email, String nome, Date data_acesso,
-                    Date data_cadastro, String senha){
-                        this.apartamento = apartamento;
-                        this.contato1 = contato1;
-                        this.contato2 = contato2;
-                        this.email = email;
-                        this.nome = nome;
-                        this.data_acesso = data_acesso;
-                        this.data_cadastro = data_cadastro;
-                        this.senha = senha;
-                        this.arquivado = false;
-                        this.administrador = false;
-                        this.bloqueado = false;
-                    }
+    // public Usuarios(String apartamento, String contato1, String contato2,
+    //                 String email, String nome, Date data_acesso,
+    //                 Date data_cadastro, String senha){
+    //                     this.apartamento = apartamento;
+    //                     this.contato1 = contato1;
+    //                     this.contato2 = contato2;
+    //                     this.email = email;
+    //                     this.nome = nome;
+    //                     this.data_acesso = data_acesso;
+    //                     this.data_cadastro = data_cadastro;
+    //                     this.senha = senha;
+    //                     this.arquivado = false;
+    //                     this.administrador = false;
+    //                     this.bloqueado = false;
+    //                 }
 
     public Integer getId() {
         return id;
@@ -178,12 +178,12 @@ public class Usuarios implements Serializable {
         this.bloqueado = bloqueado;
     }
 
-    @Override
-    public String toString() {
-        return "Usuarios [administrador=" + administrador + ", apartamento=" + apartamento + ", arquivado=" + arquivado
-                + ", bloqueado=" + bloqueado + ", contato1=" + contato1 + ", contato2=" + contato2 + ", data_acesso="
-                + data_acesso + ", data_cadastro=" + data_cadastro + ", email=" + email + ", id=" + id + ", nome="
-                + nome + ", senha=" + senha + "]";
-    }
+    // @Override
+    // public String toString() {
+    //     return "Usuarios [administrador=" + administrador + ", apartamento=" + apartamento + ", arquivado=" + arquivado
+    //             + ", bloqueado=" + bloqueado + ", contato1=" + contato1 + ", contato2=" + contato2 + ", data_acesso="
+    //             + data_acesso + ", data_cadastro=" + data_cadastro + ", email=" + email + ", id=" + id + ", nome="
+    //             + nome + ", senha=" + senha + "]";
+    // }
     
 }

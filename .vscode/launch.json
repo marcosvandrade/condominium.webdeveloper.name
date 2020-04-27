@@ -49,6 +49,16 @@
             "mainClass": "com.siscondominio.sistemacondominio.SisCondominioApplication",
             "projectName": "sistema-condominio",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SisCondominioApplication<sistema-condominio>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.siscondominio.SisCondominioApplication",
+            "projectName": "sistema-condominio",
+            "args": ""
         }
     ]
 }
