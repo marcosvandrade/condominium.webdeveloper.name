@@ -23,7 +23,8 @@ CREATE TABLE usuarios(
 
 --inserindo 1 usuario para teste do spring boot
 INSERT INTO usuarios(cpf,apartamento,contato1,contato2,email,nome,senha)
-VALUES('12345678910','507','(61)1234','(61)56789','teste@teste.com','teste','123');
+--VALUES('12345678910','507','(61)1234','(61)56789','teste@teste.com','teste','123');
+VALUES('12345678911','506','(61)5678','(61)10112','teste2@teste.com','teste2','456');
 
  -- inserindo a coluna cpf manualmente em usuarios
 --  ALTER TABLE usuarios ADD COLUMN cpf VARCHAR(11);

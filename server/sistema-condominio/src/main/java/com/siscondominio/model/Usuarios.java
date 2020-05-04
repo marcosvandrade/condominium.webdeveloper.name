@@ -24,6 +24,9 @@ public class Usuarios implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "cpf")
+    private String cpf;
+
     @Column(name = "apartamento")
     private String apartamento;
 
@@ -176,6 +179,14 @@ public class Usuarios implements Serializable {
 
     public void setBloqueado(Boolean bloqueado) {
         this.bloqueado = bloqueado;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     // @Override
