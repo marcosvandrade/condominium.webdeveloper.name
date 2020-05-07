@@ -33,7 +33,7 @@ public List<Usuarios> listaUsuarios(){
 }
 
 @PostMapping("/cadastro")
-public Usuarios salvaUsuario(@RequestBody @Valid Usuarios usuario){
+public Usuarios criaUsuario(@RequestBody @Valid Usuarios usuario){
     return repository.save(usuario);
 }
 

@@ -9,9 +9,16 @@ const router = new Router({
     routes: [
         {
             path: "/",
-            name: "Home",
-            component: () => import("../components/HelloWorld")
+            name: "Login",
+            component: () => import("../components/login")
+        },
+
+        {
+            path: "/cadastro",
+            name: "Cadastro",
+            component: () => import("../components/cadastro")
         }
+
     ]
 });
 

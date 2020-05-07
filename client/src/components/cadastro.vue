@@ -4,33 +4,33 @@
     <form @submit.prevent="salvar">
     <div class="form-group">
         <label for="nome">Nome Completo *</label>
-        <input type="text" class="form-control" id="nome" v-model="nome" placeholder="Digite seu nome completo">
+        <input type="text" class="form-control" id="nome" v-model="usuario.nome" placeholder="Digite seu nome completo">
     </div>
     <div class="form-group">
         <label for="cpf">CPF *</label>
-        <input type="text" class="form-control" id="cpf" v-model="cpf" placeholder="Digite seu CPF">
+        <input type="text" class="form-control" id="cpf" v-model="usuario.cpf" placeholder="Digite seu CPF">
     </div>     
     <div class="form-group">
         <label for="apartamento">Apartamento *</label>
-        <input type="text" class="form-control" id="apartamento" v-model="apartamento" placeholder="Digite o número do seu apartamento">
+        <input type="text" class="form-control" id="apartamento" v-model="usuario.apartamento" placeholder="Digite o número do seu apartamento">
     </div> 
     <div class="form-group">
         <label for="contato1">Contato 1 *</label>
-        <input type="text" class="form-control" id="contato1" v-model="contato1" placeholder="Digite um telefone para contato">
+        <input type="text" class="form-control" id="contato1" v-model="usuario.contato1" placeholder="Digite um telefone para contato">
     </div>
     <div class="form-group">
         <label for="contato2">Contato 2</label>
-        <input type="text" class="form-control" id="contato2"  v-model="contato2" placeholder="Digite um telefone para contato">
+        <input type="text" class="form-control" id="contato2"  v-model="usuario.contato2" placeholder="Digite um telefone para contato">
     </div>  
     <div class="form-group">
         <label for="email">Usuário</label>
-        <input type="email" class="form-control" id="email" v-model="email" placeholder="Digite um e-mail válido">
+        <input type="email" class="form-control" id="email" v-model="usuario.email" placeholder="Digite um e-mail válido">
     </div>   
     <div class="form-row">
         <div class="form-group col-md-6">
         <!-- TODO configurar validacao para senha -->
         <label for="senha1">Senha</label>
-        <input type="password" class="form-control" id="senha1" v-model="senha" placeholder="Digite sua senha">
+        <input type="password" class="form-control" id="senha1" v-model="usuario.senha" placeholder="Digite sua senha">
         </div>
         <div class="form-group col-md-6">
         <label for="senha2">&nbsp;</label>
@@ -56,7 +56,7 @@
 
 <script>
 
-import usuarios from '../services/usuarios'
+import  Usuarios from '../services/usuarios'
 
     export default {
     name: "cadastro",
@@ -71,16 +71,16 @@ import usuarios from '../services/usuarios'
            email: "",
            senha: "",
             },
-            usuarios: [],
+            // usuarios: [], --listar
             errors:[]
         }
     },
     methods:{
 
         salvar(){
-            usuarios.salvar(this.usuario).then(resposta => {
+            Usuarios.salvar(this.usuario).then(resposta => {
                 this.resposta = resposta
-                this.usuarios = {}
+                this.usuario = {}
                 this.errors = {}
                 alert('Solicitação de cadastro enviada com sucesso!')
 

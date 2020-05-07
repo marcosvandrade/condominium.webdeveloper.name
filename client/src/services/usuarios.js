@@ -2,8 +2,8 @@ import { http } from './config'
 
 export default {
 
-    salvar:(usuarios) => {
-        return http.post('usuarios', usuarios);
+    salvar:(usuario) => {
+        return http.post('cadastro', usuario);
     }
 
 }
