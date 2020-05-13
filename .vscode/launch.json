@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - SisCondominioApplication",
+            "request": "launch",
+            "mainClass": "com.siscondominio.SisCondominioApplication"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-SpringBootApp<java-web-dev>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
