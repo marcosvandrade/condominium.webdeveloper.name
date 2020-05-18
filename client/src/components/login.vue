@@ -13,7 +13,7 @@
         <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
       </div>
       
-      <!-- TODO - IMPLEMENTAR GOOGLE RECAPTCHA -->
+      <!-- TODO --> IMPLEMENTAR GOOGLE RECAPTCHA -->
             
       <div class="form-group form-check">
         <div class="container">

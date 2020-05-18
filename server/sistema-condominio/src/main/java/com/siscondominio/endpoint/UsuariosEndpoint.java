@@ -1,13 +1,13 @@
 package com.siscondominio.endpoint;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import com.siscondominio.model.Usuarios;
 import com.siscondominio.repository.UsuarioRepository;
-import com.siscondominio.util.dateUtil;
+//import com.siscondominio.util.dateUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,7 +27,10 @@ public class UsuariosEndpoint {
 UsuarioRepository repository;
 
 @Autowired
-private dateUtil dateUtil;
+//private dateUtil dateUtil;
+
+// TODO --> tratamento de erros vide https://www.youtube.com/watch?v=SdBtC-rXUck
+
 @RequestMapping(method = RequestMethod.GET, path = "/usuarios")
 public List<Usuarios> listaUsuarios(){
     // System.out.println(dateUtil.formatLocalTimeToDatabaseStyle(LocalDateTime.now()));
@@ -36,7 +39,7 @@ public List<Usuarios> listaUsuarios(){
 }
 
 @PostMapping("/cadastro")
-public Usuarios criaUsuario(@RequestBody @Valid Usuarios usuario){
+public Usuarios criaUsuario(@RequestBody @Valid final Usuarios usuario){
     return repository.save(usuario);
 }
 
