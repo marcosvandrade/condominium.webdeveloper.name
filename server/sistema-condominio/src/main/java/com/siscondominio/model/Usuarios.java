@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "usuarios")
 
@@ -57,7 +59,7 @@ public class Usuarios implements Serializable {
     private String contato2;
 
     @Column(name = "email")
-    private String email;
+    private String email; // TODO --> verificar se no banco estah como unique key
 
     @Column(name = "nome")
     private String nome;
@@ -74,6 +76,7 @@ public class Usuarios implements Serializable {
     private Date data_cadastro;
 
     @Column(name = "senha")
+    @JsonIgnore
     private String senha;
 
     @Column(name = "arquivado")

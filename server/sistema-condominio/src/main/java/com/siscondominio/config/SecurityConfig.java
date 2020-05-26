@@ -15,12 +15,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
        http.authorizeRequests()
             .anyRequest().authenticated()
             .and()
-            .httpBasic();
+            .httpBasic()
+            .and()
+            .csrf().disable(); //TODO --> configurar csrf
+
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
-        //TODO --> buscar usario no banco de dados
+        //TODO --> buscar usuario no banco de dados
         auth.inMemoryAuthentication()
                 .withUser("user").password("{noop}user123").roles("USER") // noop - use NoOpPasswordEncoder since PasswordEncoder is built as a DelegatingPasswordEncoder
                 .and()
