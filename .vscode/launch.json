@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - PasswordEncoder",
+            "request": "launch",
+            "mainClass": "com.siscondominio.util.PasswordEncoder",
+            "projectName": "sistema-condominio"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - SisCondominioApplication",
             "request": "launch",
             "mainClass": "com.siscondominio.SisCondominioApplication"

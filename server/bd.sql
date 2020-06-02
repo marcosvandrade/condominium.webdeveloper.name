@@ -10,7 +10,7 @@ CREATE TABLE usuarios(
     data_cadastro DATE, -- capturar data do sistema
     senha VARCHAR(20), -- configurar validacao da senha e encriptacao no banco usando SHA
     arquivado BOOLEAN,
-    admininistrador BOOLEAN,
+    administrador BOOLEAN,
     bloqueado BOOLEAN, -- configurar validacao para que o administrador libere o cadastro do usuario
     newsletter_user_fk INTEGER REFERENCES newsletter(id),
     noticias_user_fk INTEGER REFERENCES noticias_avisos(id),

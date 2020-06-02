@@ -1,6 +1,6 @@
 package com.siscondominio.model;
 
-import java.io.Serializable;
+// import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -12,10 +12,12 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import org.dom4j.tree.AbstractEntity;
+
 @Entity
 @Table(name = "usuarios")
 
-public class Usuarios implements Serializable {
+public class Usuarios extends AbstractEntity {
     private static final long serialVersionUID = 1L;
  
     public Usuarios(String apartamento, String contato1, String contato2,

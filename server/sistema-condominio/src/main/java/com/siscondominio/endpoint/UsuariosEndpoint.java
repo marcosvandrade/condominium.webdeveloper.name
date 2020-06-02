@@ -6,7 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import com.siscondominio.model.Usuarios;
-import com.siscondominio.repository.UsuarioRepository;
+import com.siscondominio.repository.UserRepository;
 //import com.siscondominio.util.dateUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuariosEndpoint {
 
 @Autowired
-UsuarioRepository repository;
+UserRepository repository;
 
 @Autowired
 //private dateUtil dateUtil;
