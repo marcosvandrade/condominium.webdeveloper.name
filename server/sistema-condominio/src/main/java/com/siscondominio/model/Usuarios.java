@@ -20,21 +20,21 @@ import org.dom4j.tree.AbstractEntity;
 public class Usuarios extends AbstractEntity {
     private static final long serialVersionUID = 1L;
  
-    public Usuarios(String apartamento, String contato1, String contato2,
-                     String email, String nome, Date data_acesso,
-                     Date data_cadastro, String senha){
-                         this.apartamento = apartamento;
-                         this.contato1 = contato1;
-                         this.contato2 = contato2;
-                         this.email = email;
-                         this.nome = nome;
-                         this.data_acesso = data_acesso;
-                         this.data_cadastro = data_cadastro;
-                         this.senha = senha;
-                         this.arquivado = false;
-                         this.administrador = false;
-                         this.bloqueado = false;
-                     }
+    // public Usuarios(String apartamento, String contato1, String contato2,
+    //                  String email, String nome, Date data_acesso,
+    //                  Date data_cadastro, String senha){
+    //                      this.apartamento = apartamento;
+    //                      this.contato1 = contato1;
+    //                      this.contato2 = contato2;
+    //                      this.email = email;
+    //                      this.nome = nome;
+    //                      this.data_acesso = data_acesso;
+    //                      this.data_cadastro = data_cadastro;
+    //                      this.senha = senha;
+    //                      this.arquivado = false;
+    //                      this.administrador = false;
+    //                      this.bloqueado = false;
+    //                  }
 
      public Usuarios() {
         
@@ -60,7 +60,7 @@ public class Usuarios extends AbstractEntity {
     @Column(name = "contato2")
     private String contato2;
 
-    @Column(name = "email")
+    @Column(name = "email") //username
     private String email; // TODO --> verificar se no banco estah como unique key
 
     @Column(name = "nome")

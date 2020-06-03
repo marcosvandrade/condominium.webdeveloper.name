@@ -1,7 +1,6 @@
 package com.siscondominio.endpoint;
 
 //import java.time.LocalDateTime;
-import java.util.List;
 
 import javax.validation.Valid;
 
@@ -34,7 +33,7 @@ UserRepository repository;
 
 @RequestMapping(method = RequestMethod.GET, path = "/usuarios")
 @PreAuthorize("hasRole('ADMIN')")
-public List<Usuarios> listaUsuarios(){
+public Iterable<Usuarios> listaUsuarios() {
     // System.out.println(dateUtil.formatLocalTimeToDatabaseStyle(LocalDateTime.now()));
     return repository.findAll();
 
