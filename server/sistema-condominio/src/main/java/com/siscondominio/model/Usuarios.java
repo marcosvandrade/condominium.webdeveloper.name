@@ -1,6 +1,6 @@
 package com.siscondominio.model;
 
-// import java.io.Serializable;
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -12,29 +12,27 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import org.dom4j.tree.AbstractEntity;
-
 @Entity
 @Table(name = "usuarios")
 
-public class Usuarios extends AbstractEntity {
-    private static final long serialVersionUID = 1L;
+public class Usuarios implements Serializable {
+   private static final long serialVersionUID = 1L;
  
-    // public Usuarios(String apartamento, String contato1, String contato2,
-    //                  String email, String nome, Date data_acesso,
-    //                  Date data_cadastro, String senha){
-    //                      this.apartamento = apartamento;
-    //                      this.contato1 = contato1;
-    //                      this.contato2 = contato2;
-    //                      this.email = email;
-    //                      this.nome = nome;
-    //                      this.data_acesso = data_acesso;
-    //                      this.data_cadastro = data_cadastro;
-    //                      this.senha = senha;
-    //                      this.arquivado = false;
-    //                      this.administrador = false;
-    //                      this.bloqueado = false;
-    //                  }
+    public Usuarios(String apartamento, String contato1, String contato2,
+                      String email, String nome, Date data_acesso,
+                      Date data_cadastro, String senha){
+                          this.apartamento = apartamento;
+                          this.contato1 = contato1;
+                          this.contato2 = contato2;
+                          this.email = email;
+                          this.nome = nome;
+                          this.data_acesso = data_acesso;
+                          this.data_cadastro = data_cadastro;
+                          this.senha = senha;
+                          this.arquivado = false;
+                          this.administrador = false;
+                          this.bloqueado = false;
+                      }
 
      public Usuarios() {
         
@@ -194,12 +192,12 @@ public class Usuarios extends AbstractEntity {
         this.cpf = cpf;
     }
 
-    // @Override
-    // public String toString() {
-    //     return "Usuarios [administrador=" + administrador + ", apartamento=" + apartamento + ", arquivado=" + arquivado
-    //             + ", bloqueado=" + bloqueado + ", contato1=" + contato1 + ", contato2=" + contato2 + ", data_acesso="
-    //             + data_acesso + ", data_cadastro=" + data_cadastro + ", email=" + email + ", id=" + id + ", nome="
-    //             + nome + ", senha=" + senha + "]";
-    // }
+     @Override
+     public String toString() {
+         return "Usuarios [administrador=" + administrador + ", apartamento=" + apartamento + ", arquivado=" + arquivado
+                 + ", bloqueado=" + bloqueado + ", contato1=" + contato1 + ", contato2=" + contato2 + ", data_acesso="
+                 + data_acesso + ", data_cadastro=" + data_cadastro + ", email=" + email + ", id=" + id + ", nome="
+                 + nome + ", senha=" + senha + "]";
+     }
     
 }
