@@ -1,16 +1,16 @@
 package com.siscondominio.repository;
 
+import java.util.List;
+
 import com.siscondominio.model.Usuarios;
 
-// import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 
 /**
  * passar como parametro a entidade (tabela) e o tipo do id
  */
-public interface UserRepository extends PagingAndSortingRepository<Usuarios, Long> {
-    Usuarios findByUsername(String user);
-    
-    // List<Usuarios> findByid(Integer id);
+public interface UserRepository extends CrudRepository<Usuarios, Long> {
+        
+     List<Usuarios> findByName(String email);
     //Usuarios findById(Integer id);
 }

@@ -1,13 +1,9 @@
 package com.siscondominio.model;
 
-import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -15,36 +11,43 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "usuarios")
 
-public class Usuarios implements Serializable {
-   private static final long serialVersionUID = 1L;
+public class Usuarios extends AbstractEntity {
+    private static final long serialVersionUID = 1L;
  
-    public Usuarios(String apartamento, String contato1, String contato2,
-                      String email, String nome, Date data_acesso,
-                      Date data_cadastro, String senha){
-                          this.apartamento = apartamento;
-                          this.contato1 = contato1;
-                          this.contato2 = contato2;
-                          this.email = email;
-                          this.nome = nome;
-                          this.data_acesso = data_acesso;
-                          this.data_cadastro = data_cadastro;
-                          this.senha = senha;
-                          this.arquivado = false;
-                          this.administrador = false;
-                          this.bloqueado = false;
-                      }
+    // public Usuarios(String apartamento, String contato1, String contato2,
+    //                   String email, String nome, Date data_acesso,
+    //                   Date data_cadastro, String senha){
+    //                       this.apartamento = apartamento;
+    //                       this.contato1 = contato1;
+    //                       this.contato2 = contato2;
+    //                       this.email = email;
+    //                       this.nome = nome;
+    //                       this.data_acesso = data_acesso;
+    //                       this.data_cadastro = data_cadastro;
+    //                       this.senha = senha;
+    //                       this.arquivado = false;
+    //                       this.administrador = false;
+    //                       this.bloqueado = false;
+    //                   }
 
-     public Usuarios() {
+    //  public Usuarios() {
         
-    }
+    // }
 
     /**
      * o identificador unico sera gerado pela coluna de auto incremento do banco de
      * dados
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // private Integer id;
+
+    @Column(name = "email") //username
+    private String email; // TODO --> verificar se no banco estah como unique key
+
+    @Column(name = "senha")
+    @JsonIgnore
+    private String senha;
 
     @Column(name = "cpf")
     private String cpf;
@@ -57,9 +60,6 @@ public class Usuarios implements Serializable {
 
     @Column(name = "contato2")
     private String contato2;
-
-    @Column(name = "email") //username
-    private String email; // TODO --> verificar se no banco estah como unique key
 
     @Column(name = "nome")
     private String nome;
@@ -74,11 +74,7 @@ public class Usuarios implements Serializable {
 
     @Column(name = "data_cadastro")
     private Date data_cadastro;
-
-    @Column(name = "senha")
-    @JsonIgnore
-    private String senha;
-
+    
     @Column(name = "arquivado")
     private Boolean arquivado;
 
@@ -88,13 +84,13 @@ public class Usuarios implements Serializable {
     @Column(name = "bloqueado")
     private Boolean bloqueado;
    
-    public Integer getId() {
-        return id;
-    }
+    // public Integer getId() {
+    //     return id;
+    // }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    // public void setId(Integer id) {
+    //     this.id = id;
+    // }
 
     public String getApartamento() {
         return apartamento;
@@ -192,12 +188,12 @@ public class Usuarios implements Serializable {
         this.cpf = cpf;
     }
 
-     @Override
-     public String toString() {
-         return "Usuarios [administrador=" + administrador + ", apartamento=" + apartamento + ", arquivado=" + arquivado
-                 + ", bloqueado=" + bloqueado + ", contato1=" + contato1 + ", contato2=" + contato2 + ", data_acesso="
-                 + data_acesso + ", data_cadastro=" + data_cadastro + ", email=" + email + ", id=" + id + ", nome="
-                 + nome + ", senha=" + senha + "]";
-     }
+    //  @Override
+    //  public String toString() {
+    //      return "Usuarios [administrador=" + administrador + ", apartamento=" + apartamento + ", arquivado=" + arquivado
+    //              + ", bloqueado=" + bloqueado + ", contato1=" + contato1 + ", contato2=" + contato2 + ", data_acesso="
+    //              + data_acesso + ", data_cadastro=" + data_cadastro + ", email=" + email + ", id=" + id + ", nome="
+    //              + nome + ", senha=" + senha + "]";
+    //  }
     
 }
