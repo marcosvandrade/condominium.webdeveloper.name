@@ -30,9 +30,9 @@ public class Usuarios extends AbstractEntity {
     //                       this.bloqueado = false;
     //                   }
 
-    //  public Usuarios() {
+     public Usuarios() {
         
-    // }
+     }
 
     /**
      * o identificador unico sera gerado pela coluna de auto incremento do banco de

@@ -40,6 +40,12 @@ public class UsuariosEndpoint {
         return new ResponseEntity<>(userDAO.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(path = "findByName/{name}")
+    public ResponseEntity<?> findUsuariosByName(@PathVariable String email){
+        return new ResponseEntity<>(userDAO.findByNameIgnoreCaseContaining(email), HttpStatus.OK);
+    }
+
+
 //     @GetMapping(path = "/{id}")
 //     public ResponseEntity<?> getUsuariosById(@PathVariable("id") Long id) {
 //         Optional<Usuarios> user = userDAO.findById(id);
@@ -50,7 +56,7 @@ public class UsuariosEndpoint {
 
 @PostMapping
 public ResponseEntity<?> save(@RequestBody Usuarios user){
-    return new ResponseEntity<>(userDAO.save(user), HttpStatus.OK);
+    return new ResponseEntity<>(userDAO.save(user), HttpStatus.CREATED);
 }
 
 @DeleteMapping(path = "/{id}")
