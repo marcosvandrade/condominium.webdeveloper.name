@@ -41,8 +41,8 @@ public class UsuariosEndpoint {
     }
 
     @GetMapping(path = "findByName/{name}")
-    public ResponseEntity<?> findUsuariosByName(@PathVariable String email){
-        return new ResponseEntity<>(userDAO.findByNameIgnoreCaseContaining(email), HttpStatus.OK);
+    public ResponseEntity<?> findUsuariosByName(@PathVariable String nome){
+        return new ResponseEntity<>(userDAO.findByNomeIgnoreCaseContaining(nome), HttpStatus.OK);
     }
 
 
