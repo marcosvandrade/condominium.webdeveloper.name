@@ -1,10 +1,14 @@
 import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-
-Vue.config.productionTip = false
+import App from './App'
 
 new Vue({
-   router, // inject the router to make whole app router-aware
-   render: h => h(App),
- }).$mount('#app')
+    render: h => h(App)
+}).$mount("#app")
+
+// new Vue({
+//     el: '#app',
+//     render(createElement) {
+//         return createElement(App)
+//     }
+// })
+
