@@ -7,7 +7,8 @@
 
 <script>
 
-import Login from "./main/login"
+import Login from "./components/login"
+import Cadastro from "./components/cadastro"
 
 export default {
     components: { Login }
@@ -25,6 +26,11 @@ export default {
 * {
     font-family: "RobotoMono", monospace;
 } */
+
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
 
 body {
     margin: 0;

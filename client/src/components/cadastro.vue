@@ -1,5 +1,5 @@
 <template>
-<div class="cadastro">
+<div id="cadastro">
     <h5>Solicitação de Acesso ao Sistema</h5>
     <form @submit.prevent="salvar">
     <div class="form-group">
