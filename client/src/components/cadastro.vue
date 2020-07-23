@@ -1,56 +1,47 @@
 <template>
-<div id="cadastro">
-    <h5>Solicitação de Acesso ao Sistema</h5>
-    <form @submit.prevent="salvar">
-    <div class="form-group">
-        <label for="nome">Nome Completo *</label>
-        <input type="text" class="form-control" id="nome" v-model="usuario.nome" placeholder="Digite seu nome completo">
-    </div>
-    <div class="form-group">
-        <label for="cpf">CPF *</label>
-        <input type="text" class="form-control" id="cpf" v-model="usuario.cpf" placeholder="Digite seu CPF">
-    </div>     
-    <div class="form-group">
-        <label for="apartamento">Apartamento *</label>
-        <input type="text" class="form-control" id="apartamento" v-model="usuario.apartamento" placeholder="Digite o número do seu apartamento">
-    </div> 
-    <div class="form-group">
-        <label for="contato1">Contato 1 *</label>
-        <input type="text" class="form-control" id="contato1" v-model="usuario.contato1" placeholder="Digite um telefone para contato">
-    </div>
-    <div class="form-group">
-        <label for="contato2">Contato 2</label>
-        <input type="text" class="form-control" id="contato2"  v-model="usuario.contato2" placeholder="Digite um telefone para contato">
-    </div>  
-    <div class="form-group">
-        <label for="email">Usuário</label>
-        <input type="email" class="form-control" id="email" v-model="usuario.email" placeholder="Digite um e-mail válido">
-    </div>   
-    <div class="form-row">
-        <div class="form-group col-md-6">
-        <!-- TODO configurar validacao para senha -->
-        <label for="senha1">Senha</label>
-        <input type="password" class="form-control" id="senha1" v-model="usuario.senha" placeholder="Digite sua senha">
+<div id="register">
+
+    <h3>Solicitação de Acesso ao Sistema</h3>
+
+    <div class="form" @submit.prevent="salvar">
+        <div>
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" v-model="usuario.nome" placeholder="Digite seu nome completo">
         </div>
-        <div class="form-group col-md-6">
-        <label for="senha2">&nbsp;</label>
-        <input type="password" class="form-control" id="senha2" placeholder="Repita sua senha">
+        <div>
+            <label for="cpf">CPF *</label>
+            <input type="text" id="cpf" v-model="usuario.cpf" placeholder="Digite seu CPF">
+        </div>     
+        <div>
+            <label for="apartamento">Apartamento *</label>
+            <input type="text" id="apartamento" v-model="usuario.apartamento" placeholder="Digite o número do seu apartamento">
+        </div> 
+        <div>
+            <label for="contato1">Contato 1 *</label>
+            <input type="text" id="contato1" v-model="usuario.contato1" placeholder="Digite um telefone para contato">
         </div>
-    </div>
-    <div>
-      <small class="form-text text-muted">* Preenchimento obrigatório</small>
-    </div>
-    <div class="form-group">
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-            Eu concordo com os termos
-            <!-- TODO - TERMOS DE ACESSO -->
-        </label>
+        <div>
+            <label for="contato2">Contato 2</label>
+            <input type="text" id="contato2"  v-model="usuario.contato2" placeholder="Digite um telefone para contato">
+        </div>  
+        <div>
+            <label for="email">Usuário</label>
+            <input type="email" id="email" v-model="usuario.email" placeholder="Digite um e-mail válido">
+        </div>   
+        <div>
+            <div>
+            <!-- TODO configurar validacao para senha -->
+            <label for="senha1">Senha</label>
+            <input type="password" id="senha1" v-model="usuario.senha" placeholder="Digite sua senha">
+            </div>
+            <div>
+            <label for="senha2">&nbsp;</label>
+            <input type="password" id="senha2" placeholder="Repita sua senha">
+            </div>
         </div>
+        <div id = "required"> * Preenchimento obrigatório </div>
+             <button type="submit">Enviar</button>
     </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
 </div>
 </template>
 
@@ -95,31 +86,43 @@ import  Usuarios from '../services/usuarios'
 
 <style>
 
-h5 {
-  display: flexbox;
-  padding: 30px;
-  margin: auto;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
+#register h3 {
+    border: 1px solid #000;
+    background-color: #0004;
+    padding: 12px;
+    margin-top: 0;
+    margin-bottom: 30px;
 }
 
-small {
-  margin: auto;
+#required {
+    display: flex;
+    padding: 5px;
+    width: 300px;
 }
 
-.cadastro {
-  display: flexbox;
-  margin: auto;
-  font-family: Arial, Helvetica, sans-serif;
-  width: 450px;
-  padding: 50px 0;
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.form-check {
-    display: flexbox;
-    margin: auto;
-    padding: 4%;
+.form input {
+  display: flex;
+   padding: 5px;
+   margin: 5px; 
+   width: 300px;  
 }
 
+.form label {
+  display: flex;
+  padding: 1px;
+}
+
+.form button {
+  display: flex;
+  padding: 8px;
+  margin: 10px;
+}
 
 </style>

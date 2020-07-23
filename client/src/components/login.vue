@@ -16,17 +16,17 @@
       
       <!-- TODO  IMPLEMENTAR GOOGLE RECAPTCHA -->
             
-      <div><button type="submit">Acessar</button></div>
+      <button type="submit">Acessar</button>
             
       <div>
         <div>
           <div>
             <div>
-              <small id="cadastrar">Ainda não tem conta?</small>
+              <small>Ainda não tem conta?</small>
             </div>
             <div>
-              <button id="cadastro">Cadastre-se</button>
-               <router-link v-on:click = "cadastro"  to= "./cadastro"></router-link> 
+              <button>Cadastre-se</button>
+               <!-- <router-link v-on:click = "cadastro"  to= "./cadastro"></router-link>  -->
              </div>
           </div>
         </div>
@@ -38,11 +38,11 @@
 
 <script>
 
-import Cadastro from "./cadastro"
+// import Cadastro from "./cadastro"
 
 export default {
     name: "login",
-    components: { Cadastro },
+    // components: { Cadastro },
     data() {
         return {}
     },
@@ -54,9 +54,8 @@ export default {
 #login h3 {
     border: 1px solid #000;
     background-color: #0004;
-    padding: 20px;
-    margin-top: 0;
-    margin-bottom: 30px;
+    padding: 15px;
+    margin: 0px 0px 20px 0px;
 }
 
 .form {
@@ -64,12 +63,11 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin-bottom: 120px; */
 }
 
 .form input {
   display: flex;
-   padding: 10px;
+   padding: 15px;
    margin: 10px;   
 }
 
@@ -80,12 +78,8 @@ export default {
 
 .form button {
   display: inline;
-  padding: 5px;
+  padding: 15px;
   margin: 10px;
 }
-
-/* .form-check-label {
-  font-size: 10pt;
-} */
 
 </style>
