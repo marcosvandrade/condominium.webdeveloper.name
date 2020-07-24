@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- <router-view/> -->
+     <!-- <router-view/> -->
     <Login />
     <!-- <Cadastro /> -->
   </div>
@@ -9,9 +9,10 @@
 <script>
 
 import Login from "./components/login"
-import Cadastro from "./components/cadastro"
+// import Cadastro from "./components/cadastro"
 
 export default {
+    name: "App",
     components: { Login }
    }
 
@@ -46,7 +47,7 @@ body {
     text-align: center;
 
     color: whitesmoke;
-    background: linear-gradient(to right, rgb(83, 105, 118), rgb(41, 46, 73));
+    background: linear-gradient(to right, #1f4037, #99f2c8);
 }
 
 </style>

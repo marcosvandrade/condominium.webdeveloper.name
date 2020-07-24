@@ -42,15 +42,18 @@
         <div id = "required"> * Preenchimento obrigatório </div>
              <button type="submit">Enviar</button>
     </div>
+
+    <!-- <router-view /> -->
 </div>
 </template>
 
 <script>
 
 import  Usuarios from '../services/usuarios'
+// import "../routes/routes"
 
     export default {
-    name: "cadastro",
+    name: "Cadastro",
     data() {
         return {
            usuario: {
