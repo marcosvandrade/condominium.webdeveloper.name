@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-     <!-- <router-view/> -->
+    <!-- <router-view/> -->
     <Login />
     <!-- <Cadastro /> -->
   </div>
@@ -9,7 +9,6 @@
 <script>
 
 import Login from "./components/login"
-// import Cadastro from "./components/cadastro"
 
 export default {
     name: "App",

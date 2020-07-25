@@ -1,6 +1,5 @@
 <template>
     <div id="login">
-    
     <h3>Acesso ao Portal do Condomínio</h3>
         
       <div class="form">
@@ -31,6 +30,8 @@
           </div>
       </div>
   </div>
+       <!-- <router-view /> -->
+
  </div>
 </template>
 
