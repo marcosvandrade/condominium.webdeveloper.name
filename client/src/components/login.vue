@@ -42,6 +42,7 @@
 <script>
 
 import Cadastro from './cadastro'
+require('../assets/css/login.css')
 
 export default {
     name: "Login",

@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  #app {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: whitesmoke;
+      background: linear-gradient(to right, #1f4037, #99f2c8);
+  }
+  

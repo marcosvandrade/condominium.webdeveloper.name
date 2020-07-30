@@ -1,0 +1,32 @@
+h3 {
+    border: 1px solid #000;
+    background-color: #0004;
+    padding: 12px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form input {
+  display: flex;
+   padding: 5px;
+   margin: 5px; 
+   width: 300px;  
+}
+
+.form label {
+  display: flex;
+  padding: 1px;
+}
+
+.form button {
+  display: flex;
+  padding: 8px;
+  margin: 10px;
+}

@@ -51,6 +51,7 @@
 
 import  Usuarios from '../services/usuarios'
 // import "../routes/routes"
+require('../assets/css/cadastro.css')
 
     export default {
     name: "Cadastro",
