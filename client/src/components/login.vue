@@ -20,19 +20,11 @@
       <!-- TODO  IMPLEMENTAR GOOGLE RECAPTCHA -->
             
      <div><button type="submit" >Acessar</button></div> 
-            
-      <div>
-        <div>
+           
            <div>
-              <small>Ainda não tem conta?</small>
+              <small>Esqueci minha senha</small>
             </div>
-            <div>
-              <button @click="logado=false, cadastro=true">Cadastre-se</button>
-                 <!-- <cadastro /> -->
-               <!-- <router-link v-on:click = "cadastro"  to= "./cadastro"></router-link>  -->
-             </div>
-          </div>
-      </div>
+           
   </div>
        <!-- <router-view /> -->
 

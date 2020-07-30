@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
   }
   
   body {
@@ -14,6 +15,6 @@
       align-items: center;
       text-align: center;
       color: whitesmoke;
-      background: linear-gradient(to right, #1f4037, #99f2c8);
+      background: linear-gradient(to right, #1f4037dd, #99f2c8dd);
   }
   
