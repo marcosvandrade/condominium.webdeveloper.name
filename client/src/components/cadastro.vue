@@ -1,5 +1,5 @@
 <template>
-<div id="register">
+<div id="cadastro">
 
     <h3>Solicitação de Acesso ao Sistema</h3>
 
@@ -54,7 +54,7 @@ import  Usuarios from '../services/usuarios'
 require('../assets/css/cadastro.css')
 
     export default {
-    name: "Cadastro",
+    name: "cadastro",
     data() {
         return {
            usuario: {

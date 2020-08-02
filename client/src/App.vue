@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Login />
+    <page-login />
     <!-- <v-main>
       <router-view/>
     </v-main> -->
@@ -9,11 +9,10 @@
 
 <script>
 
-import Login from "./components/login"
-import Cadastro from "./components/cadastro"
 require('./assets/css/app.css')
+
 export default {
     name: "App",
-    components: { Login}
+    
    }
 </script>
