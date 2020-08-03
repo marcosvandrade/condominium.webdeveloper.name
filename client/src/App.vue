@@ -1,6 +1,8 @@
 <template>
   <v-app>
+    <slot name = "login">
     <page-login />
+    </slot>
     <!-- <v-main>
       <router-view/>
     </v-main> -->
@@ -9,7 +11,7 @@
 
 <script>
 
-require('./assets/css/app.css')
+// require('./assets/css/app.css')
 
 export default {
     name: "App",

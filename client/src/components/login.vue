@@ -33,7 +33,7 @@
 
 <script>
 
-require('../assets/css/login.css')
+// require('../assets/css/login.css')
 
 export default {
     name: "login",
