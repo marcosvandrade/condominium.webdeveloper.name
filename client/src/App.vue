@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <slot name = "login">
-    <page-login />
+    <page-homeUser />
     </slot>
     <!-- <v-main>
       <router-view/>
