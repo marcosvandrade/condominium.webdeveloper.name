@@ -79,7 +79,7 @@ public ResponseEntity<?> update(@RequestBody Usuarios user){
 // @PreAuthorize("hasRole('ADMIN')")
 // public Iterable<Usuarios> listaUsuarios() {
 //     // System.out.println(dateUtil.formatLocalTimeToDatabaseStyle(LocalDateTime.now()));
-//     return repository.findAll();
+//     return userDAO.findAll();
 
 // }
 

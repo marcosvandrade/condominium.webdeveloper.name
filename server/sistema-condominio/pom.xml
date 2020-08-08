@@ -62,11 +62,11 @@
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
       <scope>compile</scope>
     </dependency>
-     <dependency>
+     <!-- <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-security</artifactId>
       <scope>compile</scope>
-    </dependency>
+    </dependency> -->
   </dependencies>
   <build>
     <plugins>
@@ -78,19 +78,19 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-        <source>1.8</source>
-        <target>1.8</target>
+        <source>14</source>
+        <target>14</target>
         </configuration>
       </plugin>
     </plugins>
   </build>
 
-  <repositories>
+  <!-- <repositories>
     <repository>
       <id>UsuarioRepository</id>
       <name>Local Repository</name>
       <url>file:///home/marcos/git/sistema-condominio.herokuapp.com/server/sistema-condominio/src/main/java/com/siscondominio/repository/UsuarioRepository.java</url>
     </repository>
-  </repositories>
+  </repositories> -->
 
 </project>
