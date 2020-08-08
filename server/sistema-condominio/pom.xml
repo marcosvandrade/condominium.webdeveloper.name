@@ -13,7 +13,7 @@
   <name>Sistema de Condominio</name>
   <description>Sistema para administracao de Condominios</description>
   <properties>
-    <java.version>1.8</java.version>
+    <java.version>14</java.version>
     <packaging>jar</packaging>
   </properties>
   <dependencies>
