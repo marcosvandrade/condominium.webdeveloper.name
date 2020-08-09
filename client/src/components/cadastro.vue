@@ -3,7 +3,7 @@
 
     <h3>Solicitação de Acesso ao Sistema</h3>
 
-    <div class="form" @submit.prevent="salvar">
+    <div class="form">
         <div>
             <label for="nome">Nome Completo *</label>
             <input type="text" id="nome" v-model.trim="usuario.nome" placeholder="Digite seu nome completo">
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div id = "required"> * Preenchimento obrigatório </div>
-             <button type="submit">Enviar</button>
+             <button @click="salvar">Enviar</button>
     </div>
 
      <!-- <router-view /> -->
@@ -58,30 +58,34 @@ import  Usuarios from '../services/usuarios'
     data() {
         return {
            usuario: {
-           nome: "", 
-           cpf: "",
-           apartamento: "",
-           contato1: "",
-           contato2: "",
-           email: "",
-           senha: "",
+           nome: '', 
+           cpf: '',
+           apartamento: '',
+           contato1: '',
+           contato2: '',
+           email: '',
+           senha: '',
             },
             // usuarios: [], --listar
             errors:[]
         }
     },
     methods:{
-        salvar(){
-            Usuarios.salvar(this.usuario).then(resposta => {
-                this.resposta = resposta
-                this.usuario = {}
-                this.errors = {}
-                alert('Solicitação de cadastro enviada com sucesso!')
 
-            }).catch(e => {
-                this.errors = e.response.data.errors
-            })
+        salvar() {
+            console.log(this.usuario)
         }
+        // salvar(){
+        //     Usuarios.salvar(this.usuario).then(resposta => {
+        //         this.resposta = resposta
+        //         this.usuario = {}
+        //         this.errors = {}
+        //         alert('Solicitação de cadastro enviada com sucesso!')
+
+        //     }).catch(e => {
+        //         this.errors = e.response.data.errors
+        //     })
+        // }
     }
 }
 </script>

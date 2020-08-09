@@ -1,4 +1,4 @@
-import { http } from './config'
+import { http } from '../plugins/axios'
 
 export default {
 
