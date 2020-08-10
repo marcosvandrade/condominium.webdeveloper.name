@@ -11,6 +11,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface UserRepository extends CrudRepository<Usuarios, Long> {
         
-     List<Usuarios> findByNomeIgnoreCaseContaining(String nome);
-    //Usuarios findById(Integer id);
+    List<Usuarios> findByNomeIgnoreCaseContaining(String nome);
+//    Usuarios findById(Integer id);
 }

@@ -71,21 +71,26 @@ import  Usuarios from '../services/usuarios'
         }
     },
     methods:{
-
+        
         salvar() {
-            console.log(this.usuario)
-        }
-        // salvar(){
-        //     Usuarios.salvar(this.usuario).then(resposta => {
-        //         this.resposta = resposta
-        //         this.usuario = {}
-        //         this.errors = {}
-        //         alert('Solicitação de cadastro enviada com sucesso!')
-
+                Usuarios.salvar (this.usuario)
+                .then(resp => {
+                        this.usuario = {}
+                })
+       
+        //     salvar(){
+        //         Usuarios.salvar(this.usuario).then(resposta => {
+        //             this.resposta = resposta
+        //             this.usuario = {}
+        //             this.errors = {}
+        //             alert('Solicitação de cadastro enviada com sucesso!')
         //     }).catch(e => {
-        //         this.errors = e.response.data.errors
+        //             this.errors = e.response.data.errors
         //     })
         // }
+        }
+
     }
-}
+    }
+
 </script>
