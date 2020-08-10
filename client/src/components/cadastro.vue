@@ -73,7 +73,7 @@ import  Usuarios from '../services/usuarios'
     methods:{
         
         salvar() {
-                Usuarios.salvar (this.usuario)
+                Usuarios.salvar ('usuarios.json',this.usuario)
                 .then(resp => {
                         this.usuario = {}
                 })

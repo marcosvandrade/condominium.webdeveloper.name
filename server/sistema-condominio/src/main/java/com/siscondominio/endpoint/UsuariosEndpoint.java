@@ -9,7 +9,7 @@ import com.siscondominio.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+// import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*")
+// @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api")
 
@@ -35,12 +35,12 @@ public class UsuariosEndpoint {
         this.userDAO = userDAO;
     }
 
-    @GetMapping
+    @GetMapping(path= "admin/usuarios")
     public ResponseEntity<?> listAll() {
         return new ResponseEntity<>(userDAO.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "findByName/{name}")
+    @GetMapping(path = "admin/usuarios/findByName/{name}")
     public ResponseEntity<?> findUsuariosByName(@PathVariable String nome){
         return new ResponseEntity<>(userDAO.findByNomeIgnoreCaseContaining(nome), HttpStatus.OK);
     }
@@ -54,12 +54,12 @@ public class UsuariosEndpoint {
 //         return new ResponseEntity<>(user, HttpStatus.OK);
 // }
 
-@PostMapping
+@PostMapping(path= "admin/cadastro")
 public ResponseEntity<?> save(@RequestBody Usuarios user){
     return new ResponseEntity<>(userDAO.save(user), HttpStatus.CREATED);
 }
 
-@DeleteMapping(path = "/{id}")
+@DeleteMapping(path = "admin/{id}")
 public ResponseEntity<?> delete(@PathVariable Long id){
     userDAO.deleteById(id);
     return new ResponseEntity<>(HttpStatus.OK);

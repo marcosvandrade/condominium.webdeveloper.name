@@ -6,8 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "usuarios")
 
@@ -46,7 +44,7 @@ public class Usuarios extends AbstractEntity {
     private String email; // TODO --> verificar se no banco estah como unique key
 
     @Column(name = "senha")
-    @JsonIgnore
+    // @JsonIgnore
     private String senha;
 
     @Column(name = "cpf")
