@@ -48,3 +48,60 @@ export default {
 }
 
 </script>
+
+<style>
+
+#login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#login h3 {
+   display: flex;
+   flex-direction: column;
+    border: 1px solid #000;
+    background-color: #0004;
+    padding: 15px;
+    margin: 30px;
+    border-radius: 5px;
+    width: 350px;
+    font-size: 1.2em;
+}
+
+#login .form {
+    display: flex;  
+    flex-direction: column;
+}
+
+#login .form input {
+  display: flex;
+  background-color: whitesmoke;
+  margin: 10px;
+  padding: 10px;
+  width: 350px;
+  border: 1px solid #fff4;
+  border-radius: 5px;
+}
+
+#login .form label {
+  display: flex;
+  padding: 1px;
+  margin-left: 10px;
+}
+
+#login .form button {
+  display: flex;
+  flex-direction: column;
+  padding: 7px;
+  margin: 30px 110px;
+  width: 150px;
+  align-items: center;
+  border: 1px solid #000;
+  background-color: #0004;
+  border-radius: 5px;
+}
+
+</style>

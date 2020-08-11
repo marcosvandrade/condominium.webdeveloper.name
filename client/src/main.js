@@ -11,10 +11,6 @@ import Cadastro from './components/cadastro.vue'
 import homeUser from './components/homeUser.vue'
 import Usuarios from './components/usuarios.vue'
 
-import './assets/css/app.css'
-import './assets/css/login.css'
-import './assets/css/cadastro.css'
-
 Vue.config.productionTip = false
 Vue.component('page-login', Login)
 Vue.component('page-cadastro', Cadastro)

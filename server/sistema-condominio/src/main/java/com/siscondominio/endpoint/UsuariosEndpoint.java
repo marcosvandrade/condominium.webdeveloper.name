@@ -59,17 +59,18 @@ public ResponseEntity<?> save(@RequestBody Usuarios user){
     return new ResponseEntity<>(userDAO.save(user), HttpStatus.CREATED);
 }
 
+@PutMapping
+public ResponseEntity<?> update(@RequestBody Usuarios user){
+    userDAO.save(user);
+    return new ResponseEntity<>(HttpStatus.OK);
+}
+
 @DeleteMapping(path = "admin/{id}")
 public ResponseEntity<?> delete(@PathVariable Long id){
     userDAO.deleteById(id);
     return new ResponseEntity<>(HttpStatus.OK);
 }
 
-@PutMapping
-public ResponseEntity<?> update(@RequestBody Usuarios user){
-    userDAO.save(user);
-    return new ResponseEntity<>(HttpStatus.OK);
-}
 
 //private dateUtil dateUtil;
 

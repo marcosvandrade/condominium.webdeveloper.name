@@ -17,6 +17,12 @@
 					<strong>E-mail: </strong> {{ usuario.email }}<br>
 					<strong>Apartamento: </strong> {{ usuario.apartamento }}<br>
 					<strong>Contato: </strong> {{ usuario.contato1 }}<br>
+					
+					<b-button variant="warning" size="lg"
+					@click="carregar(id)">Carregar</b-button>
+				    
+					<b-button variant="danger" size="lg" class="ml-2"
+					@click="excluir(id)">Excluir</b-button>
 				</b-list-group-item>
 			</b-list-group>
   </div>
@@ -24,25 +30,51 @@
 
 <script>
 import  Usuarios from '../services/usuarios'
+import usuarios from '../services/usuarios'
 
 export default {
 		data() {
 			return {
-				usuarios: []
+				usuarios: [],
+				mensagem: []
+								
 			}
 		},
         props: {
-			usuario: {
-				
-			}
+			usuario: [],
+			mensagens: []
+						
 		},
         methods: {
+		// 	 limpar() {
+		// 	usuarios: [],
+		// 	this.id = null,
+		// 	mensagem: []
+        // },
 			listar() {
                 Usuarios.listar (this.usuario)
                 .then(resp => {
                        this.usuarios = resp.data
                 })
-			}
+			},
+			carregar(id) {
+			this.id = id
+			this.usuario = { ...this.usuarios[id] }
+		},
+			excluir(id) {
+			Usuarios.deletar(this.usuario)
+				// .then(() => this.limpar())
+				.then(resp => {
+					this.mensagens = resp.this.mensagem.push({
+						texto: 'Problema para excluir!',
+						tipo: 'danger'
+					})
+
+				})
+				// .catch(err => {
+				// 	this.limpar()
+				// })
+		},
 		}
 }
 </script>

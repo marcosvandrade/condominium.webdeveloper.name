@@ -2,7 +2,9 @@
 <div id="cadastro">
 
     <h3>Solicitação de Acesso ao Sistema</h3>
-
+                    <b-alert show dismissible v-for="mensagem in mensagens"
+                    :key="mensagem.texto"
+                    :variant="mensagem.tipo">{{ mensagem.texto }}</b-alert>
     <div class="form">
         <div>
             <label for="nome">Nome Completo *</label>
@@ -57,8 +59,9 @@ import  Usuarios from '../services/usuarios'
     name: "cadastro",
     data() {
         return {
+            mensagens: [],
+           id: null,
            usuario: {
-           id:'',
            nome: '', 
            cpf: '',
            apartamento: '',
@@ -72,26 +75,89 @@ import  Usuarios from '../services/usuarios'
         }
     },
     methods:{
+        limpar() {
+			this.usuario.nome = ''
+			this.usuario.cpf = ''
+			this.usuario.apartamento = ''
+			this.usuario.contato1 = ''
+			this.usuario.contato2 = ''
+			this.usuario.email = ''
+			this.usuario.senha = ''
+			this.id = null
+			this.mensagens = []
+        },
         
         salvar() {
-                Usuarios.salvar (this.usuario)
-                .then(resp => {
-                        this.usuario = {}
+                const metodo = this.id ? 'atualizar' : 'salvar'
+                Usuarios.metodo (this.usuario)
+                .then(() => {
+                        this.limpar
+                        this.mensagens.push({
+                            texto: 'Operação realizada com sucesso!',
+                            tipo: 'success'
+                        })
                 })
        
-        //     salvar(){
-        //         Usuarios.salvar(this.usuario).then(resposta => {
-        //             this.resposta = resposta
-        //             this.usuario = {}
-        //             this.errors = {}
-        //             alert('Solicitação de cadastro enviada com sucesso!')
-        //     }).catch(e => {
-        //             this.errors = e.response.data.errors
-        //     })
-        // }
         }
 
     }
     }
 
 </script>
+
+<style>
+#cadastro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#cadastro h3 {
+  display: flex;
+  flex-direction: column;
+   border: 1px solid #000;
+   background-color: #0004;
+   padding: 5px;
+   margin-top: 15px;
+   border-radius: 5px;
+   width: 375px;  
+   font-size: 1.3em;
+}
+
+#cadastro .form {
+  display: flex;  
+  flex-direction: column;
+  padding: 5px;
+  margin: 5px;
+}
+
+#cadastro .form input {
+  display: flex;
+  background-color: whitesmoke;
+  margin: 5px;
+  padding: 5px;
+  width: 350px;
+  border: 1px solid #fff4;
+  border-radius: 5px;
+}
+
+#cadastro .form label {
+  display: flex;
+  padding: 0;
+  margin-left: 5px;
+}
+
+#cadastro .form button {
+  display: flex;
+  flex-direction: column;
+  padding: 7px;
+  margin: 10px 110px;
+  width: 150px;
+  align-items: center;
+  border: 1px solid #000;
+  background-color: #0004;
+  border-radius: 5px;
+}
+
+</style>
