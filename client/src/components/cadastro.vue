@@ -43,7 +43,30 @@
         </div>
         <div id = "required"> * Preenchimento obrigatório </div>
              <button @click="salvar">Enviar</button>
+             
+             <hr>
+
     </div>
+			 <div class="conatainer">
+             <b-list-group>
+		
+                <span>{{ listar() }}</span>
+				<b-list-group-item v-for="(usuario, id) in usuarios" :key="id">
+					<strong>Nome Completo: </strong> {{ usuario.nome }}<br>
+					<strong>CPF: </strong> {{ usuario.cpf }}<br>
+					<strong>E-mail: </strong> {{ usuario.email }}<br>
+					<strong>Apartamento: </strong> {{ usuario.apartamento }}<br>
+					<strong>Contato: </strong> {{ usuario.contato1 }}<br>
+					
+					<!-- <b-button variant="warning" size="lg"
+					@click="carregar(id)">Carregar</b-button> -->
+				    
+					<b-button variant="danger" size="lg" class="ml-2"
+					@click="excluir(id)">Excluir</b-button>
+				</b-list-group-item>
+			  </b-list-group>
+
+             </div>
 
      <!-- <router-view /> -->
 </div>
@@ -51,7 +74,7 @@
 
 <script>
 
-import  Usuarios from '../services/usuarios'
+import Usuarios from '../services/usuarios'
 // import "../routes/routes"
 // require('../assets/css/cadastro.css')
 
@@ -59,7 +82,7 @@ import  Usuarios from '../services/usuarios'
     name: "cadastro",
     data() {
         return {
-            mensagens: [],
+           mensagens: [],
            id: null,
            usuario: {
            nome: '', 
@@ -70,7 +93,7 @@ import  Usuarios from '../services/usuarios'
            email: '',
            senha: '',
             },
-            // usuarios: [], --listar
+            usuarios: [],
             errors:[]
         }
     },
@@ -86,19 +109,43 @@ import  Usuarios from '../services/usuarios'
 			this.id = null
 			this.mensagens = []
         },
-        
+        // carregar(id) {
+		// 	// this.id = id
+		// 	this.usuario = { ...this.usuarios[id] }
+        // },
+        listar() {
+                Usuarios.listar (this.usuario)
+                .then(resp => {
+                       this.usuarios = resp.data
+                })
+			},
         salvar() {
-                const metodo = this.id ? 'atualizar' : 'salvar'
-                Usuarios.metodo (this.usuario)
+                // const metodo = this.id ? 'atualizar' : 'salvar'
+                Usuarios.salvar (this.usuario)
                 .then(() => {
-                        this.limpar
+                        this.limpar()
                         this.mensagens.push({
                             texto: 'Operação realizada com sucesso!',
                             tipo: 'success'
                         })
                 })
        
-        }
+        },
+        excluir(id) {
+			Usuarios.deletar(this.id)
+				.then(() => this.limpar())
+					.catch(err => {
+					this.limpar()
+					this.mensagens.push({
+						texto: 'Problema para excluir!',
+						tipo: 'danger'
+					})
+
+				})
+				.catch(err => {
+					this.limpar()
+				})
+		}
 
     }
     }
@@ -159,5 +206,6 @@ import  Usuarios from '../services/usuarios'
   background-color: #0004;
   border-radius: 5px;
 }
+
 
 </style>

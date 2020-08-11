@@ -6,8 +6,8 @@ export default {
         return http.post('admin/cadastro', usuario);
     },
 
-    deletar:() => {
-      return http.delete('admin/{id}')  
+    deletar:(id) => {
+      return http.delete('admin/{id}', id)  
     },
 
     listar:(usuario) => {
