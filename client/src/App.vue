@@ -1,8 +1,10 @@
 <template>
   <v-app>
     <slot name = "login">
+    <page-cadastro />
     <page-usuarios />
     </slot>
+    
     <!-- <v-main>
       <router-view/>
     </v-main> -->

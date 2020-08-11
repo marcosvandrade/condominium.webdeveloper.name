@@ -58,6 +58,7 @@ import  Usuarios from '../services/usuarios'
     data() {
         return {
            usuario: {
+           id:'',
            nome: '', 
            cpf: '',
            apartamento: '',
@@ -73,7 +74,7 @@ import  Usuarios from '../services/usuarios'
     methods:{
         
         salvar() {
-                Usuarios.salvar ('usuarios.json',this.usuario)
+                Usuarios.salvar (this.usuario)
                 .then(resp => {
                         this.usuario = {}
                 })
