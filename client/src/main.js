@@ -8,6 +8,8 @@ import './plugins/bootstrap-vue'
 import './plugins/axios'
 import router from './router'
 
+// import './assets/style.scss'
+
 // import Login from './components/login.vue'
 // import Cadastro from './components/cadastro.vue'
 // import homeUser from './components/homeUser.vue'
