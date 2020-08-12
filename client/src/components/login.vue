@@ -19,7 +19,8 @@
       
       <!-- TODO  IMPLEMENTAR GOOGLE RECAPTCHA -->
             
-     <div><button type="submit" >Acessar</button></div> 
+     <!-- <div><button type="submit" >Acessar</button></div>  -->
+          <router-link to="/adminHome" tag="button">Acessar</router-link>
            
            <div>
               <small>Esqueci minha senha</small>

@@ -12,34 +12,10 @@ import javax.persistence.Table;
 public class Usuarios extends AbstractEntity {
     private static final long serialVersionUID = 1L;
  
-    // public Usuarios(String apartamento, String contato1, String contato2,
-    //                   String email, String nome, Date data_acesso,
-    //                   Date data_cadastro, String senha){
-    //                       this.apartamento = apartamento;
-    //                       this.contato1 = contato1;
-    //                       this.contato2 = contato2;
-    //                       this.email = email;
-    //                       this.nome = nome;
-    //                       this.data_acesso = data_acesso;
-    //                       this.data_cadastro = data_cadastro;
-    //                       this.senha = senha;
-    //                       this.arquivado = false;
-    //                       this.administrador = false;
-    //                       this.bloqueado = false;
-    //                   }
-
      public Usuarios() {
         
      }
-
-    /**
-     * o identificador unico sera gerado pela coluna de auto incremento do banco de
-     * dados
-     */
-    // @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // private Integer id;
-
+    
     @Column(name = "email") //username
     private String email; // TODO --> verificar se no banco estah como unique key
 

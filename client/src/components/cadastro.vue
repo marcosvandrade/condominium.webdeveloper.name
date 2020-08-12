@@ -44,12 +44,13 @@
         <div id = "required"> * Preenchimento obrigatório </div>
              <button @click="salvar">Enviar</button>
     </div>
+                    
 			 <div class="container">
              <b-list-group>
              <b-button @click="listar"
 				size="lg" variant="success"
 				class="ml-0">Listar Usuários</b-button>
-				<b-list-group-item v-for="(usuario, id) in usuarios" :key="id">
+				<b-list-group-item  v-model.trim="usuario.id" v-for="(usuario, id) in usuarios" :key="id">
 					<strong>ID: </strong> {{ usuario.id }}<br>
 					<strong>Nome Completo: </strong> {{ usuario.nome }}<br>
 					<strong>CPF: </strong> {{ usuario.cpf }}<br>
@@ -60,8 +61,9 @@
 					<!-- <b-button variant="warning" size="lg"
 					@click="carregar(id)">Carregar</b-button> -->
 				    
+
 					<b-button variant="danger" size="lg" class="ml-2"
-					@click="excluir(id)">Excluir</b-button>
+					@click="excluir(usuario.id)">Excluir</b-button>
 				</b-list-group-item>
 			  </b-list-group>
 
@@ -82,7 +84,7 @@ import Usuarios from '../services/usuarios'
     data() {
         return {
             usuario: {
-                id: '',
+                id: null,
                 nome: '', 
                 cpf: '',
                 apartamento: '',
@@ -105,7 +107,6 @@ import Usuarios from '../services/usuarios'
 			this.usuario.contato2 = ''
 			this.usuario.email = ''
 			this.usuario.senha = ''
-			this.usuario.id = ''
 			this.mensagens = []
         },
         // carregar(id) {
@@ -131,19 +132,7 @@ import Usuarios from '../services/usuarios'
        
         },
         excluir(id) {
-			Usuarios.deletar(this.usuario.id)
-				.then(() => this.limpar())
-					.catch(err => {
-					this.limpar()
-					this.mensagens.push({
-						texto: 'Problema para excluir!',
-						tipo: 'danger'
-					})
-
-				})
-				.catch(err => {
-					this.limpar()
-				})
+            Usuarios.deletar(id)                  
 		}
 
     }
