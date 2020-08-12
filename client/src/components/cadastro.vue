@@ -43,15 +43,14 @@
         </div>
         <div id = "required"> * Preenchimento obrigatório </div>
              <button @click="salvar">Enviar</button>
-             
-             <hr>
-
     </div>
-			 <div class="conatainer">
+			 <div class="container">
              <b-list-group>
-		
-                <span>{{ listar() }}</span>
+             <b-button @click="listar"
+				size="lg" variant="success"
+				class="ml-0">Listar Usuários</b-button>
 				<b-list-group-item v-for="(usuario, id) in usuarios" :key="id">
+					<strong>ID: </strong> {{ usuario.id }}<br>
 					<strong>Nome Completo: </strong> {{ usuario.nome }}<br>
 					<strong>CPF: </strong> {{ usuario.cpf }}<br>
 					<strong>E-mail: </strong> {{ usuario.email }}<br>
@@ -82,19 +81,19 @@ import Usuarios from '../services/usuarios'
     name: "cadastro",
     data() {
         return {
-           mensagens: [],
-           id: null,
-           usuario: {
-           nome: '', 
-           cpf: '',
-           apartamento: '',
-           contato1: '',
-           contato2: '',
-           email: '',
-           senha: '',
+            usuario: {
+                id: '',
+                nome: '', 
+                cpf: '',
+                apartamento: '',
+                contato1: '',
+                contato2: '',
+                email: '',
+                senha: '',
             },
             usuarios: [],
-            errors:[]
+            errors:[],
+            mensagens: [],
         }
     },
     methods:{
@@ -106,7 +105,7 @@ import Usuarios from '../services/usuarios'
 			this.usuario.contato2 = ''
 			this.usuario.email = ''
 			this.usuario.senha = ''
-			this.id = null
+			this.usuario.id = ''
 			this.mensagens = []
         },
         // carregar(id) {
@@ -132,7 +131,7 @@ import Usuarios from '../services/usuarios'
        
         },
         excluir(id) {
-			Usuarios.deletar(this.id)
+			Usuarios.deletar(this.usuario.id)
 				.then(() => this.limpar())
 					.catch(err => {
 					this.limpar()
@@ -207,5 +206,13 @@ import Usuarios from '../services/usuarios'
   border-radius: 5px;
 }
 
+.container{
+    color: rgb(16, 16, 48);
+    padding: 0px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
 
 </style>
