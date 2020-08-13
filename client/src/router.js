@@ -13,16 +13,18 @@ Vue.use(Router);
             path: "/",
             // name: "login",
             component: Login
-          },  
-          {
-            path: "/cadastro",
-            // name: "cadastro",
-            component: Cadastro
-          },     
-                  {
-                      path: "/adminHome",
-                      // name: "homeuser",
-                      component: adminHome
-                    }  
+          },  {
+                path: "/cadastro",
+                // name: "cadastro",
+                component: Cadastro
+          },   {
+                path: "/adminHome",
+                // name: "homeuser",
+                component: adminHome
+          },   {
+                path: '*',
+                redirect: '/'
+          }
+
     ]
   });
