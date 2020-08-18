@@ -1,0 +1,25 @@
+package com.siscondominio.services;
+
+import com.siscondominio.repository.UserRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.siscondominio.model.Usuarios;
+
+@Service
+public class DBService {
+    
+    @Autowired
+    private BCryptPasswordEncoder pe;
+
+    @Autowired
+    private UserRepository userRepository;
+    
+    Usuarios user = new Usuarios("Marcos Vasconcellos de Andrade", "04261040727", "507", "(61) 9 9662-5178",
+                                                     "vascorj2006@gmail.com", pe.encode("admin123"), true);
+
+     userRepository.saveAll(user));
+    
+}

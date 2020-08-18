@@ -62,10 +62,20 @@
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
       <scope>compile</scope>
     </dependency>
-     <!-- <dependency>
+     <dependency>
       <groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId> 
-    </dependency> -->
+    </dependency>
+    <dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.7.0</version>
+		</dependency>
+    <dependency>
+   <groupId>org.hibernate</groupId>
+   <artifactId>hibernate-validator-cdi</artifactId>
+   <version>6.1.5.Final</version>
+</dependency>
   </dependencies>
   <build>
     <plugins>

@@ -27,13 +27,13 @@
             <input type="text" id="contato2"  v-model.trim="usuario.contato2" placeholder="Digite um telefone para contato">
         </div>  
         <div>
-            <label for="email">Usuário</label>
+            <label for="email">Usuário *</label>
             <input type="email" id="email" v-model.trim="usuario.email" placeholder="Digite um e-mail válido">
         </div>   
         <div>
             <div>
             <!-- TODO configurar validacao para senha -->
-            <label for="senha1">Senha</label>
+            <label for="senha1">Senha *</label>
             <input type="password" id="senha1" v-model.trim="usuario.senha" placeholder="Digite sua senha">
             </div>
             <div>

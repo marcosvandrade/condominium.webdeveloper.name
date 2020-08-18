@@ -5,6 +5,9 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+// import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "usuarios")
@@ -15,26 +18,45 @@ public class Usuarios extends AbstractEntity {
      public Usuarios() {
         
      }
+
+     public Usuarios(String nome, String cpf, String apartamento, String contato1, 
+                      String email, String senha, Boolean administrador)
+                      {
+                          super();
+                          this.nome = nome;
+                          this.cpf = cpf;
+                          this.apartamento = apartamento;
+                          this.contato1 = contato1;
+                          this.email = email;
+                          this.senha = senha;
+                          this.administrador = false;
+                          }
     
+    @NotEmpty
     @Column(name = "email") //username
     private String email; // TODO --> verificar se no banco estah como unique key
 
-    @Column(name = "senha")
+    @NotEmpty
     // @JsonIgnore
+    @Column(name = "senha")
     private String senha;
 
+    @NotEmpty
     @Column(name = "cpf")
     private String cpf;
 
+    @NotEmpty
     @Column(name = "apartamento")
     private String apartamento;
 
+    @NotEmpty
     @Column(name = "contato1")
     private String contato1;
 
     @Column(name = "contato2")
     private String contato2;
 
+    @NotEmpty
     @Column(name = "nome")
     private String nome;
 
