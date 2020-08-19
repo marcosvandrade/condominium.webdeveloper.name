@@ -11,7 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UserRepository extends JpaRepository<Usuarios, Integer> {
     
     @Transactional(readOnly=true)
-	Usuarios findByEmail(String email);
+    Usuarios findByEmail(String email);
+    
+    // Usuarios deleteById(Long id);
     // List<Usuarios> findByEmailIgnoreCaseContaining(String email);
 //    Usuarios findById(Integer id);
 }

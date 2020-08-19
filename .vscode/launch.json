@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - DBService",
+            "request": "launch",
+            "mainClass": "com.siscondominio.services.DBService",
+            "projectName": "sistema-condominio"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - PasswordEncoder",
             "request": "launch",
             "mainClass": "com.siscondominio.util.PasswordEncoder",

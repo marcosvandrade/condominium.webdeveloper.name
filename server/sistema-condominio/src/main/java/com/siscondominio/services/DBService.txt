@@ -1,0 +1,37 @@
+package com.siscondominio.services;
+
+import com.siscondominio.enums.Perfil;
+import com.siscondominio.model.Usuarios;
+import com.siscondominio.repository.UserRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+
+@Service
+public class DBService {
+  
+  @Autowired
+  private static BCryptPasswordEncoder pe;
+
+  @Autowired
+  private static UserRepository userDAO;
+
+  public static void main(String[] args) {
+
+    Usuarios admin = new Usuarios("Administrador", "68862784600", "101", "(61) 9 9965-2253", "admin@admin.com",
+        pe.encode("admin123"));
+
+    Usuarios user = new Usuarios("Usuário", "68862784601", "102", "(61) 9 9965-2254", "user@user.com",
+        pe.encode("user123"));
+
+    admin.addPerfil(Perfil.ADMIN);
+    user.addPerfil(Perfil.CLIENTE);
+
+    userDAO.save(admin);
+    userDAO.save(user);
+
+  }
+     
+}

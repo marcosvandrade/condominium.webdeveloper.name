@@ -40,7 +40,7 @@ public class Usuarios extends AbstractEntity  {
                           this.email = email;
                           this.senha = senha;
                           addPerfil(Perfil.CLIENTE);
-                          }
+                        }
 
     @ElementCollection(fetch=FetchType.EAGER)
     @CollectionTable(name="PERFIS")
