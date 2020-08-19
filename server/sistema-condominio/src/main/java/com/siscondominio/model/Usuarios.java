@@ -1,26 +1,36 @@
 package com.siscondominio.model;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+
+import com.siscondominio.enums.Perfil;
 
 // import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "usuarios")
 
-public class Usuarios extends AbstractEntity {
+public class Usuarios extends AbstractEntity  {
     private static final long serialVersionUID = 1L;
+
+	public static Object admin;
  
      public Usuarios() {
-        
+        addPerfil(Perfil.CLIENTE);
      }
 
      public Usuarios(String nome, String cpf, String apartamento, String contato1, 
-                      String email, String senha, Boolean administrador)
+                      String email, String senha)
                       {
                           super();
                           this.nome = nome;
@@ -29,8 +39,12 @@ public class Usuarios extends AbstractEntity {
                           this.contato1 = contato1;
                           this.email = email;
                           this.senha = senha;
-                          this.administrador = false;
+                          addPerfil(Perfil.CLIENTE);
                           }
+
+    @ElementCollection(fetch=FetchType.EAGER)
+    @CollectionTable(name="PERFIS")
+    private Set<Integer> perfis = new HashSet<>();
     
     @NotEmpty
     @Column(name = "email") //username
@@ -151,6 +165,14 @@ public class Usuarios extends AbstractEntity {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public Set<Perfil> getPerfis() {
+		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
+	}
+
+    public void addPerfil(Perfil perfil) {
+		perfis.add(perfil.getCod());
+	}
 
     public Boolean getArquivado() {
         return arquivado;
