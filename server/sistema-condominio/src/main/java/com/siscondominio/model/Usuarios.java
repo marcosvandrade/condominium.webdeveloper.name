@@ -13,6 +13,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.siscondominio.enums.Perfil;
 
 // import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -39,7 +40,7 @@ public class Usuarios extends AbstractEntity  {
                           this.contato1 = contato1;
                           this.email = email;
                           this.senha = senha;
-                          addPerfil(Perfil.ADMIN);
+                          addPerfil(Perfil.CLIENTE);
                         }
 
     @ElementCollection(fetch=FetchType.EAGER)
@@ -47,11 +48,11 @@ public class Usuarios extends AbstractEntity  {
     private Set<Integer> perfis = new HashSet<>();
     
     @NotEmpty
-    @Column(name = "email") //username
-    private String email; // TODO --> verificar se no banco estah como unique key
+    @Column(name = "email") 
+    private String email; 
 
     @NotEmpty
-    // @JsonIgnore
+    @JsonIgnore
     @Column(name = "senha")
     private String senha;
 
@@ -94,14 +95,6 @@ public class Usuarios extends AbstractEntity  {
     @Column(name = "bloqueado")
     private Boolean bloqueado;
    
-    // public Integer getId() {
-    //     return id;
-    // }
-
-    // public void setId(Integer id) {
-    //     this.id = id;
-    // }
-
     public String getApartamento() {
         return apartamento;
     }
@@ -206,12 +199,4 @@ public class Usuarios extends AbstractEntity  {
         this.cpf = cpf;
     }
 
-    //  @Override
-    //  public String toString() {
-    //      return "Usuarios [administrador=" + administrador + ", apartamento=" + apartamento + ", arquivado=" + arquivado
-    //              + ", bloqueado=" + bloqueado + ", contato1=" + contato1 + ", contato2=" + contato2 + ", data_acesso="
-    //              + data_acesso + ", data_cadastro=" + data_cadastro + ", email=" + email + ", id=" + id + ", nome="
-    //              + nome + ", senha=" + senha + "]";
-    //  }
-    
 }

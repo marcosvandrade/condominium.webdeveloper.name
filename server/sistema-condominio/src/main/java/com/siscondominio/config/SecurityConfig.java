@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -18,53 +19,27 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-// import com.nelioalves.cursomc.security.JWTAuthenticationFilter;
-// import com.nelioalves.cursomc.security.JWTAuthorizationFilter;
-// import com.nelioalves.cursomc.security.JWTUtil;
-
 @Configuration
 @EnableWebSecurity
-// @EnableGlobalMethodSecurity(prePostEnabled = true)
+// habilita a autorização dos endpoints por perfil
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UserDetailsService userDetailsService;
 	
-	// @Autowired
-    // private Environment env;
-	
 	@Autowired
 	private JWTUtil jwtUtil;
 	
-	private static final String[] PUBLIC_MATCHERS = {
-			"/api/**"
-	};
-
-	// private static final String[] PUBLIC_MATCHERS_GET = {
-	// 		"/admin/usuarios/**"
-	// };
-
-	// private static final String[] PUBLIC_MATCHERS_POST = {
-	// 		"/admin/cadastro/**"
-	// };
-
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		// if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
-        //     http.headers().frameOptions().disable();
-        // }
-		
 		http.cors().and().csrf().disable();
 		http.authorizeRequests()
-			// .antMatchers(HttpMethod.POST, PUBLIC_MATCHERS_POST).permitAll()
-			// .antMatchers(HttpMethod.GET, PUBLIC_MATCHERS_GET).permitAll()
-			// .antMatchers(PUBLIC_MATCHERS).authenticated()
-			 .antMatchers(PUBLIC_MATCHERS).hasRole("ADMIN")
-			.anyRequest().authenticated();
-		   http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
-           http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
-		   http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+			   .anyRequest().authenticated();
+		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
+        http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
 	
 	@Override
