@@ -39,7 +39,7 @@ public class Usuarios extends AbstractEntity  {
                           this.contato1 = contato1;
                           this.email = email;
                           this.senha = senha;
-                          addPerfil(Perfil.CLIENTE);
+                          addPerfil(Perfil.ADMIN);
                         }
 
     @ElementCollection(fetch=FetchType.EAGER)

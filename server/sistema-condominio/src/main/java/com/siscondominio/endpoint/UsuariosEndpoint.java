@@ -40,20 +40,26 @@ public class UsuariosEndpoint {
     //     return new ResponseEntity<>(userDAO.findAll(), HttpStatus.OK);
     // }
     
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping(path= "admin/usuarios")
-    //@PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> listAll() {
         return new ResponseEntity<>(userDAO.findAll(), HttpStatus.OK);
     }
     
-    // @RequestMapping(method = RequestMethod.GET, path = "admin/usuarios")
     // @PreAuthorize("hasRole('ADMIN')")
+    // @RequestMapping(method = RequestMethod.GET, path = "admin/usuarios")
     // public Iterable<Usuarios> listaUsuarios() {
     //     // System.out.println(dateUtil.formatLocalTimeToDatabaseStyle(LocalDateTime.now()));
     //     return userDAO.findAll();
     
     // }
     
+    // @PreAuthorize("hasAnyRole('ADMIN')")
+	// @RequestMapping(method=RequestMethod.GET, path = "admin/usuarios")
+	// public ResponseEntity<?> listAll() {
+	// 	return new ResponseEntity<>(userDAO.findAll(), HttpStatus.OK);
+	// }
+
     // @GetMapping(path = "admin/usuarios/findByEmail/{name}")
     // public ResponseEntity<?> findUsuariosByName(@PathVariable String email){
     //     return new ResponseEntity<>(userDAO.findByEmailIgnoreCaseContaining(email), HttpStatus.OK);
@@ -79,6 +85,7 @@ public class UsuariosEndpoint {
 //     return new ResponseEntity<>(HttpStatus.OK);
 // }
 
+@PreAuthorize("hasAnyRole('ADMIN')")
 @DeleteMapping(path = "admin/usuarios/{id}")
 public ResponseEntity<?> delete(@PathVariable Integer id){
     userDAO.deleteById(id);
@@ -91,8 +98,8 @@ public ResponseEntity<?> delete(@PathVariable Integer id){
 // TODO --> tratamento de erros vide https://www.youtube.com/watch?v=SdBtC-rXUck
 
 
+@PreAuthorize("hasAnyRole('ADMIN')")
 @PostMapping("admin/cadastro")
-// @PreAuthorize("hasRole('ADMIN')")
 public Usuarios criaUsuario(@RequestBody @Valid final Usuarios usuario){
     return userDAO.save(usuario);
 }
