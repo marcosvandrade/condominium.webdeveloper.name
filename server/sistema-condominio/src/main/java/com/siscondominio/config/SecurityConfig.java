@@ -30,13 +30,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	private JWTUtil jwtUtil;
-	
+		
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.cors().and().csrf().disable();
 		http.authorizeRequests()
-			   .anyRequest().authenticated();
+			.anyRequest().authenticated();
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
         http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

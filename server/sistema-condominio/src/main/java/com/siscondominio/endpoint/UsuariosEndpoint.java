@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import com.siscondominio.model.Usuarios;
 import com.siscondominio.repository.UserRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuariosEndpoint {
 
     private final UserRepository userDAO;
+
+    // private ClienteService service;
 
     @Autowired
     public UsuariosEndpoint(UserRepository userDAO) {
@@ -52,6 +53,12 @@ public class UsuariosEndpoint {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
     
+    // @RequestMapping(value="api/admin/usuarios/{id}", method=RequestMethod.GET)
+	// public ResponseEntity<Usuarios> find(@PathVariable Integer id) {
+	// 	Usuarios obj = service.find(id);
+	// 	return ResponseEntity.ok().body(obj);
+	// }
+
     @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping(path= "admin/cadastro")
     public ResponseEntity<?> save(@RequestBody Usuarios user){

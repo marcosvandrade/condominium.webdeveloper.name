@@ -13,7 +13,6 @@ import javax.persistence.FetchType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.siscondominio.enums.Perfil;
 
 // import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -52,7 +51,7 @@ public class Usuarios extends AbstractEntity  {
     private String email; 
 
     @NotEmpty
-    @JsonIgnore
+    // @JsonIgnore
     @Column(name = "senha")
     private String senha;
 
