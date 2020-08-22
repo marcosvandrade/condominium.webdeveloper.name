@@ -1,15 +1,13 @@
 package com.siscondominio.services;
 
-import com.siscondominio.model.Usuarios;
-
 import org.springframework.mail.SimpleMailMessage;
+
+import com.siscondominio.model.Usuarios;
 
 
 public interface EmailService {
-
-	// void sendOrderConfirmationEmail(Pedido obj);
 	
 	void sendEmail(SimpleMailMessage msg);
 	
-	void sendNewPasswordEmail(Usuarios cliente, String newPass);
+	void sendNewPasswordEmail(Usuarios email, String newPass);
 }

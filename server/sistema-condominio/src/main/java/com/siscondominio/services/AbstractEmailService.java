@@ -2,9 +2,10 @@ package com.siscondominio.services;
 
 import java.util.Date;
 
-import com.siscondominio.model.Usuarios;
-
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
+
+import com.siscondominio.model.Usuarios;
 
 public abstract class AbstractEmailService implements EmailService {
 	
@@ -28,14 +29,14 @@ public abstract class AbstractEmailService implements EmailService {
 	// }
 	
 	@Override
-	public void sendNewPasswordEmail(Usuarios cliente, String newPass) {
-		SimpleMailMessage sm = prepareNewPasswordEmail(cliente, newPass);
+	public void sendNewPasswordEmail(Usuarios email, String newPass) {
+		SimpleMailMessage sm = prepareNewPasswordEmail(email, newPass);
 		sendEmail(sm);
 	}
 	
-	protected SimpleMailMessage prepareNewPasswordEmail(Cliente cliente, String newPass) {
+	protected SimpleMailMessage prepareNewPasswordEmail(Usuarios email, String newPass) {
 		SimpleMailMessage sm = new SimpleMailMessage();
-		sm.setTo(cliente.getEmail());
+		sm.setTo(email.getEmail());
 		sm.setFrom(sender);
 		sm.setSubject("Solicitação de nova senha");
 		sm.setSentDate(new Date(System.currentTimeMillis()));

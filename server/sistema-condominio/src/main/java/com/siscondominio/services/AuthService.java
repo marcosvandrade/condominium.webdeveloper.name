@@ -2,13 +2,13 @@ package com.siscondominio.services;
 
 import java.util.Random;
 
-import com.siscondominio.model.Usuarios;
-import com.siscondominio.repository.UserRepository;
-import com.siscondominio.services.exceptions.ObjectNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.siscondominio.model.Usuarios;
+import com.siscondominio.repository.UserRepository;
+import com.siscondominio.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class AuthService {
@@ -19,7 +19,6 @@ public class AuthService {
 	@Autowired
 	private BCryptPasswordEncoder pe;
 	
-	@Autowired
 	private EmailService emailService;
 	
 	private Random rand = new Random();
