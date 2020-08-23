@@ -2,11 +2,11 @@ import Vue from 'vue'
 import App from './App'
 import vuetify from './plugins/vuetify'
 
-import '@babel/polyfill'
+// import '@babel/polyfill'
 import 'mutationobserver-shim'
 import './plugins/bootstrap-vue'
 import './plugins/axios'
-import router from './router'
+// import router from './router'
 
 // import './assets/style.scss'
 
@@ -21,7 +21,7 @@ Vue.config.productionTip = false
 
 new Vue({
     vuetify,
-    router,
+    // router,
     render: h => h(App)
 }).$mount("#app")
 
