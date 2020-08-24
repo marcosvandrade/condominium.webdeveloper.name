@@ -1,26 +1,25 @@
 <template>
-   <div class="menu"></div>
-    <!-- <aside class="menu" v-show="isMenuVisible">
-        <div class="menu-filter">
+    <aside class="menu" v-show="isMenuVisible">
+        <!-- <div class="menu-filter">
             <i class="fa fa-search fa-lg"></i>
             <input type="text" placeholder="Digite para filtrar..."
                 v-model="treeFilter" class="filter-field">
         </div>
         <Tree :data="treeData" :options="treeOptions"
-            :filter="treeFilter" ref="tree" />
-    </aside> -->
+            :filter="treeFilter" ref="tree" /> -->
+    </aside>
 </template>
 
 <script>
-// import { mapState } from 'vuex'
+import { mapState } from 'vuex'
 // import Tree from 'liquor-tree'
 // import { baseApiUrl } from '@/global'
 // import axios from 'axios'
 
 export default {
-    // name: 'Menu',
+    name: 'Menu',
     // components: { Tree },
-    // computed: mapState(['isMenuVisible']),
+    computed: mapState(['isMenuVisible'])
     // data: function() {
     //     return {
     //         treeFilter: '',
