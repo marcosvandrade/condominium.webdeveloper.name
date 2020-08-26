@@ -19,7 +19,7 @@ const routes = [{
     name: 'adminPages',
     path: '/admin',
     component: AdminPages,
-    meta: { requiresAdmin: true }
+    // meta: { requiresAdmin: true }
  }, 
 //{
 //     name: 'articlesByCategory',

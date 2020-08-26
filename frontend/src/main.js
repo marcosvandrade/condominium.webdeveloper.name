@@ -23,7 +23,7 @@ Vue.config.productionTip = false
 // Vue.component('page-homeUser', homeUser)
 
 // TEMPORÁRIO!
-require('axios').default.headers.common['Authorization'] = 'bearer TOKEN'
+require('axios').defaults.headers.common['Authorization'] = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJleHAiOjE1OTg0NzMwMjl9.KJGbJLJIR4XrDEWZDEjLcvBYlFdIPySd2eZQO2miKK1eofmhafFD_tbbamfekL0487sPKbxzAE_xefefLQukng'
 
 new Vue({
     // vuetify,

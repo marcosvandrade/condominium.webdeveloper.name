@@ -41,56 +41,63 @@ public class Usuarios extends AbstractEntity  {
                           this.senha = senha;
                           addPerfil(Perfil.CLIENTE);
                         }
-
-    @ElementCollection(fetch=FetchType.EAGER)
-    @CollectionTable(name="PERFIS")
-    private Set<Integer> perfis = new HashSet<>();
+    
+    @NotEmpty
+    @Column(name = "nome")
+    private String nome;
     
     @NotEmpty
     @Column(name = "email") 
     private String email; 
-
+    
     @NotEmpty
     // @JsonIgnore
     @Column(name = "senha")
     private String senha;
-
+    
     @NotEmpty
     @Column(name = "cpf")
     private String cpf;
-
+    
     @NotEmpty
     @Column(name = "apartamento")
     private String apartamento;
-
+    
     @NotEmpty
     @Column(name = "contato1")
     private String contato1;
-
+    
+    // @JsonIgnore
     @Column(name = "contato2")
     private String contato2;
-
-    @NotEmpty
-    @Column(name = "nome")
-    private String nome;
-
+    
+    
+    @ElementCollection(fetch=FetchType.EAGER)
+    @CollectionTable(name="PERFIS")
+    private Set<Integer> perfis = new HashSet<>();
+    
     /**
      * Voce pode optar por usar o pacote “java.sql.*” que possui as classes Date,
      * Time e Timestamp, onde estas representam respectivamente Data, Hora e Data
      * Hora juntos, sendo assim voce nao precisara usar a anotação @Temporal.
      */
-    @Column(name = "data_acesso")
+     //@JsonIgnore
+     @Column(name = "data_acesso")
     private Date data_acesso;
 
+    //@JsonIgnore
     @Column(name = "data_cadastro")
     private Date data_cadastro;
     
+    //@JsonIgnore
     @Column(name = "arquivado")
     private Boolean arquivado;
 
+    //@JsonIgnore
     @Column(name = "administrador")
     private Boolean administrador;
 
+    //@JsonIgnore
     @Column(name = "bloqueado")
     private Boolean bloqueado;
    
