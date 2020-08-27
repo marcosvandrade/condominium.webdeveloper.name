@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -60,17 +61,16 @@ public class UsuariosEndpoint {
 	// }
 
     @PreAuthorize("hasAnyRole('ADMIN')")
-    @PostMapping(path= "admin/cadastro")
+    @PostMapping(path= "admin/usuarios")
     public ResponseEntity<?> save(@RequestBody Usuarios user){
         return new ResponseEntity<>(userDAO.save(user), HttpStatus.CREATED);
     }
     
-//     @PreAuthorize("hasAnyRole('ADMIN')")
-//     @PutMapping(path = "admin/usuarios/{id}")
-//     public ResponseEntity<?> update(@RequestBody Usuarios user){
-//     userDAO.save(user);
-//     return new ResponseEntity<>(HttpStatus.OK);
-// }
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PutMapping(path = "admin/usuarios")
+    public ResponseEntity<?> update(@RequestBody Usuarios user){
+        return new ResponseEntity<>(userDAO.save(user), HttpStatus.OK);
+}
 
     @PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping(path = "admin/usuarios/{id}")

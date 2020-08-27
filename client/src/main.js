@@ -3,6 +3,7 @@ import Vue from 'vue'
 import App from './App'
 import store from './config/store'
 import './config/bootstrap'
+import './config/msgs'
 // import vuetify from './plugins/vuetify'
 
 // import '@babel/polyfill'
@@ -23,7 +24,7 @@ Vue.config.productionTip = false
 // Vue.component('page-homeUser', homeUser)
 
 // TEMPORÁRIO!
-require('axios').defaults.headers.common['Authorization'] = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJleHAiOjE1OTg0NzMwMjl9.KJGbJLJIR4XrDEWZDEjLcvBYlFdIPySd2eZQO2miKK1eofmhafFD_tbbamfekL0487sPKbxzAE_xefefLQukng'
+require('axios').defaults.headers.common['Authorization'] = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJleHAiOjE1OTkwODQ0MzR9.O3QBsx0NzEeAjTr8n8eARLkUCj2OB1bvjEVkwebEFTqBV1GHMIX0mWg7xljv4-4a-23wyLBDCkhWohRkzp7bGw'
 
 new Vue({
     // vuetify,

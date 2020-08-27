@@ -13,34 +13,43 @@ import javax.persistence.FetchType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+
 import com.siscondominio.enums.Perfil;
 
-// import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "usuarios")
 
 public class Usuarios extends AbstractEntity  {
     private static final long serialVersionUID = 1L;
+    
+    // @Autowired
+    //     private BCryptPasswordEncoder pe;
 
-	public static Object admin;
- 
+    public static Object admin;
+   
      public Usuarios() {
-        addPerfil(Perfil.CLIENTE);
+        // addPerfil(Perfil.ADMIN);
+        // setSenha(pe.encode(senha));
      }
 
-     public Usuarios(String nome, String cpf, String apartamento, String contato1, 
-                      String email, String senha)
-                      {
-                          super();
-                          this.nome = nome;
-                          this.cpf = cpf;
-                          this.apartamento = apartamento;
-                          this.contato1 = contato1;
-                          this.email = email;
-                          this.senha = senha;
-                          addPerfil(Perfil.CLIENTE);
-                        }
+    //  public Usuarios(String nome, String cpf, String apartamento, String contato1, 
+    //                   String email, String senha)
+    //                   {
+    //                       super();
+    //                       this.nome = nome;
+    //                       this.cpf = cpf;
+    //                       this.apartamento = apartamento;
+    //                       this.contato1 = contato1;
+    //                       this.email = email;
+    //                       this.senha = senha;
+    //                       addPerfil(Perfil.CLIENTE);
+    //                     }
     
     @NotEmpty
     @Column(name = "nome")
@@ -66,12 +75,7 @@ public class Usuarios extends AbstractEntity  {
     @NotEmpty
     @Column(name = "contato1")
     private String contato1;
-    
-    // @JsonIgnore
-    @Column(name = "contato2")
-    private String contato2;
-    
-    
+       
     @ElementCollection(fetch=FetchType.EAGER)
     @CollectionTable(name="PERFIS")
     private Set<Integer> perfis = new HashSet<>();
@@ -81,26 +85,14 @@ public class Usuarios extends AbstractEntity  {
      * Time e Timestamp, onde estas representam respectivamente Data, Hora e Data
      * Hora juntos, sendo assim voce nao precisara usar a anotação @Temporal.
      */
-     //@JsonIgnore
+     @JsonIgnore
      @Column(name = "data_acesso")
     private Date data_acesso;
 
-    //@JsonIgnore
+    @JsonIgnore
     @Column(name = "data_cadastro")
     private Date data_cadastro;
     
-    //@JsonIgnore
-    @Column(name = "arquivado")
-    private Boolean arquivado;
-
-    //@JsonIgnore
-    @Column(name = "administrador")
-    private Boolean administrador;
-
-    //@JsonIgnore
-    @Column(name = "bloqueado")
-    private Boolean bloqueado;
-   
     public String getApartamento() {
         return apartamento;
     }
@@ -115,14 +107,6 @@ public class Usuarios extends AbstractEntity  {
 
     public void setContato1(String contato1) {
         this.contato1 = contato1;
-    }
-
-    public String getContato2() {
-        return contato2;
-    }
-
-    public void setContato2(String contato2) {
-        this.contato2 = contato2;
     }
 
     public String getEmail() {
@@ -156,15 +140,15 @@ public class Usuarios extends AbstractEntity  {
     public void setData_cadastro(Date data_cadastro) {
         this.data_cadastro = data_cadastro;
     }
-
+    
     public String getSenha() {
         return senha;
     }
-
+    
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
+          
     public Set<Perfil> getPerfis() {
 		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
 	}
@@ -172,31 +156,7 @@ public class Usuarios extends AbstractEntity  {
     public void addPerfil(Perfil perfil) {
 		perfis.add(perfil.getCod());
 	}
-
-    public Boolean getArquivado() {
-        return arquivado;
-    }
-
-    public void setArquivado(Boolean arquivado) {
-        this.arquivado = arquivado;
-    }
-
-    public Boolean getAdministrador() {
-        return administrador;
-    }
-
-    public void setAdministrador(Boolean administrador) {
-        this.administrador = administrador;
-    }
-
-    public Boolean getBloqueado() {
-        return bloqueado;
-    }
-
-    public void setBloqueado(Boolean bloqueado) {
-        this.bloqueado = bloqueado;
-    }
-
+   
     public String getCpf() {
         return cpf;
     }
@@ -204,5 +164,6 @@ public class Usuarios extends AbstractEntity  {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
 
 }
