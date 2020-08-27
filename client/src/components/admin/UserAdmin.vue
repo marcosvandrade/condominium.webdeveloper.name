@@ -35,10 +35,17 @@
                             placeholder="Confirme a Senha do Usuário" />
                     </b-form-group>
                 </b-col>
-                <b-form-checkbox id="user-admin" v-show="mode === 'save'"
-                    v-model="user.administrador" class="mt-3 mb-3">
-                    Administrador?
-                </b-form-checkbox>
+                <b-form-group>
+                    <span class="ml-3">Administrador?</span>
+                    <b-form-radio name="user-admin" v-show="mode === 'save'"
+                        @click="user.setAdministrador(true) & addPerfil(Perfil.ADMIN) & addPerfil(Perfil.CLIENTE)" class="mt-3 mb-1 ml-3">
+                        Sim
+                    </b-form-radio>
+                    <b-form-radio name="user-admin" v-show="mode === 'save'"
+                        @click="user.setAdministrador(false) & addPerfil(Perfil.CLIENTE)" class="mt-1 mb-0 ml-3">
+                        Não
+                    </b-form-radio>
+                </b-form-group>
             </b-row>
             <b-row>
                 <b-col md="6" sm="12">
