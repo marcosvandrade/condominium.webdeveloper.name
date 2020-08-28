@@ -31,15 +31,11 @@ public class Usuarios extends AbstractEntity  {
     // @Autowired
     //     private BCryptPasswordEncoder pe;
     
-    public static Object admin;
+    // public static Object admin;
     
     public Usuarios() {
-        // if (this.administrador = true) {
-        //     addPerfil(Perfil.ADMIN);
-        //     addPerfil(Perfil.CLIENTE);
-        // } else {
-        //     addPerfil(Perfil.CLIENTE);
-        // }
+        isAdmin();
+        // addPerfil(Perfil.CLIENTE);
     }
         
         //  public Usuarios(String nome, String cpf, String apartamento, String contato1, 
@@ -64,7 +60,7 @@ private String nome;
 private String email; 
 
 //@NotEmpty
-//@JsonIgnore
+@JsonIgnore
 @Column(name = "senha")
 private String senha;
 
@@ -100,6 +96,9 @@ private Set<Integer> perfis = new HashSet<>();
     
     @Column(name = "administrador")
     private Boolean administrador;
+    
+    @Column(name = "cliente")
+    private Boolean cliente; 
     
     public String getApartamento() {
         return apartamento;
@@ -179,6 +178,14 @@ private Set<Integer> perfis = new HashSet<>();
     
     public void setAdministrador(Boolean administrador) {
         this.administrador = administrador;
+    }
+
+    public Boolean getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Boolean cliente) {
+        this.cliente = cliente;
     }
         
 }

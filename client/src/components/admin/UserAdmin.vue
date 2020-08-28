@@ -37,14 +37,14 @@
                 </b-col>
                 <b-form-group>
                     <span class="ml-3">Administrador?</span>
-                    <b-form-radio name="user-admin" v-show="mode === 'save'"
-                        @click="user.setAdministrador(true) & addPerfil(Perfil.ADMIN) & addPerfil(Perfil.CLIENTE)" class="mt-3 mb-1 ml-3">
+                    <b-form-checkbox name="user-admin" v-show="mode === 'save'"
+                        v-model="user.administrador" class="mt-3 mb-1 ml-3">
                         Sim
-                    </b-form-radio>
-                    <b-form-radio name="user-admin" v-show="mode === 'save'"
-                        @click="user.setAdministrador(false) & addPerfil(Perfil.CLIENTE)" class="mt-1 mb-0 ml-3">
+                    </b-form-checkbox>
+                    <b-form-checkbox name="user-admin" v-show="mode === 'save'"
+                        v-model="user.cliente" class="mt-1 mb-0 ml-3">
                         Não
-                    </b-form-radio>
+                    </b-form-checkbox>
                 </b-form-group>
             </b-row>
             <b-row>

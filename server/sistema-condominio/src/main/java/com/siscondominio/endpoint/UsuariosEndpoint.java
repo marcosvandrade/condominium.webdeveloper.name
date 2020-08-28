@@ -63,6 +63,7 @@ public class UsuariosEndpoint {
     @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping(path= "admin/usuarios")
     public ResponseEntity<?> save(@RequestBody Usuarios user){
+        // user.isAdmin();
         return new ResponseEntity<>(userDAO.save(user), HttpStatus.CREATED);
     }
     
