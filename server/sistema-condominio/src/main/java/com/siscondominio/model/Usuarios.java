@@ -34,22 +34,26 @@ public class Usuarios extends AbstractEntity  {
     // public static Object admin;
     
     public Usuarios() {
-        isAdmin();
-        // addPerfil(Perfil.CLIENTE);
+        // isAdmin();
+        addPerfil(Perfil.CLIENTE);
+        setCliente(true);
+        setAdministrador(false);
     }
         
-        //  public Usuarios(String nome, String cpf, String apartamento, String contato1, 
-        //                   String email, String senha)
-        //                   {
-            //                       super();
-            //                       this.nome = nome;
-            //                       this.cpf = cpf;
-            //                       this.apartamento = apartamento;
-            //                       this.contato1 = contato1;
-            //                       this.email = email;
-            //                       this.senha = senha;
-            //                       addPerfil(Perfil.CLIENTE);
-            //                     }
+         public Usuarios(String nome, String cpf, String apartamento, String contato1, 
+                          String email, String senha)
+                          {
+                                  super();
+                                  this.nome = nome;
+                                  this.cpf = cpf;
+                                  this.apartamento = apartamento;
+                                  this.contato1 = contato1;
+                                  this.email = email;
+                                  this.senha = senha;
+                                  addPerfil(Perfil.CLIENTE);
+                                  setCliente(true);
+                                  setAdministrador(false);
+                                }
             
 @NotEmpty
 @Column(name = "nome")
@@ -59,8 +63,8 @@ private String nome;
 @Column(name = "email") 
 private String email; 
 
-//@NotEmpty
-@JsonIgnore
+@NotEmpty
+// @JsonIgnore
 @Column(name = "senha")
 private String senha;
 

@@ -35,7 +35,7 @@
                             placeholder="Confirme a Senha do Usuário" />
                     </b-form-group>
                 </b-col>
-                <b-form-group>
+                <!-- <b-form-group>
                     <span class="ml-3">Administrador?</span>
                     <b-form-checkbox name="user-admin" v-show="mode === 'save'"
                         v-model="user.administrador" class="mt-3 mb-1 ml-3">
@@ -45,7 +45,7 @@
                         v-model="user.cliente" class="mt-1 mb-0 ml-3">
                         Não
                     </b-form-checkbox>
-                </b-form-group>
+                </b-form-group> -->
             </b-row>
             <b-row>
                 <b-col md="6" sm="12">
@@ -117,8 +117,8 @@ export default {
                 { key: 'cpf', label: 'CPF', sortable: true },
                 { key: 'apartamento', label: 'Apartamento', sortable: true },
                 { key: 'contato1', label: 'Contato', sortable: true },
-                { key: 'administrador', label: 'Administrador', sortable: true,
-                    formatter: value => value ? 'Sim' : 'Não' },
+                // { key: 'administrador', label: 'Administrador', sortable: true,
+                //     formatter: value => value ? 'Sim' : 'Não' },
                 { key: 'actions', label: 'Ações' }
             ]
         }
