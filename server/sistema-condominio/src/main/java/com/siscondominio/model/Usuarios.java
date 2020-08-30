@@ -15,7 +15,7 @@ import javax.validation.constraints.NotEmpty;
 
 // import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
+// import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.siscondominio.enums.Perfil;
 
@@ -29,7 +29,7 @@ public class Usuarios extends AbstractEntity  {
     private static final long serialVersionUID = 1L;
     
     // @Autowired
-    //     private BCryptPasswordEncoder pe;
+        // private BCryptPasswordEncoder pe;
     
     // public static Object admin;
     

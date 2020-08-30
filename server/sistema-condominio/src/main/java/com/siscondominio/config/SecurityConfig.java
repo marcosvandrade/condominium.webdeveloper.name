@@ -2,6 +2,8 @@ package com.siscondominio.config;
 
 import java.util.Arrays;
 
+import javax.sql.DataSource;
+
 import com.siscondominio.security.JWTAuthenticationFilter;
 import com.siscondominio.security.JWTAuthorizationFilter;
 import com.siscondominio.security.JWTUtil;
@@ -29,6 +31,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UserDetailsService userDetailsService;
+
+	@Autowired
+    DataSource dataSource;
 		
 	@Autowired
 	private JWTUtil jwtUtil;
@@ -52,6 +57,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+		auth.jdbcAuthentication().dataSource(dataSource)
+		.passwordEncoder(bCryptPasswordEncoder())
+		.usersByUsernameQuery("{SQL}") //SQL query
+		.authoritiesByUsernameQuery("{SQL}"); //SQL query
 	}
 	
 	// @Bean

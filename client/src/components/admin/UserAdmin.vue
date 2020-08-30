@@ -86,8 +86,8 @@
             </b-row>
         </b-form>
         <hr>
-        <b-table hover striped :items="users">
-             <template slot="actions" slot-scope="data">
+         <b-table striped hover :items="users" :fields="fields" responsive="sm-12">
+            <template slot="actions" slot-scope="data">
                 <b-button variant="warning" @click="loadUser(data.item)" class="mr-2">
                     <i class="fa fa-pencil"></i>
                 </b-button>
@@ -117,6 +117,9 @@ export default {
                 { key: 'cpf', label: 'CPF', sortable: true },
                 { key: 'apartamento', label: 'Apartamento', sortable: true },
                 { key: 'contato1', label: 'Contato', sortable: true },
+                { key: 'perfis', label: 'Perfil', sortable: true },
+                { key: 'administrador', label: 'Admin', sortable: true },
+                { key: 'cliente', label: 'Cliente', sortable: true },
                 // { key: 'administrador', label: 'Administrador', sortable: true,
                 //     formatter: value => value ? 'Sim' : 'Não' },
                 { key: 'actions', label: 'Ações' }
@@ -158,7 +161,7 @@ export default {
         loadUser(user, mode = 'save') {
             this.mode = mode
             this.user = { ...user }
-        },
+        }
     },
         mounted() {
         this.loadUsers()

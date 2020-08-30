@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuariosEndpoint {
 
     private final UserRepository userDAO;
+
+    @Autowired
+    BCryptPasswordEncoder pe;
 
     // private ClienteService service;
 
@@ -63,9 +67,28 @@ public class UsuariosEndpoint {
     @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping(path= "admin/usuarios")
     public ResponseEntity<?> save(@RequestBody Usuarios user){
-        // user.isAdmin();
+        pe.encode(user.getSenha());
         return new ResponseEntity<>(userDAO.save(user), HttpStatus.CREATED);
     }
+
+    // @PreAuthorize("hasAnyRole('ADMIN')")
+    // @PostMapping(path= "admin/usuarios")
+    // public ResponseEntity<?> save(@RequestBody CredenciaisDTO user){
+    //     pe.encode(user.getSenha());
+    //     return new ResponseEntity<>(userDAO.save(user, HttpStatus.CREATED);
+    // }
+
+//     @PostMapping("/registration")
+//     @ResponseStatus(code = HttpStatus.CREATED)
+//     public void register(@RequestBody CredenciaisDTO userCredentialsDto) {
+//         CredenciaisDTO user = CredenciaisDTO.
+//         .enabled(true)
+//         .username(userCredentialsDto.getUsername())
+//         .password(pe.encode(userCredentialsDto.getSenha()))
+//         .roles(Set.of("USER"))
+//         .build();
+//         userDAO.save(user);
+//   }
     
     @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping(path = "admin/usuarios")
