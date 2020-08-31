@@ -7,9 +7,9 @@ import './config/msgs'
 // import vuetify from './plugins/vuetify'
 
 // import '@babel/polyfill'
-import 'mutationobserver-shim'
-import './plugins/bootstrap-vue'
-import './plugins/axios'
+// import 'mutationobserver-shim'
+// import './plugins/bootstrap-vue'
+import './config/axios'
 import router from './config/router'
 
 // import './assets/style.scss'
