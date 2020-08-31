@@ -1,25 +1,55 @@
-import Vue from "vue";
-import Router from "vue-router";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
-Vue.use(Router);
+import Home from '@/components/home/Home'
+import AdminPages from '@/components/admin/AdminPages'
+// import ArticlesByCategory from '@/components/article/ArticlesByCategory'
+// import ArticleById from '@/components/article/ArticleById'
+// import Auth from '@/components/auth/Auth'
 
-const router = new Router({
-    mode: "history",  // Use browser history
+// import { userKey } from '@/global'
 
-    routes: [
-        {
-            path: "/",
-            name: "Login",
-            component: () => import("../components/login")
-        },
+Vue.use(VueRouter)
 
-        {
-            path: "/cadastro",
-            name: "Cadastro",
-            component: () => import("../components/cadastro")
-        }
+const routes = [{
+    name: 'home',
+    path: '/',
+    component: Home
+}, {
+    name: 'adminPages',
+    path: '/admin',
+    component: AdminPages,
+    // meta: { requiresAdmin: true }
+ }, 
+//{
+//     name: 'articlesByCategory',
+//     path: '/categories/:id/articles',
+//     component: ArticlesByCategory
+// }, {
+//     name: 'articleById',
+//     path: '/articles/:id',
+//     component: ArticleById
+// }, {
+//     name: 'auth',
+//     path: '/auth',
+//     component: Auth
+// }
+]
 
-    ]
-});
+const router = new VueRouter({
+    mode: 'history',
+    routes
+})
 
-export default router;
+// router.beforeEach((to, from, next) => {
+//     const json = localStorage.getItem(userKey)
+
+//     if(to.matched.some(record => record.meta.requiresAdmin)) {
+//         const user = JSON.parse(json)
+//         user && user.admin ? next() : next({ path: '/' })
+//     } else {
+//         next()
+//     }
+// })
+
+export default router
