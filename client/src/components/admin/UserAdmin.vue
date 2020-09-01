@@ -47,7 +47,7 @@
                     </b-form-checkbox>
                 </b-form-group> -->
             </b-row>
-            <b-row>
+            <b-row v-show="mode === 'save'">
                 <b-col md="6" sm="12">
                     <b-form-group label="CPF:" label-for="user-cpf">
                         <b-form-input id="user-cpf" type="text"
@@ -65,7 +65,7 @@
                     </b-form-group>
                 </b-col>
             </b-row>
-            <b-row>
+            <b-row v-show="mode === 'save'">
                 <b-col md="6" sm="12">
                     <b-form-group label="Contato:" label-for="user-contato">
                         <b-form-input id="user-contato" type="text"
