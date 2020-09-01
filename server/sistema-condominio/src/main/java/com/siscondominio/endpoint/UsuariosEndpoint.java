@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import com.siscondominio.model.Usuarios;
 import com.siscondominio.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -60,28 +61,42 @@ public class UsuariosEndpoint {
     
     // @RequestMapping(value="api/admin/usuarios/{id}", method=RequestMethod.GET)
 	// public ResponseEntity<Usuarios> find(@PathVariable Integer id) {
-	// 	Usuarios obj = service.find(id);
-	// 	return ResponseEntity.ok().body(obj);
-	// }
+        // 	Usuarios obj = service.find(id);
+        // 	return ResponseEntity.ok().body(obj);
+        // }
+        
+        @PreAuthorize("hasAnyRole('ADMIN')")
+        @PostMapping(path= "admin/usuarios")
+        public ResponseEntity<?> save(@RequestBody Usuarios user){
+            pe.encode(user.getSenha());
+            return new ResponseEntity<>(userDAO.save(user), HttpStatus.CREATED);
+        }
+        
+        @PreAuthorize("hasAnyRole('ADMIN')")
+        @PutMapping(path = "admin/usuarios")
+        public ResponseEntity<?> update(@RequestBody  Usuarios user){
+            pe.encode(user.getSenha());
+            return new ResponseEntity<>(userDAO.save(user), HttpStatus.OK);
+        }
+        
+        @PreAuthorize("hasAnyRole('ADMIN')")
+        @DeleteMapping(path = "admin/usuarios/{id}")
+        public ResponseEntity<?> delete(@PathVariable Integer id){
+        userDAO.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+        }
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
-    @PostMapping(path= "admin/usuarios")
-    public ResponseEntity<?> save(@RequestBody Usuarios user){
-        pe.encode(user.getSenha());
-        return new ResponseEntity<>(userDAO.save(user), HttpStatus.CREATED);
-    }
-
-    // @PreAuthorize("hasAnyRole('ADMIN')")
-    // @PostMapping(path= "admin/usuarios")
-    // public ResponseEntity<?> save(@RequestBody CredenciaisDTO user){
-    //     pe.encode(user.getSenha());
-    //     return new ResponseEntity<>(userDAO.save(user, HttpStatus.CREATED);
-    // }
-
-//     @PostMapping("/registration")
-//     @ResponseStatus(code = HttpStatus.CREATED)
-//     public void register(@RequestBody CredenciaisDTO userCredentialsDto) {
-//         CredenciaisDTO user = CredenciaisDTO.
+        // @PreAuthorize("hasAnyRole('ADMIN')")
+        // @PostMapping(path= "admin/usuarios")
+        // public ResponseEntity<?> save(@RequestBody CredenciaisDTO user){
+            //     pe.encode(user.getSenha());
+            //     return new ResponseEntity<>(userDAO.save(user, HttpStatus.CREATED);
+            // }
+            
+            //     @PostMapping("/registration")
+            //     @ResponseStatus(code = HttpStatus.CREATED)
+            //     public void register(@RequestBody CredenciaisDTO userCredentialsDto) {
+                //         CredenciaisDTO user = CredenciaisDTO.
 //         .enabled(true)
 //         .username(userCredentialsDto.getUsername())
 //         .password(pe.encode(userCredentialsDto.getSenha()))
@@ -90,17 +105,5 @@ public class UsuariosEndpoint {
 //         userDAO.save(user);
 //   }
     
-    @PreAuthorize("hasAnyRole('ADMIN')")
-    @PutMapping(path = "admin/usuarios")
-    public ResponseEntity<?> update(@RequestBody Usuarios user){
-        return new ResponseEntity<>(userDAO.save(user), HttpStatus.OK);
-}
-
-    @PreAuthorize("hasAnyRole('ADMIN')")
-    @DeleteMapping(path = "admin/usuarios/{id}")
-    public ResponseEntity<?> delete(@PathVariable Integer id){
-    userDAO.deleteById(id);
-    return new ResponseEntity<>(HttpStatus.OK);
-}
 
 }

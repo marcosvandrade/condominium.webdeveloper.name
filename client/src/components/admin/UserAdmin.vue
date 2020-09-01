@@ -86,7 +86,7 @@
             </b-row>
         </b-form>
         <hr>
-         <b-table striped hover :items="users" :fields="fields" responsive="sm-12">
+         <b-table striped hover :items="users" :fields="fields">
             <template slot="actions" slot-scope="data">
                 <b-button variant="warning" @click="loadUser(data.item)" class="mr-2">
                     <i class="fa fa-pencil"></i>
@@ -114,10 +114,11 @@ export default {
                 { key: 'id', label: 'Código', sortable: true },
                 { key: 'nome', label: 'Nome Completo', sortable: true },
                 { key: 'email', label: 'E-mail', sortable: true },
+                // { key: 'senha', label: 'Senha', sortable: true },
                 { key: 'cpf', label: 'CPF', sortable: true },
                 { key: 'apartamento', label: 'Apartamento', sortable: true },
                 { key: 'contato1', label: 'Contato', sortable: true },
-                { key: 'perfis', label: 'Perfil', sortable: true },
+                { key: 'perfis', label: 'Perfil', sortable: true, formatter: ' ' },
                 { key: 'administrador', label: 'Admin', sortable: true },
                 { key: 'cliente', label: 'Cliente', sortable: true },
                 // { key: 'administrador', label: 'Administrador', sortable: true,
