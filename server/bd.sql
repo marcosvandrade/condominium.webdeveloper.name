@@ -87,11 +87,19 @@ CREATE TABLE condominos(
     usuarios_condominos_fk INTEGER REFERENCES usuarios(id)
 );
 
-CREATE TABLE noticias_avisos(
+-- CREATE TABLE noticias_avisos(
+--     id SERIAL PRIMARY KEY,
+--     texto VARCHAR(200), -- configurar referencia e validacao de caracteres
+--     arquivado BOOLEAN
+-- );
+
+CREATE TABLE articles(
     id SERIAL PRIMARY KEY,
-    texto VARCHAR(200), -- configurar referencia e validacao de caracteres
-    arquivado BOOLEAN
-);
+    title VARCHAR(255) NOT NULL,
+    content VARCHAR(1000),
+    userId SERIAL REFERENCES usuarios(id)
+)
+
 
 CREATE TABLE documentos(
     id SERIAL PRIMARY KEY,
