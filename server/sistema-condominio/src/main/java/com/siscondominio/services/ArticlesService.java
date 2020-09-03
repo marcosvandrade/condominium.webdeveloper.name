@@ -1,7 +1,9 @@
 package com.siscondominio.services;
 
+import java.util.List;
 import java.util.Optional;
 
+import com.siscondominio.dto.ArticlesDTO;
 import com.siscondominio.enums.Perfil;
 import com.siscondominio.model.Articles;
 import com.siscondominio.repository.ArticlesRepository;
@@ -55,6 +57,14 @@ public class ArticlesService {
 		catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Não é possível excluir porque há artigos relacionados");
 		}
+	}
+
+	public List<Articles> findAll() {
+		return repo.findAll();
+	}
+
+	public Articles fromDTO(ArticlesDTO objDto) {
+		return new Articles(objDto.getTitle(), objDto.getContent());
 	}
 
 	private void updateData(Articles newObj, Articles obj) {

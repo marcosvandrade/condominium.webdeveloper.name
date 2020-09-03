@@ -88,9 +88,9 @@
         <hr>
          <b-table striped hover :items="users" :fields="fields">
             <template slot="actions" slot-scope="data">
-                <b-button variant="warning" @click="loadUser(data.item)" class="mr-2">
+                <!-- <b-button variant="warning" @click="loadUser(data.item)" class="mr-2">
                     <i class="fa fa-pencil"></i>
-                </b-button>
+                </b-button> -->
                 <b-button variant="danger" @click="loadUser(data.item, 'remove')">
                     <i class="fa fa-trash"></i>
                 </b-button>
@@ -172,5 +172,10 @@ export default {
 </script>
 
 <style>
-
+    .b-table {
+        align-content: center;
+        align-items: center;
+        margin-left: 10px;
+        width: 100%;
+    }
 </style>

@@ -43,11 +43,11 @@
             <b-button class="ml-2" @click="reset">Cancelar</b-button>
         </b-form>
         <hr>
-        <b-table hover striped :items="articles">
+        <b-table hover striped :items="articles" :fields="fields">
             <template slot="actions" slot-scope="data">
-                <b-button variant="warning" @click="loadArticle(data.item)" class="mr-2">
+                <!-- <b-button variant="warning" @click="loadArticle(data.item)" class="mr-2">
                     <i class="fa fa-pencil"></i>
-                </b-button>
+                </b-button> -->
                 <b-button variant="danger" @click="loadArticle(data.item, 'remove')">
                     <i class="fa fa-trash"></i>
                 </b-button>
@@ -69,20 +69,19 @@ export default {
         return {
             mode: 'save',
             article: {},
-            articles: []
-            // fields: [
-            //     { key: 'id', label: 'Código', sortable: true },
-            //     { key: 'title', label: 'Título', sortable: true },
-            //     { key: 'actions', label: 'Ações' }
-            // ]
+            articles: [],
+            fields: [
+                { key: 'id', label: 'Código', sortable: true },
+                { key: 'title', label: 'Título', sortable: true },
+                { key: 'actions', label: 'Ações' }
+            ]
         }
     },
     methods: {
         loadArticles() {
-            const url = `${baseApiUrl}/api/articles`
+            const url = `${baseApiUrl}/api/articles/`
             axios.get(url).then(res => {
-                this.articles = res.data.data
-                console.log(this.articles)
+                this.articles = res.data
             })
         },
         reset() {
@@ -136,5 +135,5 @@ export default {
 </script>
 
 <style>
-
+    
 </style>
