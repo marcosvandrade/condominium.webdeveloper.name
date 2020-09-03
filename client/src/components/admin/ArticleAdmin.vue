@@ -26,11 +26,11 @@
                 <b-form-select id="article-categoryId"
                     :options="categories" v-model="article.categoryId" />
             </b-form-group> -->
-            <b-form-group v-if="mode === 'save'" 
+            <!-- <b-form-group v-if="mode === 'save'" 
                 label="Autor:" label-for="article-id">
                 <b-form-select id="article-id"
                     :options="users" v-model="article.id" />
-            </b-form-group>
+            </b-form-group> -->
             <b-form-group v-if="mode === 'save'"
                 label="Conteúdo" label-for="article-content">
                 <VueEditor v-model="article.content"
@@ -43,7 +43,7 @@
             <b-button class="ml-2" @click="reset">Cancelar</b-button>
         </b-form>
         <hr>
-        <b-table hover striped :items="articles" :fields="fields">
+        <b-table hover striped :items="articles">
             <template slot="actions" slot-scope="data">
                 <b-button variant="warning" @click="loadArticle(data.item)" class="mr-2">
                     <i class="fa fa-pencil"></i>
@@ -53,13 +53,13 @@
                 </b-button>
             </template>
         </b-table>
-        <b-pagination size="md" v-model="page" :total-rows="count" :per-page="limit" />
+        <!-- <b-pagination size="md" v-model="page" :total-rows="count" :per-page="limit" /> -->
     </div>
 </template>
 
 <script>
 import { VueEditor } from "vue2-editor"
-import { baseApiUrl, showError } from '@/global'
+import { baseApiUrl, showError } from '../../global'
 import axios from 'axios'
 
 export default {
@@ -69,26 +69,20 @@ export default {
         return {
             mode: 'save',
             article: {},
-            articles: [],
-            users: [],
-            page: 1,
-            limit: 0,
-            count: 0,
-            fields: [
-                { key: 'id', label: 'Código', sortable: true },
-                { key: 'title', label: 'Título', sortable: true },
-                { key: 'content', label: 'Conteúdo', sortable: true },
-                { key: 'actions', label: 'Ações' }
-            ]
+            articles: []
+            // fields: [
+            //     { key: 'id', label: 'Código', sortable: true },
+            //     { key: 'title', label: 'Título', sortable: true },
+            //     { key: 'actions', label: 'Ações' }
+            // ]
         }
     },
     methods: {
         loadArticles() {
-            const url = `${baseApiUrl}/api/articles?page=${this.page}`
+            const url = `${baseApiUrl}/api/articles`
             axios.get(url).then(res => {
                 this.articles = res.data.data
-                this.count = res.data.count
-                this.limit = res.data.limit
+                console.log(this.articles)
             })
         },
         reset() {
@@ -119,23 +113,23 @@ export default {
             this.mode = mode
             axios.get(`${baseApiUrl}/api/articles/${article.id}`)
                 .then(res => this.article = res.data)
-        },
-        loadUsers() {
-            const url = `${baseApiUrl}/api/admin/usuarios`
-            axios.get(url).then(res => {
-                this.users = res.data.map(user => {
-                    return { value: user.id, text: `${user.nome} - ${user.email}` }
-                })
-            })
         }
+        // loadUsers() {
+        //     const url = `${baseApiUrl}/api/admin/usuarios`
+        //     axios.get(url).then(res => {
+        //         this.users = res.data.map(user => {
+        //             return { value: user.id, text: `${user.nome} - ${user.email}` }
+        //         })
+        //     })
+        // }
     },
-    watch: {
-        page() {
-            this.loadArticles()
-        }
-    },
+    // watch: {
+    //     page() {
+    //         this.loadArticles()
+    //     }
+    // },
     mounted() {
-        this.loadUsers()
+        // this.loadUsers()
         this.loadArticles()
     }
 }

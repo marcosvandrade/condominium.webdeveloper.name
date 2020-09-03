@@ -32,13 +32,13 @@ public class ArticlesEndpoint {
         this.articlesDAO = articlesDAO;
     }
    
-    @PreAuthorize("hasAnyRole('CLIENTE')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'CLIENTE')")
     @GetMapping(path= "articles")
     public ResponseEntity<?> listAll() {
         return new ResponseEntity<>(articlesDAO.findAll(), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAnyRole('CLIENTE')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'CLIENTE')")
     @GetMapping(path = "articles/{id}")
     public ResponseEntity<?> getArticlesById(@PathVariable("id") Integer id) {
         Optional<Articles> article = articlesDAO.findById(id);

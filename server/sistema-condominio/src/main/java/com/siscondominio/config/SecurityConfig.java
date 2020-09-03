@@ -2,16 +2,14 @@ package com.siscondominio.config;
 
 import java.util.Arrays;
 
-import javax.sql.DataSource;
-
 import com.siscondominio.security.JWTAuthenticationFilter;
 import com.siscondominio.security.JWTAuthorizationFilter;
 import com.siscondominio.security.JWTUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -32,8 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
-	@Autowired
-    DataSource dataSource;
+	// @Autowired
+    // DataSource dataSource;
 		
 	@Autowired
 	private JWTUtil jwtUtil;
@@ -41,27 +39,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private static final String[] PUBLIC_MATCHERS_POST = {
 		"/auth/forgot/**"
 };
+
+	private static final String[] PUBLIC_MATCHERS_GET = {
+		"**/articles/**",
+};
 		
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.cors().and().csrf().disable();
 		http.authorizeRequests()
-		    .antMatchers(HttpMethod.POST, PUBLIC_MATCHERS_POST).permitAll()
+			.antMatchers(HttpMethod.POST, PUBLIC_MATCHERS_POST).permitAll()
+			.antMatchers(HttpMethod.GET, PUBLIC_MATCHERS_GET).permitAll()
 			.anyRequest().authenticated();
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
         http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
 	
-	@Override
-	public void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
-		auth.jdbcAuthentication().dataSource(dataSource)
-		.passwordEncoder(bCryptPasswordEncoder())
-		.usersByUsernameQuery("{SQL}") //SQL query
-		.authoritiesByUsernameQuery("{SQL}"); //SQL query
-	}
+	// @Override
+	// public void configure(AuthenticationManagerBuilder auth) throws Exception {
+	// 	auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+	// 	auth.jdbcAuthentication().dataSource(dataSource)
+	// 	.passwordEncoder(bCryptPasswordEncoder())
+	// 	.usersByUsernameQuery("{SQL}") //SQL query
+	// 	.authoritiesByUsernameQuery("{SQL}"); //SQL query
+	// }
 	
 	// @Bean
 	// CorsConfigurationSource corsConfigurationSource() {

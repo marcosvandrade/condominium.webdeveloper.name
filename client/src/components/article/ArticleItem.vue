@@ -12,9 +12,9 @@
             <div class="article-item-info">
                 <h2>{{ article.title }}</h2>
                 <p>{{ article.content }}</p>
-                <span class="article-item-author">
+                <!-- <span class="article-item-author">
                     <strong>Autor: </strong>{{ article.author }}
-                </span>
+                </span> -->
             </div>
         </router-link>
     </div>
