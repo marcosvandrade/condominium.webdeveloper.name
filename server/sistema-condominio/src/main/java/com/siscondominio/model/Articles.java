@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -19,26 +17,15 @@ public class Articles {
 
     }
 
-    public Articles(Integer id, String title, String content, Usuarios user) {
+    public Articles(String title, String content) {
         super();
-        this.id = id;
         this.title = title;
         this.content = content;
-        this.user = user;
     }
 
 @Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 private Integer id;
-
-@ManyToOne
-@JoinColumn(name="id")
-private Usuarios user;
-
-// @ManyToOne
-// @JoinTable(name="usuarios",
-//     joinColumns = @JoinColumn(name = "userid", referencedColumnName = "id"))
-// private Usuarios user;
 
 @NotEmpty
 @Column(name = "title")
@@ -70,22 +57,6 @@ public String getContent() {
 
 public void setContent(String content) {
     this.content = content;
-}
-
-// public Usuarios getUser() {
-//     return user;
-// }
-
-// public void setUser(Usuarios user) {
-//     this.user = user;
-// }
-
-public Usuarios getUsuarios() {
-    return user;
-}
-
-public void setUsuarios(Usuarios user) {
-    this.user = user;
 }
 
 }

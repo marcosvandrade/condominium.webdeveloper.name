@@ -17,7 +17,7 @@
             <b-form-group v-if="mode === 'save'"
                 label="Imagem (URL):" label-for="article-imageUrl">
                 <b-form-input id="article-imageUrl" type="text"
-                    v-model="article.imageUrl" required
+                    v-model="article.imageUrl"
                     :readonly="mode === 'remove'"
                     placeholder="Informe a URL da Imagem..." />
             </b-form-group>
@@ -27,9 +27,9 @@
                     :options="categories" v-model="article.categoryId" />
             </b-form-group> -->
             <b-form-group v-if="mode === 'save'" 
-                label="Autor:" label-for="article-userId">
-                <b-form-select id="article-userId"
-                    :options="users" v-model="article.userId" />
+                label="Autor:" label-for="article-id">
+                <b-form-select id="article-id"
+                    :options="users" v-model="article.id" />
             </b-form-group>
             <b-form-group v-if="mode === 'save'"
                 label="Conteúdo" label-for="article-content">
