@@ -24,7 +24,7 @@ Vue.config.productionTip = false
 // Vue.component('page-homeUser', homeUser)
 
 // TEMPORÁRIO!
-require('axios').defaults.headers.common['Authorization'] = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJleHAiOjE1OTk2OTk3ODd9.xA5TsL19tGC0GE4RT6jy-YPlQ18EH-bj_Wp8oVy5hBzpvHntW12wPPlqYdzebJK2HUU2yvkLn7ZPbaF34TJ8KQ'
+// require('axios').defaults.headers.common['Authorization'] = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJleHAiOjE1OTk2OTk3ODd9.xA5TsL19tGC0GE4RT6jy-YPlQ18EH-bj_Wp8oVy5hBzpvHntW12wPPlqYdzebJK2HUU2yvkLn7ZPbaF34TJ8KQ'
 
 new Vue({
     // vuetify,
