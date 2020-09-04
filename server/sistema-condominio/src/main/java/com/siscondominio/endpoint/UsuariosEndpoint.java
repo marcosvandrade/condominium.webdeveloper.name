@@ -65,26 +65,26 @@ public class UsuariosEndpoint {
         // 	return ResponseEntity.ok().body(obj);
         // }
         
-        @PreAuthorize("hasAnyRole('ADMIN')")
-        @PostMapping(path= "admin/usuarios")
-        public ResponseEntity<?> save(@RequestBody Usuarios user){
-            pe.encode(user.getSenha());
-            return new ResponseEntity<>(userDAO.save(user), HttpStatus.CREATED);
-        }
-        
-        @PreAuthorize("hasAnyRole('ADMIN')")
-        @PutMapping(path = "admin/usuarios")
-        public ResponseEntity<?> update(@RequestBody  Usuarios user){
-            pe.encode(user.getSenha());
-            return new ResponseEntity<>(userDAO.save(user), HttpStatus.OK);
-        }
-        
-        @PreAuthorize("hasAnyRole('ADMIN')")
-        @DeleteMapping(path = "admin/usuarios/{id}")
-        public ResponseEntity<?> delete(@PathVariable Integer id){
-        userDAO.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.OK);
-        }
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PostMapping(path= "admin/usuarios")
+    public ResponseEntity<?> save(@RequestBody Usuarios user){
+        pe.encode(user.getSenha());
+        return new ResponseEntity<>(userDAO.save(user), HttpStatus.CREATED);
+    }
+    
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PutMapping(path = "admin/usuarios")
+    public ResponseEntity<?> update(@RequestBody  Usuarios user){
+        pe.encode(user.getSenha());
+        return new ResponseEntity<>(userDAO.save(user), HttpStatus.OK);
+    }
+    
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @DeleteMapping(path = "admin/usuarios/{id}")
+    public ResponseEntity<?> delete(@PathVariable Integer id){
+    userDAO.deleteById(id);
+    return new ResponseEntity<>(HttpStatus.OK);
+    }
 
         // @PreAuthorize("hasAnyRole('ADMIN')")
         // @PostMapping(path= "admin/usuarios")
