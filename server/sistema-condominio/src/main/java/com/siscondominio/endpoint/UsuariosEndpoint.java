@@ -65,7 +65,7 @@ public class UsuariosEndpoint {
         // 	return ResponseEntity.ok().body(obj);
         // }
         
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    // @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping(path= "admin/usuarios")
     public ResponseEntity<?> save(@RequestBody Usuarios user){
         pe.encode(user.getSenha());

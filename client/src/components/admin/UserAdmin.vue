@@ -8,7 +8,7 @@
                         <b-form-input id="user-name" type="text"
                             v-model="user.nome" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe o Nome do Usuário" />
+                            placeholder="Informe o seu Nome Completo..." />
                     </b-form-group>
                 </b-col>
                 <b-col md="6" sm="12">
@@ -61,7 +61,7 @@
                         <b-form-input id="user-apartamento" type="text"
                             v-model="user.apartamento" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe o qual o seu apartamento" />
+                            placeholder="Informe o núemro do apartamento" />
                     </b-form-group>
                 </b-col>
             </b-row>

@@ -37,7 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private JWTUtil jwtUtil;
 
 	private static final String[] PUBLIC_MATCHERS_POST = {
-		"/auth/forgot/**"
+		"/auth/forgot/**",
+		"/api/admin/usuarios"
 };
 
 	private static final String[] PUBLIC_MATCHERS_GET = {
@@ -56,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
-	
+		
 	// @Override
 	// public void configure(AuthenticationManagerBuilder auth) throws Exception {
 	// 	auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());

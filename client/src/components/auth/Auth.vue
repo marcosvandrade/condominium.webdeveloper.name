@@ -5,11 +5,14 @@
             <hr>
             <div class="auth-title">{{ showSignup ? 'Cadastro' : 'Login' }}</div>
 
-            <input v-if="showSignup" v-model="user.nome" type="text" placeholder="Nome">
-            <input v-model="user.email" name="email" type="text" placeholder="E-mail">
-            <input v-model="user.senha" name="senha" type="password" placeholder="Senha">
+            <input v-if="showSignup" v-model="user.nome"   type="text" placeholder="Informe o seu Nome Completo...">
+            <input v-model="user.email"  name="email" type="text" placeholder="Informe um E-mail válido...">
+            <input v-model="user.senha"  name="senha" type="password" placeholder="Informe a senha">
             <input v-if="showSignup" 
                 type="password" placeholder="Confirme a Senha">
+            <input v-if="showSignup" v-model="user.cpf"  type="text" placeholder="Informe o seu CPF (somente números)...">
+            <input v-if="showSignup" v-model="user.apartamento"  type="text" placeholder="Informe o qual o seu apartamento...">
+            <input v-if="showSignup" v-model="user.contato1"  type="text" placeholder="Contato">
 
             <button v-if="showSignup" @click="signup">Registrar</button>
             <button v-else @click="signin">Entrar</button>
@@ -23,7 +26,7 @@
 </template>
 
 <script>
-import { baseApiUrl, showError, userKey } from '@/global'
+import { baseApiUrl, showError } from '@/global'
 import axios from 'axios'
 
 export default {
@@ -39,8 +42,10 @@ export default {
             axios.post(`${baseApiUrl}/login`, this.user)
                 .then(res => {
                     this.$store.commit('setUser', res.data)
-                    localStorage.setItem(userKey, JSON.stringify(res.data))
+                    // localStorage.setItem(userKey, JSON.stringify(res.data))
                     this.$router.push({ path: '/' })
+                    // console.log(this.user)
+                    // console.log(userKey)
                 })
                 .catch(showError)
         },
