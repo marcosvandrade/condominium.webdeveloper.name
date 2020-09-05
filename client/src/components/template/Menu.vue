@@ -1,54 +1,54 @@
 <template>
     <aside class="menu" v-show="isMenuVisible">
-        <!-- <div class="menu-filter">
+        <div class="menu-filter">
             <i class="fa fa-search fa-lg"></i>
             <input type="text" placeholder="Digite para filtrar..."
                 v-model="treeFilter" class="filter-field">
         </div>
         <Tree :data="treeData" :options="treeOptions"
-            :filter="treeFilter" ref="tree" /> -->
+            :filter="treeFilter" ref="tree" />
     </aside>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-// import Tree from 'liquor-tree'
-// import { baseApiUrl } from '@/global'
-// import axios from 'axios'
+import Tree from 'liquor-tree'
+import { baseApiUrl } from '@/global'
+import axios from 'axios'
 
 export default {
     name: 'Menu',
-    // components: { Tree },
-    computed: mapState(['isMenuVisible'])
-    // data: function() {
-    //     return {
-    //         treeFilter: '',
-    //         treeData: this.getTreeData(),
-    //         treeOptions: {
-    //             propertyNames: { 'text': 'name' },
-    //             filter: { emptyText: 'Categoria não encontrada' }
-    //         }
-    //     }
-    // },
-    // methods: {
-    //     getTreeData() {
-    //         const url = `${baseApiUrl}/categories/tree`
-    //         return axios.get(url).then(res => res.data)
-    //     },
-    //     onNodeSelect(node) {
-    //         this.$router.push({
-    //             name: 'articlesByCategory',
-    //             params: { id: node.id }
-    //         })
+    components: { Tree },
+    computed: mapState(['isMenuVisible']),
+    data: function() {
+        return {
+            treeFilter: '',
+            treeData: this.getTreeData(),
+            treeOptions: {
+                propertyNames: { 'text': 'name' },
+                filter: { emptyText: 'Categoria não encontrada' }
+            }
+        }
+    },
+    methods: {
+        getTreeData() {
+            const url = `${baseApiUrl}/categories/tree`
+            return axios.get(url).then(res => res.data)
+        },
+        onNodeSelect(node) {
+            this.$router.push({
+                name: 'articlesByCategory',
+                params: { id: node.id }
+            })
 
-    //         if(this.$mq === 'xs' || this.$mq === 'sm') {
-    //             this.$store.commit('toggleMenu', false)
-    //         }
-    //     }
-    // },
-    // mounted() {
-    //     this.$refs.tree.$on('node:selected', this.onNodeSelect)
-    // }
+            if(this.$mq === 'xs' || this.$mq === 'sm') {
+                this.$store.commit('toggleMenu', false)
+            }
+        }
+    },
+    mounted() {
+        this.$refs.tree.$on('node:selected', this.onNodeSelect)
+    }
 }
 </script>
 

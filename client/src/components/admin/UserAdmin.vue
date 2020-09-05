@@ -4,11 +4,11 @@
             <input id="user-id" type="hidden" v-model="user.id" />
             <b-row>
                 <b-col md="6" sm="12">
-                    <b-form-group label="Nome Completo:" label-for="user-name">
+                    <b-form-group label="Nome:" label-for="user-name">
                         <b-form-input id="user-name" type="text"
-                            v-model="user.nome" required
+                            v-model="user.name" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe o seu Nome Completo..." />
+                            placeholder="Informe o Nome do morador..." />
                     </b-form-group>
                 </b-col>
                 <b-col md="6" sm="12">
@@ -16,44 +16,17 @@
                         <b-form-input id="user-email" type="text"
                             v-model="user.email" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe o E-mail do Usuário" />
+                            placeholder="Informe o E-mail do morador..." />
                     </b-form-group>
                 </b-col>
             </b-row>
-            <b-row v-show="mode === 'save'">
-                <b-col md="6" sm="12">
-                    <b-form-group label="Senha:" label-for="user-password">
-                        <b-form-input id="user-password" type="password"
-                            v-model="user.senha" required
-                            placeholder="Informe a Senha do Usuário" />
-                    </b-form-group>
-                </b-col>
-                <b-col md="6" sm="12">
-                    <b-form-group label="Confirmação de Senha:" 
-                        label-for="user-confirm-password">
-                        <b-form-input id="user-confirm-password" type="password" required
-                            placeholder="Confirme a Senha do Usuário" />
-                    </b-form-group>
-                </b-col>
-                <!-- <b-form-group>
-                    <span class="ml-3">Administrador?</span>
-                    <b-form-checkbox name="user-admin" v-show="mode === 'save'"
-                        v-model="user.administrador" class="mt-3 mb-1 ml-3">
-                        Sim
-                    </b-form-checkbox>
-                    <b-form-checkbox name="user-admin" v-show="mode === 'save'"
-                        v-model="user.cliente" class="mt-1 mb-0 ml-3">
-                        Não
-                    </b-form-checkbox>
-                </b-form-group> -->
-            </b-row>
-            <b-row v-show="mode === 'save'">
+             <b-row>
                 <b-col md="6" sm="12">
                     <b-form-group label="CPF:" label-for="user-cpf">
                         <b-form-input id="user-cpf" type="text"
                             v-model="user.cpf" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe o CPF do Usuário (somente números)" />
+                            placeholder="Informe o CPF do morador..." />
                     </b-form-group>
                 </b-col>
                 <b-col md="6" sm="12">
@@ -61,17 +34,36 @@
                         <b-form-input id="user-apartamento" type="text"
                             v-model="user.apartamento" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe o núemro do apartamento" />
+                            placeholder="Informe o apartamento do morador..." />
                     </b-form-group>
                 </b-col>
-            </b-row>
-            <b-row v-show="mode === 'save'">
                 <b-col md="6" sm="12">
                     <b-form-group label="Contato:" label-for="user-contato">
                         <b-form-input id="user-contato" type="text"
-                            v-model="user.contato1" required
+                            v-model="user.contato" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe um telefone de contato" />
+                            placeholder="Informe o contato do morador..." />
+                    </b-form-group>
+                </b-col>
+            </b-row>
+            <b-form-checkbox id="user-admin" v-show="mode === 'save'"
+                v-model="user.admin" class="mt-3 mb-3">
+                Administrador?
+            </b-form-checkbox>
+            <b-row v-show="mode === 'save'">
+                <b-col md="6" sm="12">
+                    <b-form-group label="Senha:" label-for="user-password">
+                        <b-form-input id="user-password" type="password"
+                            v-model="user.password" required
+                            placeholder="Informe a Senha do Usuário..." />
+                    </b-form-group>
+                </b-col>
+                <b-col md="6" sm="12">
+                    <b-form-group label="Confirmação de Senha:" 
+                        label-for="user-confirm-password">
+                        <b-form-input id="user-confirm-password" type="password"
+                            v-model="user.confirmPassword" required
+                            placeholder="Confirme a Senha do Usuário..." />
                     </b-form-group>
                 </b-col>
             </b-row>
@@ -86,11 +78,11 @@
             </b-row>
         </b-form>
         <hr>
-         <b-table striped hover :items="users" :fields="fields">
+        <b-table hover striped :items="users" :fields="fields">
             <template slot="actions" slot-scope="data">
-                <!-- <b-button variant="warning" @click="loadUser(data.item)" class="mr-2">
+                <b-button variant="warning" @click="loadUser(data.item)" class="mr-2">
                     <i class="fa fa-pencil"></i>
-                </b-button> -->
+                </b-button>
                 <b-button variant="danger" @click="loadUser(data.item, 'remove')">
                     <i class="fa fa-trash"></i>
                 </b-button>
@@ -100,7 +92,7 @@
 </template>
 
 <script>
-import { baseApiUrl, showError} from '@/global'
+import { baseApiUrl, showError } from '@/global'
 import axios from 'axios'
 
 export default {
@@ -112,30 +104,25 @@ export default {
             users: [],
             fields: [
                 { key: 'id', label: 'Código', sortable: true },
-                { key: 'nome', label: 'Nome Completo', sortable: true },
+                { key: 'name', label: 'Nome', sortable: true },
                 { key: 'email', label: 'E-mail', sortable: true },
-                // { key: 'senha', label: 'Senha', sortable: true },
                 { key: 'cpf', label: 'CPF', sortable: true },
                 { key: 'apartamento', label: 'Apartamento', sortable: true },
-                { key: 'contato1', label: 'Contato', sortable: true },
-                { key: 'perfis', label: 'Perfil', sortable: true, formatter: ' ' },
-                { key: 'administrador', label: 'Admin', sortable: true },
-                { key: 'cliente', label: 'Cliente', sortable: true },
-                // { key: 'administrador', label: 'Administrador', sortable: true,
-                //     formatter: value => value ? 'Sim' : 'Não' },
+                { key: 'contato', label: 'Contato', sortable: true },
+                { key: 'admin', label: 'Administrador', sortable: true,
+                    formatter: value => value ? 'Sim' : 'Não' },
                 { key: 'actions', label: 'Ações' }
             ]
         }
     },
     methods: {
         loadUsers() {
-            const url = `${baseApiUrl}/api/admin/usuarios`
+            const url = `${baseApiUrl}/users`
             axios.get(url).then(res => {
                 this.users = res.data
-                // console.log(this.users)
             })
         },
-         reset() {
+        reset() {
             this.mode = 'save'
             this.user = {}
             this.loadUsers()
@@ -143,7 +130,7 @@ export default {
         save() {
             const method = this.user.id ? 'put' : 'post'
             const id = this.user.id ? `/${this.user.id}` : ''
-            axios[method](`${baseApiUrl}/api/admin/usuarios${id}`, this.user)
+            axios[method](`${baseApiUrl}/users${id}`, this.user)
                 .then(() => {
                     this.$toasted.global.defaultSuccess()
                     this.reset()
@@ -152,7 +139,7 @@ export default {
         },
         remove() {
             const id = this.user.id
-            axios.delete(`${baseApiUrl}/api/admin/usuarios/${id}`)
+            axios.delete(`${baseApiUrl}/users/${id}`)
                 .then(() => {
                     this.$toasted.global.defaultSuccess()
                     this.reset()
@@ -164,18 +151,12 @@ export default {
             this.user = { ...user }
         }
     },
-        mounted() {
+    mounted() {
         this.loadUsers()
-        }
-    
+    }
 }
 </script>
 
 <style>
-    .b-table {
-        align-content: center;
-        align-items: center;
-        margin-left: 10px;
-        width: 100%;
-    }
+
 </style>

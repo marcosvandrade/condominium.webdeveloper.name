@@ -18,6 +18,9 @@ module.exports = app => {
         try {
             existsOrError(user.name, 'Nome não informado')
             existsOrError(user.email, 'E-mail não informado')
+            existsOrError(user.cpf, 'CPF não informado')
+            existsOrError(user.apartamento, 'Apartamento não informado')
+            existsOrError(user.contato, 'Contato não informado')
             existsOrError(user.password, 'Senha não informada')
             existsOrError(user.confirmPassword, 'Confirmação de Senha inválida')
             equalsOrError(user.password, user.confirmPassword,
@@ -60,7 +63,7 @@ module.exports = app => {
 
     const getById = (req, res) => {
         app.db('users')
-            .select('id', 'name', 'email', 'admin')
+            .select('id', 'name', 'email',  'cpf', 'apartamento', 'contato', 'admin')
             .where({ id: req.params.id })
             .whereNull('deletedAt')
             .first()
@@ -70,9 +73,13 @@ module.exports = app => {
 
     const remove = async (req, res) => {
         try {
-            const articles = await app.db('articles')
+            const avisos = await app.db('avisos')
                 .where({ userId: req.params.id })
-            notExistsOrError(articles, 'Usuário possui artigos.')
+            notExistsOrError(avisos, 'Usuário possui avisos.')
+            
+            const noticias = await app.db('noticias')
+                .where({ userId: req.params.id })
+            notExistsOrError(noticias, 'Usuário possui notícias.')
 
             const rowsUpdated = await app.db('users')
                 .update({deletedAt: new Date()})

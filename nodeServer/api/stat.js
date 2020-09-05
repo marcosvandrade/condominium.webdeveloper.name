@@ -2,7 +2,8 @@ module.exports = app => {
     const Stat = app.mongoose.model('Stat', {
         users: Number,
         categories: Number,
-        articles: Number,
+        avisos: Number,
+        noticias: Number,
         createdAt: Date
     })
 
@@ -12,7 +13,8 @@ module.exports = app => {
                 const defaultStat = {
                     users: 0,
                     categories: 0,
-                    articles: 0
+                    avisos: 0,
+                    noticias: 0
                 }
                 res.json(stat || defaultStat)
             })

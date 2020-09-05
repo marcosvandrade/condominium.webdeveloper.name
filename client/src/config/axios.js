@@ -1,15 +1,12 @@
-// import Vue from 'vue'
-import axios from "axios"
+import axios from 'axios'
 
-// axios.defaults.baseURL = 'http://localhost:8082/api/'
+const success = res => res
+const error = err => {
+    if (401 === err.response.status) {
+        window.location = '/'
+    } else {
+        return Promise.reject(err)
+    }
+}
 
-// Vue.use({
-//     install(Vue) {
-//         Vue.prototype.$http = http
-//     }
-// })
-
-export const http = axios.create({
-    baseURL:'http://localhost:8083/'
-});
-
+axios.interceptors.response.use(success, error)
