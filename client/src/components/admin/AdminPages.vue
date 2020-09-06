@@ -5,13 +5,13 @@
         <div class="admin-pages-tabs">
             <b-card no-body>
                 <b-tabs card>
-                    <b-tab title="Avisos" active>
+                    <b-tab title="Avisos">
                         <AvisosAdmin />
                     </b-tab>
-                    <b-tab title="Notícias" active>
+                    <b-tab title="Notícias" >
                         <NoticiasAdmin />
                     </b-tab>
-                    <b-tab title="Usuários">
+                    <b-tab title="Usuários" active>
                         <UserAdmin />
                     </b-tab>
                 </b-tabs>
@@ -33,5 +33,7 @@ export default {
 </script>
 
 <style>
-
+    b-tab {
+        outline: none;
+    }
 </style>

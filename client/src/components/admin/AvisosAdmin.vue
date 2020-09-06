@@ -1,33 +1,28 @@
 <template>
     <div class="avisos-admin">
         <b-form>
-            <input id="avisos-id" type="hidden" v-model="avisos.id" />
-            <b-form-group label="Título:" label-for="avisos-title">
-                <b-form-input id="avisos-title" type="text"
-                    v-model="avisos.title" required
+            <input id="avisos-id" type="hidden" v-model="aviso.id" />
+            <b-form-group label="Título:" label-for="aviso-title">
+                <b-form-input id="aviso-title" type="text"
+                    v-model="aviso.title" required
                     :readonly="mode === 'remove'"
                     placeholder="Informe o Aviso..." />
             </b-form-group>
             <b-form-group v-if="mode === 'save'"
-                label="Imagem (URL):" label-for="avisos-imageUrl">
-                <b-form-input id="avisos-imageUrl" type="text"
-                    v-model="avisos.imageUrl"
+                label="Imagem (URL):" label-for="aviso-imageUrl">
+                <b-form-input id="aviso-imageUrl" type="text"
+                    v-model="aviso.imageUrl"
                     :readonly="mode === 'remove'"
                     placeholder="Informe a URL da Imagem..." />
             </b-form-group>
             <b-form-group v-if="mode === 'save'" 
-                label="Categoria:" label-for="avisos-categoryId">
-                <b-form-select id="avisos-categoryId"
-                    :options="categories" v-model="avisos.categoryId" />
-            </b-form-group>
-            <b-form-group v-if="mode === 'save'" 
-                label="Autor:" label-for="avisos-id">
-                <b-form-select id="avisos-id"
-                    :options="users" v-model="avisos.id" />
+                label="Autor:" label-for="aviso-userId">
+                <b-form-select id="aviso-userId"
+                    :options="users" v-model="aviso.userId" />
             </b-form-group>
             <b-form-group v-if="mode === 'save'"
-                label="Conteúdo" label-for="avisos-content">
-                <VueEditor v-model="avisos.content"
+                label="Conteúdo" label-for="aviso-content">
+                <VueEditor v-model="aviso.content"
                     placeholder="Informe o Conteúdo do Aviso..." />
             </b-form-group>
             <b-button variant="primary" v-if="mode === 'save'"
@@ -64,7 +59,6 @@ data: function() {
             mode: 'save',
             aviso: {},
             avisos: [],
-            categories: [],
             users: [],
             page: 1,
             limit: 0,
@@ -114,14 +108,7 @@ data: function() {
             axios.get(`${baseApiUrl}/avisos/${aviso.id}`)
                 .then(res => this.aviso = res.data)
         },
-        loadCategories() {
-            const url = `${baseApiUrl}/categories`
-            axios.get(url).then(res => {
-                this.categories = res.data.map(category => {
-                    return { value: category.id, text: category.path }
-                })
-            })
-        },
+
        loadUsers() {
             const url = `${baseApiUrl}/users`
             axios.get(url).then(res => {
@@ -138,7 +125,6 @@ data: function() {
     },
     mounted() {
         this.loadUsers()
-        this.loadCategories()
         this.loadAvisos()
     }
 }

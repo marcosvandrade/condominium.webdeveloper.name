@@ -1,33 +1,28 @@
 <template>
     <div class="noticias-admin">
         <b-form>
-            <input id="noticias-id" type="hidden" v-model="noticias.id" />
-            <b-form-group label="Título:" label-for="noticias-title">
-                <b-form-input id="noticias-title" type="text"
-                    v-model="noticias.title" required
+            <input id="noticias-id" type="hidden" v-model="noticia.id" />
+            <b-form-group label="Título:" label-for="noticia-title">
+                <b-form-input id="noticia-title" type="text"
+                    v-model="noticia.title" required
                     :readonly="mode === 'remove'"
                     placeholder="Informe a notícia..." />
             </b-form-group>
             <b-form-group v-if="mode === 'save'"
-                label="Imagem (URL):" label-for="noticias-imageUrl">
-                <b-form-input id="noticias-imageUrl" type="text"
-                    v-model="noticias.imageUrl"
+                label="Imagem (URL):" label-for="noticia-imageUrl">
+                <b-form-input id="noticia-imageUrl" type="text"
+                    v-model="noticia.imageUrl"
                     :readonly="mode === 'remove'"
                     placeholder="Informe a URL da Imagem..." />
             </b-form-group>
             <b-form-group v-if="mode === 'save'" 
-                label="Categoria:" label-for="noticias-categoryId">
-                <b-form-select id="noticias-categoryId"
-                    :options="categories" v-model="noticias.categoryId" />
-            </b-form-group>
-            <b-form-group v-if="mode === 'save'" 
-                label="Autor:" label-for="noticias-id">
-                <b-form-select id="noticias-id"
-                    :options="users" v-model="noticias.id" />
+                label="Autor:" label-for="noticia.userId">
+                <b-form-select id="noticia.userId"
+                    :options="users" v-model="noticia.userId" />
             </b-form-group>
             <b-form-group v-if="mode === 'save'"
-                label="Conteúdo" label-for="noticias-content">
-                <VueEditor v-model="noticias.content"
+                label="Conteúdo" label-for="noticia-content">
+                <VueEditor v-model="noticia.content"
                     placeholder="Informe o Conteúdo da Notícia..." />
             </b-form-group>
             <b-button variant="primary" v-if="mode === 'save'"
@@ -64,7 +59,6 @@ data: function() {
             mode: 'save',
             noticia: {},
             noticias: [],
-            categories: [],
             users: [],
             page: 1,
             limit: 0,
@@ -114,14 +108,7 @@ data: function() {
             axios.get(`${baseApiUrl}/noticias/${noticia.id}`)
                 .then(res => this.noticia = res.data)
         },
-        loadCategories() {
-            const url = `${baseApiUrl}/categories`
-            axios.get(url).then(res => {
-                this.categories = res.data.map(category => {
-                    return { value: category.id, text: category.path }
-                })
-            })
-        },
+
         loadUsers() {
             const url = `${baseApiUrl}/users`
             axios.get(url).then(res => {
@@ -138,7 +125,6 @@ data: function() {
     },
     mounted() {
         this.loadUsers()
-        this.loadCategories()
         this.loadNoticias()
     }
 }
