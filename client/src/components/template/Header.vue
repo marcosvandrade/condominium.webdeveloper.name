@@ -47,11 +47,12 @@ export default {
     }
 
     .title {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
         color: #fff;
         font-weight: 100;
         flex-grow: 1;
         text-align: center;
+        margin-left: 150px;
     }
 
     .title a {

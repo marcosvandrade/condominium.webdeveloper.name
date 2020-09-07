@@ -1,17 +1,61 @@
 <template>
     <aside class="menu" v-show="isMenuVisible">
-                
+        <div class="menu-filter">
+            <i class="fa fa-search fa-lg"></i>
+            <input type="text" placeholder="Digite para pesquisar..."
+                v-model="treeFilter" class="filter-field">
+        </div>
+        <div class="menu-escolha">
+        <Tree :data="treeData" :options="treeOptions"
+            :filter="treeFilter" ref="tree" />
+        </div>
     </aside>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import Tree from 'liquor-tree'
+import { baseApiUrl } from '@/global'
+import axios from 'axios'
 
 export default {
     name: 'Menu',
-   
-    computed: mapState(['isMenuVisible'])
+    components: { Tree },
+    computed: mapState(['isMenuVisible']),
+    data: function() {
+        return {
+            treeFilter: '',
+            treeData: this.getTreeData(),
+            treeOptions: {
+                propertyNames: { 'text': 'name' },
+                filter: { emptyText: 'Não encontrado' }
+            }
+        }
+    },
+    methods: {
+        getTreeData() {
+            const url = `${baseApiUrl}/categories/tree`
+            return axios.get(url).then(res => res.data)
+        },
+        onNodeSelect(node) {
+            this.$router.push({
+                name: 'avisosByCategory',
+                params: { id: node.id }
+            })
 
+             this.$router.push({
+                name: 'noticiasByCategory',
+                params: { id: node.id }
+            })
+
+            if(this.$mq === 'xs' || this.$mq === 'sm') {
+                this.$store.commit('toggleMenu', false)
+            }
+        }
+    },
+    mounted() {
+        this.$refs.tree.$on('node:selected', this.onNodeSelect)
+    }
 }
 </script>
 
@@ -34,7 +78,9 @@ export default {
     .menu .tree-node.selected > .tree-content,
     .menu .tree-node .tree-content:hover {
         background-color: rgba(255, 255, 255, 0.2);
+        
     }
+
 
     .tree-arrow.has-child {
         filter: brightness(2);
@@ -55,9 +101,15 @@ export default {
         margin-right: 10px;
     }
 
+   .menu-escolha {
+        font-size: 1.2rem;
+        margin-top: 30px;
+        padding-top: 10px;
+    }
+
     .menu input {
         color: #CCC;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         border: 0;
         outline: 0;
         width: 100%;

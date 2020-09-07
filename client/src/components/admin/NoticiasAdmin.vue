@@ -16,6 +16,11 @@
                     placeholder="Informe a URL da Imagem..." />
             </b-form-group>
             <b-form-group v-if="mode === 'save'" 
+                label="Menu:" label-for="noticia-categoryId">
+                <b-form-select id="noticia-categoryId"
+                    :options="categories" v-model="noticia.categoryId" />
+            </b-form-group>
+            <b-form-group v-if="mode === 'save'" 
                 label="Autor:" label-for="noticia.userId">
                 <b-form-select id="noticia.userId"
                     :options="users" v-model="noticia.userId" />
@@ -59,6 +64,7 @@ data: function() {
             mode: 'save',
             noticia: {},
             noticias: [],
+            categories: [],
             users: [],
             page: 1,
             limit: 0,
@@ -108,7 +114,14 @@ data: function() {
             axios.get(`${baseApiUrl}/noticias/${noticia.id}`)
                 .then(res => this.noticia = res.data)
         },
-
+        loadCategories() {
+            const url = `${baseApiUrl}/categories`
+            axios.get(url).then(res => {
+                this.categories = res.data.map(category => {
+                    return { value: category.id, text: category.path }
+                })
+            })
+        },
         loadUsers() {
             const url = `${baseApiUrl}/users`
             axios.get(url).then(res => {
@@ -125,6 +138,7 @@ data: function() {
     },
     mounted() {
         this.loadUsers()
+        this.loadCategories()
         this.loadNoticias()
     }
 }

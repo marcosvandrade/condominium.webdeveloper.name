@@ -1,8 +1,10 @@
 <template>
     <div class="home">
         <PageTitle icon="fa fa-home" main="Dashboard"
-            sub="Base de Conhecimento" />
+            sub="Estatísticas do Condomínio" />
         <div class="stats">
+            <Stat title="Menu" :value="stat.categories"
+                icon="fa fa-folder" color="#d54d50" />
             <Stat title="Avisos" :value="stat.avisos"
                 icon="fa fa-file" color="#3bc480" />
             <Stat title="Notícias" :value="stat.noticias"

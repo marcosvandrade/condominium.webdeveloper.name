@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 
 import Home from '@/components/home/Home'
 import AdminPages from '@/components/admin/AdminPages'
+import AvisosByCategory from '@/components/aviso/AvisosByCategory'
+import NoticiasByCategory from '@/components/noticia/NoticiasByCategory'
 import AvisoById from '@/components/aviso/AvisoById'
 import NoticiaById from '@/components/noticia/NoticiaById'
 import Auth from '@/components/auth/Auth'
@@ -21,6 +23,14 @@ const routes = [{
     component: AdminPages,
     meta: { requiresAdmin: true }
 }, {
+    name: 'avisosByCategory',
+    path: '/categories/:id/avisos',
+    component: AvisosByCategory
+}, {
+    name: 'noticiasByCategory',
+    path: '/categories/:id/noticias',
+    component: NoticiasByCategory
+},{
     name: 'avisoById',
     path: '/avisos/:id',
     component: AvisoById
