@@ -1,8 +1,8 @@
 <template>
     <div class="auth-content">
         <div class="auth-modal">
-            <img  src="@/assets/logo.png" width="200" alt="Logo" />
-            <hr>
+           <img  src="@/assets/logo.png" width="200" alt="Logo" /><span class="logo">SisCondominio</span> 
+           <hr>
             <div class="auth-title">{{ showSignup ? 'Cadastro' : 'Login' }}</div>
 
             <input v-if="showSignup" v-model="user.name" type="text" placeholder="Nome">
@@ -61,6 +61,28 @@ export default {
 </script>
 
 <style>
+
+    .img {
+        display: flex;
+        position: relative;
+        align-content: flex-start;
+        align-items: flex-start;
+        margin-left: 0;
+    }
+
+    .logo { 
+         display: flex;
+         position: absolute;
+         align-content: flex-end;
+         align-items: flex-end;
+         margin-top: 6px;
+         margin-left: 50px;
+         font-size: 1.2rem;
+         font-weight: 100;
+         font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    }
+
     .auth-content {
         height: 100%;
         display: flex;
@@ -96,7 +118,9 @@ export default {
 
     .auth-modal button {
         align-self: flex-end;
-        background-color: #00B4DB;
+        background: #3282CD;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #3282CD, #2b8aa0);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #3282CD, #2b8aa0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         color: #FFF;
         padding: 5px 15px;
     }

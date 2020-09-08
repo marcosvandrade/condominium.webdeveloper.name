@@ -27,7 +27,8 @@ export default {
         flex: 1;
         display: flex;
         border-radius: 8px;
-        margin-right: 20px;
+        margin-top: 10px;
+        margin-right: 10px;
         margin-bottom: 20px;
         background-color: #FFF;
         padding: 20px;
@@ -41,7 +42,7 @@ export default {
     }
 
     .stat-icon i {
-        font-size: 5rem;
+        font-size: 4rem;
     }
 
     .stat-info {
@@ -56,6 +57,6 @@ export default {
     }
 
     .stat-value {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 </style>
