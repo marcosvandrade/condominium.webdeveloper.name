@@ -1,7 +1,7 @@
 <template>
     <div class="avisos-by-category">
         <PageTitle icon="fa fa-folder-o"
-            :main="category.name" sub="Categoria" />
+            :main="category.name" />
         <ul>
             <li v-for="aviso in avisos" :key="aviso.id">
                 <AvisoItem :aviso="aviso" />

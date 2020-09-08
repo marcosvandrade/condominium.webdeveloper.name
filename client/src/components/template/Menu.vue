@@ -37,24 +37,30 @@ export default {
             const url = `${baseApiUrl}/categories/tree`
             return axios.get(url).then(res => res.data)
         },
-        onNodeSelect(node) {
+        onAvisosSelect(node) {
             this.$router.push({
                 name: 'avisosByCategory',
                 params: { id: node.id }
             })
-
-             this.$router.push({
-                name: 'noticiasByCategory',
-                params: { id: node.id }
-            })
-
+             
             if(this.$mq === 'xs' || this.$mq === 'sm') {
                 this.$store.commit('toggleMenu', false)
             }
+        },
+        onNoticiasSelect(node) {
+        this.$router.push({
+            name: 'noticiasByCategory',
+            params: { id: node.id }
+        })
+            
+        if(this.$mq === 'xs' || this.$mq === 'sm') {
+            this.$store.commit('toggleMenu', false)
+        }
         }
     },
     mounted() {
-        this.$refs.tree.$on('node:selected', this.onNodeSelect)
+        this.$refs.tree.$on('node:selected', this.onAvisosSelect)
+        this.$refs.tree.$on('node:selected', this.onNoticiasSelect)
     }
 }
 </script>
@@ -102,8 +108,8 @@ export default {
     }
 
    .menu-escolha {
-        font-size: 1.2rem;
-        margin-top: 30px;
+        font-size: 1.1rem;
+        margin-top: 10px;
         padding-top: 10px;
     }
 

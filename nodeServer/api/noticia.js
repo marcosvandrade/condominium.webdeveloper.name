@@ -11,7 +11,7 @@ module.exports = app => {
             existsOrError(noticia.title, 'Nome não informado')
             existsOrError(noticia.userId, 'Autor não informado')
             existsOrError(noticia.content, 'Conteúdo não informado')
-            existsOrError(article.categoryId, 'Categoria não informada')
+            existsOrError(noticia.categoryId, 'Categoria não informada')
 
         } catch(msg) {
             res.status(400).send(msg)
