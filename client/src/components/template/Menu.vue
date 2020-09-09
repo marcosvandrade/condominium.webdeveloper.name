@@ -1,57 +1,81 @@
 <template>
-    <aside class="menu" v-show="isMenuVisible">
+    <!-- <aside class="menu" v-show="isMenuVisible">
         <div class="menu-filter">
             <i class="fa fa-search fa-lg"></i>
             <input type="text" placeholder="Digite para pesquisar..."
                 v-model="treeFilter" class="filter-field">
         </div>
         <div class="menu-escolha">
-        <Tree :data="treeData" :options="treeOptions" @node:selected="onNodeSelected"
-            :filter="treeFilter" ref="tree" />
+        <Tree :data="treeData" :options="treeOptions" 
+            :filter="treeFilter" ref="tree"/>
         </div>
-    </aside>
+    </aside> -->
+    <aside class="menu" v-show="isMenuVisible">
+     <div class="menu-filter">
+            <i class="fa fa-search fa-lg"></i>
+            <input type="text" placeholder="Digite para pesquisar..."
+                class="filter-field">
+     </div>
+     <div>
+     <ul class="sidebar-panel-nav">
+       <li><a >Avisos</a></li>
+       <li><a href="/categories/13/noticias">Notícias</a></li>
+       <li><a href="#contact">Contact</a></li>
+     </ul>
+     </div>
+   </aside>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import Tree from 'liquor-tree'
-import { baseApiUrl } from '@/global'
-import axios from 'axios'
+// import Tree from 'liquor-tree'
+// import { baseApiUrl } from '@/global'
+// import axios from 'axios'
 
 export default {
     name: 'Menu',
-    components: { Tree },
+    // components: { Tree },
     computed: mapState(['isMenuVisible']),
-    data: function() {
-        return {
-            treeFilter: '',
-            treeData: this.getTreeData(),
-            treeOptions: {
-                propertyNames: { 'text': 'name' },
-                filter: { emptyText: 'Não encontrado' }
-            }
-        }
-    },
-    methods: {
-        getTreeData() {
-            const url = `${baseApiUrl}/categories/tree`
-            return axios.get(url).then(res => res.data)
-        },
-        onAvisosSelect(node) {
-            this.$router.push({
-                name: 'avisosByCategory',
-                params: { id: node.id }
-            })
+    // data: function() {
+    //     return {
+    //         treeFilter: '',
+    //         treeData: this.getTreeData(),
+    //         treeOptions: {
+    //             propertyNames: { 'text': 'name'},
+    //             filter: { emptyText: 'Não encontrado' }
+    //         }
+    //     }
+    // },
+    // methods: {
+    //     getTreeData() {
+    //         const url = `${baseApiUrl}/categories/tree`
+    //         return axios.get(url).then(res => res.data)
+    //     },
+    //     onAvisoSelected(node) {
+    //         this.$router.push({
+    //             name: 'avisosByCategory',
+    //             params: { id: node.id }
+    //         })
              
-            if(this.$mq === 'xs' || this.$mq === 'sm') {
-                this.$store.commit('toggleMenu', false)
-            }
-        }
-
-    },
-    mounted() {
-               this.$refs.tree.$on('node:selected', this.onAvisosSelect)
-    }
+    //         if(this.$mq === 'xs' || this.$mq === 'sm') {
+    //             this.$store.commit('toggleMenu', false)
+    //         }
+    //     },
+    //     onNoticiaSelected(node) {
+    //         this.$router.push({
+    //             name: 'noticiasByCategory',
+    //             params: { id: node.id }
+    //         })
+             
+    //         if(this.$mq === 'xs' || this.$mq === 'sm') {
+    //             this.$store.commit('toggleMenu', false)
+    //         }
+    //     }
+    // },
+    // mounted() {
+    //         this.$refs.tree.$on('node:selected', this.onAvisoSelected)
+    //         this.$refs.tree.$on('node:selected', this.onNoticiaSelected)
+    // }
 }
 </script>
 
