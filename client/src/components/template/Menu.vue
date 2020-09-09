@@ -6,7 +6,7 @@
                 v-model="treeFilter" class="filter-field">
         </div>
         <div class="menu-escolha">
-        <Tree :data="treeData" :options="treeOptions"
+        <Tree :data="treeData" :options="treeOptions" @node:selected="onNodeSelected"
             :filter="treeFilter" ref="tree" />
         </div>
     </aside>
@@ -46,21 +46,11 @@ export default {
             if(this.$mq === 'xs' || this.$mq === 'sm') {
                 this.$store.commit('toggleMenu', false)
             }
-        },
-        onNoticiasSelect(node) {
-        this.$router.push({
-            name: 'noticiasByCategory',
-            params: { id: node.id }
-        })
-            
-        if(this.$mq === 'xs' || this.$mq === 'sm') {
-            this.$store.commit('toggleMenu', false)
         }
-        }
+
     },
     mounted() {
-        this.$refs.tree.$on('node:selected', this.onAvisosSelect)
-        this.$refs.tree.$on('node:selected', this.onNoticiasSelect)
+               this.$refs.tree.$on('node:selected', this.onAvisosSelect)
     }
 }
 </script>
