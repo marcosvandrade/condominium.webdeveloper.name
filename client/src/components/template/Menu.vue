@@ -10,22 +10,57 @@
             :filter="treeFilter" ref="tree"/>
         </div>
     </aside> -->
-    <aside class="menu" v-show="isMenuVisible">
+    <div class="menu" v-show="isMenuVisible">
      <div class="menu-filter">
             <i class="fa fa-search fa-lg"></i>
             <input type="text" placeholder="Digite para pesquisar..."
                 class="filter-field">
      </div>
-     <ul>
-       <li ><a  href="/categories/1/avisos">Avisos</a></li>
-       <li ><a href="#contact">Contact</a></li>
+     <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link active" href="/categories/3/avisos">Avisos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/13/noticias">Notícias</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="11">Assinar a Newsletter</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="4">Chamados</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="5">Condôminos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="12">Consumo Água/Energia</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="6">Documentos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="7">Estacionamento</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="8">Funcionários</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="10">Legislação</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="2">Página Inicial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="9">Relatórios</a>
+        </li>
+        
      </ul>
-   </aside>
+    </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import avisosByCategory from '../aviso/AvisosByCategory'
+// import avisosByCategory from '../aviso/AvisosByCategory'
 // import Tree from 'liquor-tree'
 // import { baseApiUrl } from '@/global'
 // import axios from 'axios'
@@ -33,20 +68,22 @@ import avisosByCategory from '../aviso/AvisosByCategory'
 export default {
     name: 'Menu',
     computed: mapState(['isMenuVisible']),
-    components: { avisosByCategory },
-    data: function() {
-        return {
-        //    avisos:[]
-            }
-        },
-    methods: {
-        loadAvisos() {
-            this.$router.push({
-                name: 'avisosByCategory',
-                params: { id: this.$route.params.id }
-            })
-    },
-    }
+    // components: { avisosByCategory },
+    // data: function() {
+    //     return {
+    //     //    avisos:[]
+    //         }
+    //     },
+    // methods: {
+    //     loadAvisos() {
+    //         // const url = `${baseApiUrl}/categories/${this.category.id}`
+    //         // axios(url).then(res => this.category = res.data)
+    //         this.$router.push({
+    //             name: 'avisosByCategory',
+    //             // params: { id: this.id }
+    //         })
+    // },
+    // }
     
 }
 </script>
@@ -62,18 +99,20 @@ export default {
         text-decoration: none;
     }
 
-    .menu li {
-        height: 60%;
+    .nav-item {
+        /* height: 80%; */
         color: whitesmoke;
         text-decoration: none;
         justify-self: flex-start;
         text-decoration: none;
 
         display: flex;
+        flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
 
-        font-size: 1.3rem;
+        font-size: 1.1rem;
+        margin-left: 30px;
     }
     
     .menu a, 
