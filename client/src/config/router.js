@@ -28,7 +28,7 @@ const routes = [{
     component: AvisosByCategory
 }, {
     name: 'noticiasByCategory',
-    path: '/categories/:id/noticias',
+    path: '/categories/id/noticias',
     component: NoticiasByCategory
 },{
     name: 'avisoById',

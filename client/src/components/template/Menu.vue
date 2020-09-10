@@ -16,66 +16,38 @@
             <input type="text" placeholder="Digite para pesquisar..."
                 class="filter-field">
      </div>
-     <div>
-     <ul class="sidebar-panel-nav">
-       <li><a >Avisos</a></li>
-       <li><a href="/categories/13/noticias">Notícias</a></li>
-       <li><a href="#contact">Contact</a></li>
+     <ul>
+       <li ><a  href="/categories/1/avisos">Avisos</a></li>
+       <li ><a href="#contact">Contact</a></li>
      </ul>
-     </div>
    </aside>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import avisosByCategory from '../aviso/AvisosByCategory'
 // import Tree from 'liquor-tree'
 // import { baseApiUrl } from '@/global'
 // import axios from 'axios'
 
 export default {
     name: 'Menu',
-    // components: { Tree },
     computed: mapState(['isMenuVisible']),
-    // data: function() {
-    //     return {
-    //         treeFilter: '',
-    //         treeData: this.getTreeData(),
-    //         treeOptions: {
-    //             propertyNames: { 'text': 'name'},
-    //             filter: { emptyText: 'Não encontrado' }
-    //         }
-    //     }
-    // },
-    // methods: {
-    //     getTreeData() {
-    //         const url = `${baseApiUrl}/categories/tree`
-    //         return axios.get(url).then(res => res.data)
-    //     },
-    //     onAvisoSelected(node) {
-    //         this.$router.push({
-    //             name: 'avisosByCategory',
-    //             params: { id: node.id }
-    //         })
-             
-    //         if(this.$mq === 'xs' || this.$mq === 'sm') {
-    //             this.$store.commit('toggleMenu', false)
-    //         }
-    //     },
-    //     onNoticiaSelected(node) {
-    //         this.$router.push({
-    //             name: 'noticiasByCategory',
-    //             params: { id: node.id }
-    //         })
-             
-    //         if(this.$mq === 'xs' || this.$mq === 'sm') {
-    //             this.$store.commit('toggleMenu', false)
-    //         }
-    //     }
-    // },
-    // mounted() {
-    //         this.$refs.tree.$on('node:selected', this.onAvisoSelected)
-    //         this.$refs.tree.$on('node:selected', this.onNoticiaSelected)
-    // }
+    components: { avisosByCategory },
+    data: function() {
+        return {
+        //    avisos:[]
+            }
+        },
+    methods: {
+        loadAvisos() {
+            this.$router.push({
+                name: 'avisosByCategory',
+                params: { id: this.$route.params.id }
+            })
+    },
+    }
+    
 }
 </script>
 
@@ -87,15 +59,31 @@ export default {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
+        text-decoration: none;
     }
 
-    .menu a,
+    .menu li {
+        height: 60%;
+        color: whitesmoke;
+        text-decoration: none;
+        justify-self: flex-start;
+        text-decoration: none;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        font-size: 1.3rem;
+    }
+    
+    .menu a, 
     .menu a:hover {
         color: #fff;
         text-decoration: none;
     }
 
-    .menu .tree-node.selected > .tree-content,
+
+    /* .menu .tree-node.selected > .tree-content,
     .menu .tree-node .tree-content:hover {
         background-color: rgba(255, 255, 255, 0.2);
         
@@ -104,7 +92,7 @@ export default {
 
     .tree-arrow.has-child {
         filter: brightness(2);
-    }
+    } */
 
     .menu .menu-filter {
         display: flex;
@@ -121,12 +109,6 @@ export default {
         margin-right: 10px;
     }
 
-   .menu-escolha {
-        font-size: 1.1rem;
-        margin-top: 10px;
-        padding-top: 10px;
-    }
-
     .menu input {
         color: #CCC;
         font-size: 1.1rem;
@@ -135,10 +117,10 @@ export default {
         width: 100%;
         background: transparent;
     }
-
+/* 
     .tree-filter-empty {
         color: #CCC;
         font-size: 1.3rem;
         margin-left: 20px;
-    }
+    } */
 </style>
