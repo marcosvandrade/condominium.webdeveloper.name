@@ -42,7 +42,7 @@ export default {
     }
 
     .stat-icon i {
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .stat-info {

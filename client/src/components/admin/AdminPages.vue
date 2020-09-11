@@ -4,17 +4,17 @@
         <div class="admin-pages-tabs">
             <b-card no-body>
                 <b-tabs card>
-                    <b-tab title="Usuários" active>
-                        <UserAdmin />
-                    </b-tab>
-                    <b-tab title="Menu">
+                    <!-- <b-tab title="Menu">
                         <CategoryAdmin />
-                    </b-tab>
+                    </b-tab> -->
                     <b-tab title="Avisos">
                         <AvisosAdmin />
                     </b-tab>
                     <b-tab title="Notícias" >
                         <NoticiasAdmin />
+                    </b-tab>
+                    <b-tab title="Usuários" active>
+                        <UserAdmin />
                     </b-tab>
                 </b-tabs>
             </b-card>
@@ -26,12 +26,12 @@
 import PageTitle from '../template/PageTitle'
 import AvisosAdmin from './AvisosAdmin'
 import NoticiasAdmin from './NoticiasAdmin'
-import CategoryAdmin from './CategoryAdmin'
+// import CategoryAdmin from './CategoryAdmin'
 import UserAdmin from './UserAdmin'
 
 export default {
     name: 'AdminPages',
-    components: { PageTitle, AvisosAdmin, NoticiasAdmin,CategoryAdmin,UserAdmin }
+    components: { PageTitle, AvisosAdmin, NoticiasAdmin,UserAdmin }
 }
 </script>
 
