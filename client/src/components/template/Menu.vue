@@ -18,6 +18,10 @@
      </div>
      <ul class="nav flex-column">
         <li class="nav-item">
+            <a class="nav-link" href="2" ></a>
+            <!-- <b-icon icon="house-door" font-scale="1"></b-icon> -->
+        </li>
+        <li class="nav-item">
             <a class="nav-link active" href="/categories/3/avisos">Avisos</a>
         </li>
         <li class="nav-item">
@@ -48,9 +52,6 @@
             <a class="nav-link" href="10">Legislação</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="2">Página Inicial</a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link" href="9">Relatórios</a>
         </li>
         
@@ -68,6 +69,7 @@ import { mapState } from 'vuex'
 export default {
     name: 'Menu',
     computed: mapState(['isMenuVisible']),
+    
     // components: { avisosByCategory },
     // data: function() {
     //     return {

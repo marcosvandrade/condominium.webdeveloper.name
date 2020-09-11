@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "0.18.0",
+    "bootstrap-icons": "^1.0.0",
     "bootstrap-vue": "2.0.0-rc.11",
     "font-awesome": "4.7.0",
     "highlightjs": "9.10.0",
