@@ -13,7 +13,22 @@
             icon="fa fa-user" color="#3282cd" />
     </div>
         <div v-if="!user.admin">
-           <img src="https://pixy.org/src/476/4765590.jpg" alt="inconstruction">
+           <div class="home-user">
+                <h1>Bem-vindo,</h1>
+                <h3>{{ user.name }}</h3>
+                <hr>
+                <img src="@/assets/importante.png" alt="">
+                <!-- <h2>IMPORTANTE</h2>                -->
+                <p>&nbsp; &nbsp; &nbsp; &nbsp;Diante dos vários casos de invasão nos condomínios vizinhos, solicito que os moradores retirem suas bicicletas da garagem ou que prendam-nas em local fixo. 
+                       Além disso, ressalto a adoção de medidas de segurança que visem a dificultar a ação de invasores, tais como: </p>
+                <ul>
+                    <li>Manter as portas de acesso à garagem sempre trancadas à chave</li>
+                    <li>Manter os veículos sempre trancados</li>
+                    <li>Não deixar objetos no interior dos veículos</li>
+                    <li>Comunicar ao porteiro a presença de pessoas em atitude suspeita</li>
+                </ul>   
+               <hr>     
+           </div>
         </div>
     </div>
 </template>
@@ -46,14 +61,74 @@ export default {
 </script>
 
 <style>
+
+    .home {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+   
     .stats {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
     }
 
-    img {
-        max-width: 100%;
-    }   
+    .home .home-user {
+        height: 100%;
+        margin-left: 50px;
+        margin-top: 30px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        
+    }
+
+    .home .home-user h1 {
+        color: gray;
+        margin: 0;
+    }
+    
+    .home .home-user h3 {
+        margin-top: 10px;
+    }
+   
+    .home .home-user h2 {
+        color: orangered;
+        text-align: center;
+        margin-top: 30px;
+        font-weight: 100;
+    }
+    
+    .home .home-user p {
+        margin-left: 200px;
+        margin-right: 200px;
+        margin-top: 30px;
+        font-size: 1.3rem;
+        text-align: justify;
+        font-family: cursive;
+    }
+   
+    .home .home-user ul li{
+        margin-left: 180px;
+        font-size: 1.2rem;
+        font-family: cursive;
+    }
+
+    .home .home-user hr {
+        border: 0;
+        width: 100%;
+        height: 1px;
+        background-image: linear-gradient(to right,
+        rgba(120, 120, 120, 0),
+        rgba(120, 120, 120, 0.75),
+        rgba(120, 120, 120, 0));
+    }
+
+    .home .home-user img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 30px;
+      width: 20%;
+    }
 
 </style>

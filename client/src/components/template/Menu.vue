@@ -6,7 +6,7 @@
                     <input type="text" placeholder="Digite para pesquisar..."
                         class="filter-field">
             </div>
-            <div>
+            <div class="user-admin">
                 <ul class="nav flex-column">
                     <li class="nav-item-home">
                         <a class="nav-link" href="/" >
@@ -66,7 +66,7 @@
                     <input type="text" placeholder="Digite para pesquisar..."
                         class="filter-field">
             </div>
-            <div>
+            <div class="user-client">
                 <ul class="nav flex-column">
                     <li class="nav-item-home">
                         <a class="nav-link" href="/" >
@@ -110,10 +110,6 @@
 
 <script>
 import { mapState } from 'vuex'
-// import avisosByCategory from '../aviso/AvisosByCategory'
-// import Tree from 'liquor-tree'
-// import { baseApiUrl } from '@/global'
-// import axios from 'axios'
 
 export default {
     name: 'Menu',
@@ -124,6 +120,7 @@ export default {
 <style>
     .menu {
         grid-area: menu;
+        height: 100%;
         background: linear-gradient(to right, #232526, #414345);
 
         display: flex;
@@ -132,7 +129,11 @@ export default {
         flex-wrap: wrap;
     }
 
-    .menu a {
+    .menu .user-admin a {
+        color: white;
+    }
+   
+    .menu .user-client a {
         color: white;
     }
     
@@ -160,7 +161,22 @@ export default {
         background: transparent;
     }
 
-   .menu .nav-item a {
+   .menu .user-admin .nav-item a {
+        text-decoration: none;
+        justify-self: flex-start;
+
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 2px;
+
+        font-size: 1.1rem;
+        margin-left: 20px;
+    }
+  
+   .menu .user-client .nav-item a {
         text-decoration: none;
         justify-self: flex-start;
 
@@ -172,22 +188,40 @@ export default {
 
         font-size: 1.1rem;
         margin-left: 20px;
+        margin-top: 20px;
     }
         
-    .menu .nav-item-home {
+    .menu .user-admin .nav-item-home {
         display: flex;
         flex: 1;
-        margin-left: 60px;
+        margin-left: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .menu .user-client .nav-item-home {
+        display: flex;
+        flex: 1;
+        margin-left: 40px;
         font-size: 2rem;
     }
 
-    .menu .nav-item-home svg {
+    .menu .user-admin .nav-item-home svg {
+       margin-inline: 20px;
+       margin-top: 10px;
+       margin-bottom: 10px;
+    }
+   
+    .menu .user-client .nav-item-home svg {
        margin-inline: 20px;
        margin-top: 10px;
        margin-bottom: 10px;
     }
 
-    .menu .nav-link:hover {
+    .menu .user-admin .nav-link:hover {
+        color: gray;
+    }
+
+    .menu .user-client .nav-link:hover {
         color: gray;
     }
 
