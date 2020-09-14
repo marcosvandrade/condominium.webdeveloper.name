@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="11">Assinar a Newsletter</a>
+                        <a class="nav-link" href="/maintenance">Assinar a Newsletter</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/categories/3/avisos">Avisos</a>
@@ -30,31 +30,31 @@
                         <a class="nav-link" href="/categories/13/noticias">Notícias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="4">Responder Chamados</a>
+                        <a class="nav-link" href="/maintenance">Responder Chamados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="5">Condôminos</a>
+                        <a class="nav-link" href="/maintenance">Condôminos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="12">Consumo Água/Energia</a>
+                        <a class="nav-link" href="/maintenance">Consumo Água/Energia</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="6">Documentos</a>
+                        <a class="nav-link" href="/maintenance">Documentos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="7">Estacionamento</a>
+                        <a class="nav-link" href="/maintenance">Estacionamento</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="8">Funcionários</a>
+                        <a class="nav-link" href="/maintenance">Funcionários</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="10">Legislação</a>
+                        <a class="nav-link" href="/maintenance">Legislação</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="9">Relatórios</a>
+                        <a class="nav-link" href="/maintenance">Relatórios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="/maintenance">About</a>
                     </li>
                 </ul>
                 </div>
@@ -81,7 +81,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Assinar a Newsletter</a>
+                        <a class="nav-link" href="/maintenance">Assinar a Newsletter</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/categories/3/avisos">Avisos</a>
@@ -90,16 +90,16 @@
                         <a class="nav-link" href="/categories/13/noticias">Notícias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="4">Abrir Chamados</a>
+                        <a class="nav-link" href="/maintenance">Abrir Chamados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="12">Consumo Água/Energia</a>
+                        <a class="nav-link" href="/maintenance">Consumo Água/Energia</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="10">Legislação</a>
+                        <a class="nav-link" href="/maintenance">Legislação</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="/maintenance">About</a>
                     </li>
                 </ul>
                 </div>

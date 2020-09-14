@@ -99,18 +99,20 @@ export default {
     }
     
     .home .home-user p {
-        margin-left: 200px;
-        margin-right: 200px;
+        margin-left: 250px;
+        margin-right: 250px;
         margin-top: 30px;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         text-align: justify;
         font-family: cursive;
+        padding: 10px;
     }
    
     .home .home-user ul li{
-        margin-left: 180px;
-        font-size: 1.2rem;
+        margin-left: 230px;
+        font-size: 1.4rem;
         font-family: cursive;
+        padding: 5px;
     }
 
     .home .home-user hr {

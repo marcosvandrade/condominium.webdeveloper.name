@@ -8,6 +8,7 @@ import NoticiasByCategory from '@/components/noticia/NoticiasByCategory'
 import AvisoById from '@/components/aviso/AvisoById'
 import NoticiaById from '@/components/noticia/NoticiaById'
 import Auth from '@/components/auth/Auth'
+import Maintenance from '@/components/home/PageInConstruction'
 
 import { userKey } from '@/global'
 
@@ -17,6 +18,9 @@ const routes = [{
     name: 'home',
     path: '/',
     component: Home
+}, { name: 'maintance',
+    path: '/maintenance',
+    component: Maintenance
 }, {
     name: 'adminPages',
     path: '/admin',
