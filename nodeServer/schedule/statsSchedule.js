@@ -6,6 +6,7 @@ module.exports = app => {
         // const categoriesCount = await app.db('categories').count('id').first()
         const avisosCount = await app.db('avisos').count('id').first()
         const noticiasCount = await app.db('noticias').count('id').first()
+        const condominosCount = await app.db('condominos').count('id').first()
 
         const { Stat } = app.api.stat
 
@@ -17,6 +18,7 @@ module.exports = app => {
             // categories: categoriesCount.count,
             avisos: avisosCount.count,
             noticias: noticiasCount.count,
+            condominos: condominosCount.count,
             createdAt: new Date()
         })
 
@@ -24,8 +26,9 @@ module.exports = app => {
         // const changeCategories = !lastStat || stat.categories !== lastStat.categories
         const changeAvisos = !lastStat || stat.avisos !== lastStat.avisos
         const changeNoticias = !lastStat || stat.noticias !== lastStat.noticias
+        const changeCondominos = !lastStat || stat.condominos !== lastStat.condominos
 
-        if(changeUsers || changeAvisos || changeNoticias) {
+        if(changeUsers || changeAvisos || changeNoticias || changeCondominos) {
             stat.save().then(() => console.log('[Stats] Estatíticas atualizadas!'))
         }
     })

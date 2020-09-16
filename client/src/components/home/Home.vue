@@ -9,6 +9,8 @@
             icon="fa fa-file" color="#3bc480" />
         <Stat title="Notícias" :value="stat.noticias"
         icon="fa fa-folder" color="#d54d50" />
+        <Stat title="Condôminos" :value="stat.condominos"
+        icon="fa fa-folder" color="#fcba03" />
         <Stat title="Usuários" :value="stat.users"
             icon="fa fa-user" color="#3282cd" />
     </div>

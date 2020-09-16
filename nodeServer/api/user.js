@@ -80,6 +80,10 @@ module.exports = app => {
             const noticias = await app.db('noticias')
                 .where({ userId: req.params.id })
             notExistsOrError(noticias, 'Usuário possui notícias.')
+            
+            const condominos = await app.db('condominos')
+                .where({ userId: req.params.id })
+            notExistsOrError(condominos, 'Usuário possui condôminos cadastrados.')
 
             const rowsUpdated = await app.db('users')
                 .update({deletedAt: new Date()})

@@ -53,6 +53,17 @@ module.exports = app => {
         .get(app.api.noticia.getById)
         .put(admin(app.api.noticia.save))
         .delete(admin(app.api.noticia.remove))
+    
+    app.route('/condominos')
+        .all(app.config.passport.authenticate())
+        .get(admin(app.api.condomino.get))
+        .post(admin(app.api.condomino.save))
+
+    app.route('/condominos/:id')
+        .all(app.config.passport.authenticate())
+        .get(app.api.condomino.getById)
+        .put(admin(app.api.condomino.save))
+        .delete(admin(app.api.condomino.remove))
    
     app.route('/categories/:id/avisos')
     .all(app.config.passport.authenticate())
@@ -61,6 +72,10 @@ module.exports = app => {
     app.route('/categories/:id/noticias')
     .all(app.config.passport.authenticate())
     .get(app.api.noticia.getByCategory)
+   
+    app.route('/categories/:id/condominos')
+    .all(app.config.passport.authenticate())
+    .get(app.api.condomino.getByCategory)
 
     app.route('/stats')
         .all(app.config.passport.authenticate())

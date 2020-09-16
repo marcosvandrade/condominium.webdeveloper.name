@@ -13,6 +13,9 @@
                     <b-tab title="Notícias" >
                         <NoticiasAdmin />
                     </b-tab>
+                    <b-tab title="Condôminos" >
+                        <CondominosAdmin />
+                    </b-tab>
                     <b-tab title="Usuários" active>
                         <UserAdmin />
                     </b-tab>
@@ -26,12 +29,13 @@
 import PageTitle from '../template/PageTitle'
 import AvisosAdmin from './AvisosAdmin'
 import NoticiasAdmin from './NoticiasAdmin'
+import CondominosAdmin from './CondominosAdmin'
 // import CategoryAdmin from './CategoryAdmin'
 import UserAdmin from './UserAdmin'
 
 export default {
     name: 'AdminPages',
-    components: { PageTitle, AvisosAdmin, NoticiasAdmin,UserAdmin }
+    components: { PageTitle, AvisosAdmin, NoticiasAdmin,UserAdmin, CondominosAdmin }
 }
 </script>
 

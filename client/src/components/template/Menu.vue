@@ -33,7 +33,7 @@
                         <a class="nav-link" href="/maintenance">Responder Chamados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Condôminos</a>
+                        <a class="nav-link" href="/categories/5/condominos">Condôminos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/maintenance">Consumo Água/Energia</a>

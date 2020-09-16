@@ -79,11 +79,8 @@ CREATE TABLE usuarios_legislacao(
 CREATE TABLE condominos(
     id SERIAL PRIMARY KEY,
     apartamento VARCHAR(3) NOT NULL,
-    cpf VARCHAR(11) UNIQUE NOT NULL, -- configurar validacao soh de numeros 
-    data_cadastro DATE, -- capturar data do sistema
     nome VARCHAR(100) NOT NULL,
     observacao VARCHAR(200),
-    arquivado BOOLEAN,
     usuarios_condominos_fk INTEGER REFERENCES usuarios(id)
 );
 

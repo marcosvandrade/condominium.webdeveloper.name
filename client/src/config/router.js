@@ -5,8 +5,10 @@ import Home from '@/components/home/Home'
 import AdminPages from '@/components/admin/AdminPages'
 import AvisosByCategory from '@/components/aviso/AvisosByCategory'
 import NoticiasByCategory from '@/components/noticia/NoticiasByCategory'
+import CondominosByCategory from '@/components/condomino/CondominosByCategory'
 import AvisoById from '@/components/aviso/AvisoById'
 import NoticiaById from '@/components/noticia/NoticiaById'
+import CondominoById from '@/components/condomino/CondominoById'
 import Auth from '@/components/auth/Auth'
 import Maintenance from '@/components/home/PageInConstruction'
 import About from '@/components/home/About'
@@ -39,6 +41,10 @@ const routes = [{
     path: '/categories/:id/noticias',
     component: NoticiasByCategory
 },{
+    name: 'condominosByCategory',
+    path: '/categories/:id/condominos',
+    component: CondominosByCategory
+},{
     name: 'avisoById',
     path: '/avisos/:id',
     component: AvisoById
@@ -46,6 +52,10 @@ const routes = [{
     name: 'noticiaById',
     path: '/noticias/:id',
     component: NoticiaById
+}, {
+    name: 'condominoById',
+    path: '/condominos/:id',
+    component: CondominoById
 }, {
     name: 'auth',
     path: '/auth',
