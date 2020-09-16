@@ -8,21 +8,21 @@
                     :readonly="mode === 'remove'"
                     placeholder="Informe o Condômino..." />
             </b-form-group>
-            <b-form-group v-if="mode === 'save'"
+            <b-form-group 
                 label="Responsável:" label-for="condomino-responsavel">
                 <b-form-input id="condomino-responsavel" type="text"
                     v-model="condomino.responsavel"
                     :readonly="mode === 'remove'"
                     placeholder="Informe o responsável pelo apartamento..." />
             </b-form-group>
-            <b-form-group v-if="mode === 'save'"
+            <b-form-group 
                 label="Nome Completo:" label-for="condomino-nome">
                 <b-form-input id="condomino-nome" type="text"
                     v-model="condomino.nome"
                     :readonly="mode === 'remove'"
                     placeholder="Informe o nome do condômino..." />
             </b-form-group>
-            <b-form-group v-if="mode === 'save'"
+            <b-form-group 
                 label="Parentesco:" label-for="condomino-parentesco">
                 <b-form-input id="condomino-parentesco" type="text"
                     v-model="condomino.parentesco"
@@ -89,7 +89,6 @@ data: function() {
                 { key: 'responsavel', label: 'Responsável', sortable: true },
                 { key: 'nome', label: 'Nome Completo:', sortable: true },
                 { key: 'parentesco', label: 'Parentesco', sortable: true },
-                { key: 'obs', label: 'Observação', sortable: true },
                 { key: 'actions', label: 'Ações' }
             ]
         }

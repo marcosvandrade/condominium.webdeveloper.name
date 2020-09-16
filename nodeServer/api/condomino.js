@@ -9,11 +9,8 @@ module.exports = app => {
 
         try {
             existsOrError(condomino.apartamento, 'Apartamento não informado')
-            existsOrError(condomino.responsavel, 'Responsável não informado')
             existsOrError(condomino.nome, 'Nome não informado')
-            existsOrError(condomino.parentesco, 'Parentesco não informado')
             existsOrError(condomino.userId, 'Autor não informado')
-            existsOrError(condomino.obs, 'Observação não informada')
             existsOrError(condomino.categoryId, 'Categoria não informada')
 
         } catch(msg) {
@@ -70,7 +67,7 @@ module.exports = app => {
             .where({ id: req.params.id })
             .first()
             .then(condomino => {
-                condomino.content = condomino.content.toString()
+                // condomino.content = condomino.content.toString()
                 return res.json(condomino)
             })
             .catch(err => res.status(500).send(err))

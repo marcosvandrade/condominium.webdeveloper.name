@@ -1,29 +1,50 @@
 <template>
     <div class="condomino-item">
         <router-link :to="{ name: 'condominoById', params: { id: condomino.id } }">
-            <div class="condomino-item-image d-none d-sm-block">
-                <img v-if="condomino.imageUrl"
-                    :src="condomino.imageUrl"
-                    height="150" width="150" alt="Condomino">
-                <img v-else
-                    src="@/assets/article.png"
-                    height="150" width="150" alt="Condomino">
-            </div>
             <div class="condomino-item-info">
-                <h2>{{ condomino.title }}</h2>
-                <p>{{ condomino.content }}</p>
-                <span class="condomino-item-author">
+                <b-table hover striped :items="condominos" :fields="fields"></b-table>
+                <!-- <h2>{{ condomino.apartamento }}</h2>
+                <p>{{ condomino.responsavel }}</p> -->
+                <!-- <span class="condomino-item-author">
                     <strong>Autor: </strong>{{ condomino.author }}
-                </span>
+                </span> -->
             </div>
         </router-link>
     </div>
 </template>
 
 <script>
+
+import { baseApiUrl} from '@/global'
+import axios from 'axios'
+
 export default {
     name: 'CondominoItem',
-    props: ['codomino']
+    props: ['condomino'],
+    data: function() {
+        return {
+            condomino: {},
+            condominos: [],
+            fields: [
+                { key: 'id', label: 'Código', sortable: true },
+                { key: 'apartamento', label: 'apartamento', sortable: true },
+                { key: 'responsavel', label: 'Responsável', sortable: true },
+                { key: 'nome', label: 'Nome Completo:', sortable: true },
+                { key: 'parentesco', label: 'Parentesco', sortable: true },
+                { key: 'actions', label: 'Ações' }
+            ]
+        }
+    },
+    methods: {
+        loadCondominos() {
+            const url = `${baseApiUrl}/condominos?page=${this.page}`
+            axios.get(url).then(res => {
+                this.condominos = res.data.data
+                this.count = res.data.count
+                this.limit = res.data.limit
+            })
+        },
+    }
 }
 </script>
 
@@ -46,16 +67,6 @@ export default {
 
     .codomino-item-info h2 {
         font-size: 1.7rem;
-    }
-
-    .codomino-item-image {
-        padding-right: 20px;
-        margin-right: 20px;
-        border-right: 1px solid #AAA;
-    }
-
-    .codomino-item-image img {
-        border-radius: 5px;
     }
 
     .codomino-item-info {

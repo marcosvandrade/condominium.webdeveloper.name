@@ -1,7 +1,7 @@
 <template>
     <div class="condomino-by-id">
-        <PageTitle icon="fa fa-file-o" :main="condomino.title"/>
-        <div class="condomino-content" v-html="condomino.content"></div>
+        <PageTitle icon="fa fa-file-o" :main="condomino.apartamento"/>
+        <div class="condomino-responsavel" v-html="condomino.responsavel"></div>
     </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
         axios.get(url).then(res => this.condomino = res.data)
     },
     updated() {
-        document.querySelectorAll('.condomino-content pre.ql-syntax').forEach(e => {
+        document.querySelectorAll('.condomino-responsavel pre.ql-syntax').forEach(e => {
             hljs.highlightBlock(e)
         })
     }
@@ -33,13 +33,13 @@ export default {
 </script>
 
 <style>
-    .condomino-content {
+    .condomino-responsavel {
         background-color: #FFF;
         border-radius: 8px;
         padding: 25px;
     }
 
-    .condomino-content pre {
+    .condomino-responsavel pre {
         padding: 20px;
         border-radius: 8px;
         font-size: 1.2rem;
@@ -47,11 +47,11 @@ export default {
         color: #FFF;
     }
 
-    .condomino-content img {
+    .condomino-responsavel img {
         max-width: 100%;
     }
 
-    .condomino-content :last-child {
+    .condomino-responsavel :last-child {
         margin-bottom: 0px;
     }
 </style>
