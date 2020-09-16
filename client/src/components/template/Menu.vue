@@ -54,7 +54,7 @@
                         <a class="nav-link" href="/maintenance">Relatórios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">About</a>
+                        <a class="nav-link" href="/about">About Us</a>
                     </li>
                 </ul>
                 </div>
@@ -99,7 +99,7 @@
                         <a class="nav-link" href="/maintenance">Legislação</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">About</a>
+                        <a class="nav-link" href="/about">About</a>
                     </li>
                 </ul>
                 </div>

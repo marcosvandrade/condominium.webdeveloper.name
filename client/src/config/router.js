@@ -9,6 +9,7 @@ import AvisoById from '@/components/aviso/AvisoById'
 import NoticiaById from '@/components/noticia/NoticiaById'
 import Auth from '@/components/auth/Auth'
 import Maintenance from '@/components/home/PageInConstruction'
+import About from '@/components/home/About'
 
 import { userKey } from '@/global'
 
@@ -21,6 +22,9 @@ const routes = [{
 }, { name: 'maintance',
     path: '/maintenance',
     component: Maintenance
+}, { name: 'about',
+    path: '/about',
+    component: About
 }, {
     name: 'adminPages',
     path: '/admin',
