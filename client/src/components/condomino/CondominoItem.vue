@@ -1,15 +1,12 @@
 <template>
     <div class="condomino-item">
-        <router-link :to="{ name: 'condominoById', params: { id: condomino.id } }">
             <div class="condomino-item-info">
-                <b-table hover striped :items="condominos" :fields="fields"></b-table>
-                <!-- <h2>{{ condomino.apartamento }}</h2>
-                <p>{{ condomino.responsavel }}</p> -->
-                <!-- <span class="condomino-item-author">
-                    <strong>Autor: </strong>{{ condomino.author }}
-                </span> -->
+                <b-table hover
+                              striped
+                              responsive
+                              :items="condominos" :fields="fields"></b-table>
+                <b-pagination size="md" v-model="page" :total-rows="count" :per-page="limit" />
             </div>
-        </router-link>
     </div>
 </template>
 
@@ -19,19 +16,20 @@ import { baseApiUrl} from '@/global'
 import axios from 'axios'
 
 export default {
-    name: 'CondominoItem',
-    props: ['condomino'],
+     name: 'CondominoItem',
     data: function() {
         return {
             condomino: {},
             condominos: [],
+            page: 1,
+            limit: 0,
+            count: 0,
             fields: [
-                { key: 'id', label: 'Código', sortable: true },
+                // { key: 'id', label: 'Código', sortable: true },
                 { key: 'apartamento', label: 'apartamento', sortable: true },
                 { key: 'responsavel', label: 'Responsável', sortable: true },
                 { key: 'nome', label: 'Nome Completo:', sortable: true },
                 { key: 'parentesco', label: 'Parentesco', sortable: true },
-                { key: 'actions', label: 'Ações' }
             ]
         }
     },
@@ -44,6 +42,18 @@ export default {
                 this.limit = res.data.limit
             })
         },
+        loadCondomino(condomino) {
+            axios.get(`${baseApiUrl}/condominos/${condomino.id}`)
+                .then(res => this.condomino = res.data)
+        },
+    },
+        watch: {
+        page() {
+            this.loadCondominos()
+        }
+    },
+    mounted() {
+        this.loadCondominos()
     }
 }
 </script>

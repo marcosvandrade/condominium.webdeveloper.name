@@ -3,8 +3,8 @@
         <PageTitle icon="fa fa-folder-o"
             :main="category.name" />
         <ul>
-            <li v-for="condomino in condominos" :key="condomino.id">
-                <CondominoItem :condomino="condomino" />
+            <li>
+                <CondominoItem />
             </li>
         </ul>
         <div class="load-more">
