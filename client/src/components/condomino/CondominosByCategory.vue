@@ -7,11 +7,6 @@
                 <CondominoItem />
             </li>
         </ul>
-        <div class="load-more">
-            <button v-if="loadMore"
-                class="btn btn-lg btn-outline-primary"
-                @click="getCondominos">Carregar Mais Condominos</button>
-        </div>
     </div>
 </template>
 

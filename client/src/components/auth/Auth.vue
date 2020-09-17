@@ -1,7 +1,7 @@
 <template>
     <div class="auth-content">
         <div class="auth-modal">
-           <img  src="@/assets/logo.png" width="200" alt="Logo" /><span class="logo">SisCondominio</span> 
+           <img  src="@/assets/logo.png" width="250" alt="Logo" /><span class="logo">SisCondominio</span> 
            <hr>
             <div class="auth-title">{{ showSignup ? 'Cadastro' : 'Login' }}</div>
 
@@ -75,7 +75,7 @@ export default {
          position: absolute;
          align-content: flex-end;
          align-items: flex-end;
-         margin-top: 6px;
+         margin-top: 25px;
          margin-left: 50px;
          font-size: 1.2rem;
          font-weight: 100;
