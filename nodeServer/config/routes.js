@@ -64,6 +64,17 @@ module.exports = app => {
         .get(app.api.condomino.getById)
         .put(admin(app.api.condomino.save))
         .delete(admin(app.api.condomino.remove))
+    
+    app.route('/estacionamentos')
+        .all(app.config.passport.authenticate())
+        .get(admin(app.api.estacionamento.get))
+        .post(admin(app.api.estacionamento.save))
+
+    app.route('/estacionamentos/:id')
+        .all(app.config.passport.authenticate())
+        .get(app.api.estacionamento.getById)
+        .put(admin(app.api.estacionamento.save))
+        .delete(admin(app.api.estacionamento.remove))
    
     app.route('/categories/:id/avisos')
     .all(app.config.passport.authenticate())

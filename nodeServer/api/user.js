@@ -84,6 +84,10 @@ module.exports = app => {
             const condominos = await app.db('condominos')
                 .where({ userId: req.params.id })
             notExistsOrError(condominos, 'Usuário possui condôminos cadastrados.')
+            
+            const estacionamentos = await app.db('estacionamentos')
+                .where({ userId: req.params.id })
+            notExistsOrError(estacionamentos, 'Usuário possui vagas cadastradas.')
 
             const rowsUpdated = await app.db('users')
                 .update({deletedAt: new Date()})

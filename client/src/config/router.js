@@ -6,9 +6,11 @@ import AdminPages from '@/components/admin/AdminPages'
 import AvisosByCategory from '@/components/aviso/AvisosByCategory'
 import NoticiasByCategory from '@/components/noticia/NoticiasByCategory'
 import CondominosByCategory from '@/components/condomino/CondominosByCategory'
+import EstacionamentosByCategory from '@/components/estacionamento/EstacionamentosByCategory'
 import AvisoById from '@/components/aviso/AvisoById'
 import NoticiaById from '@/components/noticia/NoticiaById'
 import CondominoById from '@/components/condomino/CondominoById'
+import EstacionamentoById from '@/components/estacionamento/EstacionamentoById'
 import Auth from '@/components/auth/Auth'
 import Maintenance from '@/components/home/PageInConstruction'
 import About from '@/components/home/About'
@@ -45,6 +47,10 @@ const routes = [{
     path: '/categories/:id/condominos',
     component: CondominosByCategory
 },{
+    name: 'estacionamentosByCategory',
+    path: '/categories/:id/estacionamentos',
+    component: EstacionamentosByCategory
+},{
     name: 'avisoById',
     path: '/avisos/:id',
     component: AvisoById
@@ -56,6 +62,10 @@ const routes = [{
     name: 'condominoById',
     path: '/condominos/:id',
     component: CondominoById
+}, {
+    name: 'estacionamentoById',
+    path: '/estacionamentos/:id',
+    component: EstacionamentoById
 }, {
     name: 'auth',
     path: '/auth',

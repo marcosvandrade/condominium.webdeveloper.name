@@ -5,6 +5,7 @@ module.exports = app => {
         avisos: Number,
         noticias: Number,
         condominos: Number,
+        estacionamentos: Number,
         createdAt: Date
     })
 
@@ -16,7 +17,7 @@ module.exports = app => {
                     categories: 0,
                     avisos: 0,
                     noticias: 0,
-                    condominos: 0
+                    estacionamentos: 0
                 }
                 res.json(stat || defaultStat)
             })

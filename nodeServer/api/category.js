@@ -49,6 +49,10 @@ module.exports = app => {
             const condominos = await app.db('condominos')
                 .where({ categoryId: req.params.id })
             notExistsOrError(condominos, 'Categoria possui condominos.')
+            
+            const estacionamentos = await app.db('estacionamentos')
+                .where({ categoryId: req.params.id })
+            notExistsOrError(estacionamentos, 'Categoria possui estacionamentos.')
 
             const rowsDeleted = await app.db('categories')
                 .where({ id: req.params.id }).del()
