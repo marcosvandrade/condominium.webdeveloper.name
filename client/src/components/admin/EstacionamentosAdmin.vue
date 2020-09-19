@@ -80,7 +80,7 @@ data: function() {
                 { key: 'vaga', label: 'Vaga', sortable: true },
                 { key: 'apartamento', label: 'Apartamento', sortable: true },
                 { key: 'nome', label: 'Nome do Responsável', sortable: true },
-                { key: 'obs', label: 'Nome Completo:', sortable: true },
+                { key: 'obs', label: 'Observação', sortable: true },
                 { key: 'actions', label: 'Ações' }
             ]
         }

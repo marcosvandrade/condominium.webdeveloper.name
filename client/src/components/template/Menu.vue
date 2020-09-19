@@ -42,7 +42,7 @@
                         <a class="nav-link" href="/maintenance">Documentos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Estacionamento</a>
+                        <a class="nav-link" href="/categories/7/estacionamentos">Estacionamento</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/maintenance">Funcionários</a>
