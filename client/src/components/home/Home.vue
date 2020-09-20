@@ -3,14 +3,14 @@
     <PageTitle icon="fa fa-home" main="Dashboard"
         sub="Estatísticas" v-if="user.admin"/>
     <div class="stats" v-if="user.admin">
-        <!-- <Stat title="Menu" :value="stat.categories"
-            icon="fa fa-folder" color="#fcba03" /> -->
-        <Stat title="Avisos" :value="stat.avisos"
+       <Stat title="Avisos" :value="stat.avisos"
             icon="fa fa-file" color="#3bc480" />
-        <Stat title="Notícias" :value="stat.noticias"
-        icon="fa fa-folder" color="#d54d50" />
         <Stat title="Condôminos" :value="stat.condominos"
         icon="fa fa-folder" color="#fcba03" />
+        <Stat title="Estacionamento" :value="stat.estacionamentos"
+            icon="fa fa-user" color="#3282cd" />
+        <Stat title="Notícias" :value="stat.noticias"
+        icon="fa fa-folder" color="#d54d50" />
         <Stat title="Usuários" :value="stat.users"
             icon="fa fa-user" color="#3282cd" />
     </div>
@@ -72,7 +72,9 @@ export default {
    
     .stats {
         display: flex;
-        justify-content: space-between;
+        margin-left: 60px;
+        margin-right: 60px;
+        justify-content: space-around;
         flex-wrap: wrap;
     }
 

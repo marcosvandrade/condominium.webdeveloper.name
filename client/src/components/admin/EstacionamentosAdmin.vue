@@ -2,25 +2,25 @@
     <div class="estacionamentos-admin">
         <b-form>
             <input id="estacionamentos-id" type="hidden" v-model="estacionamento.id" />
-            <b-form-group label="Apartamento:" label-for="estacionamento-vaga">
+            <b-form-group label="Vaga:" label-for="estacionamento-vaga">
                 <b-form-input id="estacionamento-vaga" type="text"
                     v-model="estacionamento.vaga" required
                     :readonly="mode === 'remove'"
                     placeholder="Informe o número da vaga..." />
             </b-form-group>
             <b-form-group 
-                label="Responsável:" label-for="estacionamento-apartamento">
+                label="Apartamento:" label-for="estacionamento-apartamento">
                 <b-form-input id="estacionamento-apartamento" type="text"
                     v-model="estacionamento.apartamento"
                     :readonly="mode === 'remove'"
                     placeholder="Informe o apartamento do responsável pela vaga..." />
             </b-form-group>
             <b-form-group 
-                label="Nome Completo:" label-for="estacionamento-nome">
+                label="Nome do Responsável:" label-for="estacionamento-nome">
                 <b-form-input id="estacionamento-nome" type="text"
                     v-model="estacionamento.nome"
                     :readonly="mode === 'remove'"
-                    placeholder="Informe o nome do condômino..." />
+                    placeholder="Informe o nome do responsável pela vaga..." />
             </b-form-group>
             <b-form-group v-if="mode === 'save'" 
                 label="Menu:" label-for="estacionamento-categoryId">
