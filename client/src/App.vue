@@ -1,6 +1,11 @@
 <template>
 	<div id="app" :class="{'hide-menu': !isMenuVisible || !user}">
-		<Header title="Sistema de Administração de Condomínios" 
+		<Header title="Sistema de Administração de Condomínios"
+			v-if="!mobileView" 
+			:hideToggle="!user"
+			:hideUserDropdown="!user" />
+		<HeaderMobile  title="SisCondominio"
+			v-if="mobileView" 
 			:hideToggle="!user"
 			:hideUserDropdown="!user" />
 		<Menu v-if="user" />
@@ -15,6 +20,7 @@ import axios from "axios"
 import { baseApiUrl, userKey } from "@/global"
 import { mapState } from "vuex"
 import Header from "@/components/template/Header"
+import HeaderMobile from "@/components/template/HeaderMobile"
 import Menu from "@/components/template/Menu"
 import Content from "@/components/template/Content"
 import Footer from "@/components/template/Footer"
@@ -22,8 +28,8 @@ import Loading from "@/components/template/Loading"
 
 export default {
 	name: "App",
-	components: { Header, Menu, Content, Footer, Loading },
-	computed: mapState(['isMenuVisible', 'user']),
+	components: { Header, HeaderMobile, Menu, Content, Footer, Loading },
+	computed: mapState(['isMenuVisible', 'user','mobileView']),
 	data: function() {
 		return {
 			validatingToken: true
@@ -95,4 +101,5 @@ export default {
 			"content content"
 			"footer footer";
 	}
+	
 </style>

@@ -7,7 +7,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         isMenuVisible: false,
-        user: null
+        user: null,
+        mobileView: false
     },
     mutations: {
         toggleMenu(state, isVisible) {
@@ -31,6 +32,11 @@ export default new Vuex.Store({
                 delete axios.defaults.headers.common['Authorization']
                 state.isMenuVisible = false
             }
+        },
+        handleView(state, mobileView) {
+            if(mobileView)
+                this.mobileView = window.innerWidth <= 990
+                state.isMenuVisible = false
         }
     }
 })
