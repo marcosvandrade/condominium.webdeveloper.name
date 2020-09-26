@@ -7,7 +7,7 @@
                     <!-- <b-tab title="Menu">
                         <CategoryAdmin />
                     </b-tab> -->
-                    <b-tab title="Avisos">
+                    <b-tab title="Avisos" active>
                         <AvisosAdmin />
                     </b-tab>
                     <b-tab title="Condôminos" >
@@ -19,7 +19,7 @@
                     <b-tab title="Notícias" >
                         <NoticiasAdmin />
                     </b-tab>
-                    <b-tab title="Usuários" active>
+                    <b-tab title="Usuários">
                         <UserAdmin />
                     </b-tab>
                 </b-tabs>
@@ -44,6 +44,7 @@ export default {
 </script>
 
 <style>
+
     b-tab {
         outline: none;
     }

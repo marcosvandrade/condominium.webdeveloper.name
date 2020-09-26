@@ -145,5 +145,8 @@ data: function() {
 </script>
 
 <style>
-    
+    .avisos-admin {
+        width: 100%;
+    }
+
 </style>

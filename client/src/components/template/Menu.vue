@@ -120,7 +120,7 @@ export default {
 <style>
     .menu {
         grid-area: menu;
-        height: 100%;
+        width: 100%;
         background: linear-gradient(to right, #232526, #414345);
 
         display: flex;

@@ -153,6 +153,8 @@ data: function() {
 }
 </script>
 
-<style>
-    
+<style scoped>
+    .estacionamentos-admin {
+        width: 100%;
+    }
 </style>

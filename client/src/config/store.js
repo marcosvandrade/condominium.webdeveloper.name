@@ -34,9 +34,12 @@ export default new Vuex.Store({
             }
         },
         handleView(state, mobileView) {
-            if(mobileView)
-                this.mobileView = window.innerWidth <= 990
+            state.mobileView = mobileView
+            if(mobileView == window.innerWidth <= 990) {
                 state.isMenuVisible = false
+            } else {
+                state.isMenuVisible = true
+                }
         }
     }
 })

@@ -161,6 +161,8 @@ data: function() {
 }
 </script>
 
-<style>
-    
+<style scoped>
+    condominos-admin {
+        width: 100%;
+    }
 </style>
