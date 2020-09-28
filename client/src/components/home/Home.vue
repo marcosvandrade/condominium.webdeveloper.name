@@ -6,13 +6,13 @@
        <Stat title="Avisos" :value="stat.avisos"
             icon="fa fa-file" color="#3bc480" />
         <Stat title="Condôminos" :value="stat.condominos"
-        icon="fa fa-folder" color="#fcba03" />
+        icon="fa fa-user" color="#fcba03" />
         <Stat title="Estacionamento" :value="stat.estacionamentos"
             icon="fa fa-user" color="#3282cd" />
         <Stat title="Notícias" :value="stat.noticias"
-        icon="fa fa-folder" color="#d54d50" />
+        icon="fa fa-file" color="#d54d50" />
         <Stat title="Usuários" :value="stat.users"
-            icon="fa fa-user" color="#3282cd" />
+            icon="fa fa-user" color="#fcba03" />
     </div>
         <div v-if="!user.admin">
            <div class="home-user">
@@ -79,6 +79,8 @@ export default {
     }
 
     .home .home-user {
+        display: flex;
+        flex-direction: column;
         height: 100%;
         margin-left: 50px;
         margin-top: 30px;
@@ -103,9 +105,8 @@ export default {
     }
     
     .home .home-user p {
-        margin-left: 250px;
-        margin-right: 250px;
-        margin-top: 30px;
+        display: flex;
+        margin: auto;
         font-size: 1.5rem;
         text-align: justify;
         font-family: cursive;
@@ -113,7 +114,8 @@ export default {
     }
    
     .home .home-user ul li{
-        margin-left: 230px;
+        display: flex;
+        margin: auto;
         font-size: 1.4rem;
         font-family: cursive;
         padding: 5px;

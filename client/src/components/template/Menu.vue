@@ -1,6 +1,6 @@
 <template>
-    <div class="menu" v-show="isMenuVisible" v-on="Mobile()">
-        <div v-if="user.admin">
+    <div class="menu" v-show="isMenuVisible">
+        <div v-if="user.admin" v-on="Mobile()" v-bind:class="[isMobile ? 'mobile' : '']">
             <div class="menu-filter">
                     <i class="fa fa-search fa-lg"></i>
                     <input type="text" placeholder="Digite para pesquisar..."
@@ -9,7 +9,7 @@
             <div class="user-admin">
                 <ul class="nav flex-column">
                     <li class="nav-item-home">
-                        <a class="nav-link" href="/" >
+                        <a class="nav-link-home" href="/" >
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
                                 <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
@@ -56,7 +56,7 @@
                 </div>
         </div>
 
-        <div v-if="!user.admin">
+        <div v-if="!user.admin" v-on="Mobile()" v-bind:class="[isMobile ? 'mobile' : '']">
             <div class="menu-filter">
                     <i class="fa fa-search fa-lg"></i>
                     <input type="text" placeholder="Digite para pesquisar..."
@@ -106,15 +106,16 @@ import { mapState } from 'vuex'
 export default {
     name: 'Menu',
     computed: mapState(['isMenuVisible', 'user']),
+    data: function() {
+        return {
+            isMobile: false
+        }
+    },
     methods: {
             Mobile(){
                 if(window.innerWidth <= 990){
-                    // document.getElementById("isMobile").className = "mobile"
-                    // document.createAttribute("mobile")
-                    // document.getElementById('#isMobile').classList.remove('menu');
-                    const mob = document.getElementsByClassName("menu")
-                    mob.className.replace("mobile")
-                    // document.querySelector('menu').className.replace('mobile')
+                    this.isMobile = true
+                    // console.log(this.isMobile)
             }
         }
     }
@@ -122,10 +123,6 @@ export default {
 </script>
 
 <style>
-
-    .mobile a {
-        color: red;
-    }
 
     .menu {
         grid-area: menu;
@@ -238,5 +235,12 @@ export default {
         color: gray;
     }
 
+    .menu .mobile .nav-item a {
+        font-size: 0.8rem;
+    }
+
+    .menu .mobile .nav-item-home a {
+        font-size: 1rem;
+    }
 
 </style>
