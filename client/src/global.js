@@ -1,7 +1,8 @@
 import Vue from 'vue'
 
 export const userKey = '__knowledge_user'
-export const baseApiUrl = 'https://34.203.91.20:4001'
+// export const baseApiUrl = 'https://my-loadbalancer-763909654.us-east-1.elb.amazonaws.com:4001'
+export const baseApiUrl = 'http://34.203.91.20:4001'
 // export const baseApiUrl = 'http://localhost:4001'
 
 export function showError(e) {
