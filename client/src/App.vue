@@ -1,6 +1,6 @@
 <template>
 	<div id="app" :class="{'hide-menu': !isMenuVisible || !user}">
-		<Header title="Sistema de Administração de Condomínios"
+		<Header title="Condominium Administration System"
 			v-if="!mobileView" 
 			:hideToggle="!user"
 			:hideUserDropdown="!user" />

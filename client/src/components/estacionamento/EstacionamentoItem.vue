@@ -25,10 +25,10 @@ export default {
             limit: 0,
             count: 0,
             fields: [
-                { key: 'vaga', label: 'Vaga', sortable: true },
-                { key: 'apartamento', label: 'Apartamento', sortable: true },
-                { key: 'nome', label: 'Nome do Responsável', sortable: true },
-                { key: 'obs', label: 'Observação', sortable: true },
+                { key: 'vaga', label: 'Vacancy', sortable: true },
+                { key: 'apartamento', label: 'Apartment', sortable: true },
+                { key: 'nome', label: 'Name of Responsible', sortable: true },
+                { key: 'obs', label: 'Observation', sortable: true },
             ]
         }
     },

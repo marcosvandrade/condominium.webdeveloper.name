@@ -1,25 +1,25 @@
 <template>
     <div class="auth-content">
         <div class="auth-modal">
-           <img  src="@/assets/logo.png" width="250" alt="Logo" /><span class="logo">SisCondominio</span> 
+           <img  src="@/assets/logo.png" width="250" alt="Logo" /><span class="logo">Condominium Manager</span> 
            <hr>
-            <div class="auth-title">{{ showSignup ? 'Cadastro' : 'Login' }}</div>
+            <div class="auth-title">{{ showSignup ? 'Register' : 'Login' }}</div>
 
-            <input v-if="showSignup" v-model="user.name" type="text" placeholder="Nome">
-            <input v-model="user.email" name="email" type="text" placeholder="E-mail">
-            <input v-if="showSignup" v-model="user.cpf" type="text" placeholder="CPF">
-            <input v-if="showSignup" v-model="user.apartamento" type="text" placeholder="Apartamento">
-            <input v-if="showSignup" v-model="user.contato" type="text" placeholder="Contato">
-            <input v-model="user.password" name="password" type="password" placeholder="Senha">
+            <input v-if="showSignup" v-model="user.name" type="text" placeholder="Name">
+            <input v-model="user.email" name="email" type="text" placeholder="Email">
+            <!-- <input v-if="showSignup" v-model="user.cpf" type="text" placeholder="CPF"> -->
+            <input v-if="showSignup" v-model="user.apartamento" type="text" placeholder="Apartment">
+            <input v-if="showSignup" v-model="user.contato" type="text" placeholder="Contact">
+            <input v-model="user.password" name="password" type="password" placeholder="Password">
             <input v-if="showSignup" v-model="user.confirmPassword"
-                type="password" placeholder="Confirme a Senha">
+                type="password" placeholder="Confirm the Password">
 
-            <button v-if="showSignup" @click="signup">Registrar</button>
-            <button v-else @click="signin">Entrar</button>
+            <button v-if="showSignup" @click="signup">Register</button>
+            <button v-else @click="signin">Login</button>
 
             <a href @click.prevent="showSignup = !showSignup">
-                <span v-if="showSignup">Já tem cadastro? Acesse o Login!</span>
-                <span v-else>Não tem cadastro? Registre-se aqui!</span>
+                <span v-if="showSignup">Already have registration? Access the Login!</span>
+                <span v-else>No registration? Register here!</span>
             </a>
         </div>
     </div>
@@ -75,9 +75,10 @@ export default {
          position: absolute;
          align-content: flex-end;
          align-items: flex-end;
-         margin-top: 25px;
+         margin-top: 30px;
          margin-left: 50px;
-         font-size: 1.2rem;
+         padding-left: 30px;
+         font-size: 1.1rem;
          font-weight: 100;
          font-family: Verdana, Geneva, Tahoma, sans-serif;
 

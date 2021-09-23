@@ -9,9 +9,9 @@
         </div>
         <div class="user-dropdown-content">
             <router-link to="/admin" v-if="user.admin">
-                <i class="fa fa-cogs"></i> Administração
+                <i class="fa fa-cogs"></i> Management
             </router-link>
-            <a href @click.prevent="logout"><i class="fa fa-sign-out"></i> Sair</a>
+            <a href @click.prevent="logout"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
     </div>
 </template>

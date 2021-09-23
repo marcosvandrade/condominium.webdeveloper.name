@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-        <span>Copyright <strong>SisCondominio</strong> © 2019-2020</span>
+        <span>Copyright <strong>Condominium Manager</strong> © 2019-2020</span>
     </footer>
 </template>
 

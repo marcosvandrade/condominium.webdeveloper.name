@@ -1,7 +1,7 @@
 <template>
    <div class="maintenance">
       
-            <img src="@/assets/underConstruction.jpg" alt="emconstrucao">
+            <img src="@/assets/underConstruction.jpg" alt="inconstruction">
      
     </div>
 </template>

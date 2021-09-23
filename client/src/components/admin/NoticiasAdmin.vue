@@ -2,18 +2,18 @@
     <div class="noticias-admin">
         <b-form>
             <input id="noticias-id" type="hidden" v-model="noticia.id" />
-            <b-form-group label="Título:" label-for="noticia-title">
+            <b-form-group label="Title:" label-for="noticia-title">
                 <b-form-input id="noticia-title" type="text"
                     v-model="noticia.title" required
                     :readonly="mode === 'remove'"
-                    placeholder="Informe a notícia..." />
+                    placeholder="Inform the news..." />
             </b-form-group>
             <b-form-group v-if="mode === 'save'"
-                label="Imagem (URL):" label-for="noticia-imageUrl">
+                label="Image (URL):" label-for="noticia-imageUrl">
                 <b-form-input id="noticia-imageUrl" type="text"
                     v-model="noticia.imageUrl"
                     :readonly="mode === 'remove'"
-                    placeholder="Informe a URL da Imagem..." />
+                    placeholder="Enter the Image URL..." />
             </b-form-group>
             <b-form-group v-if="mode === 'save'" 
                 label="Menu:" label-for="noticia-categoryId">
@@ -21,20 +21,20 @@
                     :options="categories" v-model="noticia.categoryId" />
             </b-form-group>
             <b-form-group v-if="mode === 'save'" 
-                label="Autor:" label-for="noticia.userId">
+                label="Author:" label-for="noticia.userId">
                 <b-form-select id="noticia.userId"
                     :options="users" v-model="noticia.userId" />
             </b-form-group>
             <b-form-group v-if="mode === 'save'"
-                label="Conteúdo" label-for="noticia-content">
+                label="Contents" label-for="noticia-content">
                 <VueEditor v-model="noticia.content"
-                    placeholder="Informe o Conteúdo da Notícia..." />
+                    placeholder="Inform the News Content..." />
             </b-form-group>
             <b-button variant="primary" v-if="mode === 'save'"
-                @click="save">Salvar</b-button>
+                @click="save">Save</b-button>
             <b-button variant="danger" v-if="mode === 'remove'"
-                @click="remove">Excluir</b-button>
-            <b-button class="ml-2" @click="reset">Cancelar</b-button>
+                @click="remove">Delete</b-button>
+            <b-button class="ml-2" @click="reset">Cancel</b-button>
         </b-form>
         <hr>
         <b-table hover striped :items="noticias" :fields="fields">
@@ -70,9 +70,9 @@ data: function() {
             limit: 0,
             count: 0,
             fields: [
-                { key: 'id', label: 'Código', sortable: true },
-                { key: 'title', label: 'Título', sortable: true },
-                { key: 'actions', label: 'Ações' }
+                { key: 'id', label: 'Code', sortable: true },
+                { key: 'title', label: 'Title', sortable: true },
+                { key: 'actions', label: 'Actions' }
             ]
         }
     },

@@ -2,25 +2,25 @@
     <div class="estacionamentos-admin">
         <b-form>
             <input id="estacionamentos-id" type="hidden" v-model="estacionamento.id" />
-            <b-form-group label="Vaga:" label-for="estacionamento-vaga">
+            <b-form-group label="Vacancy:" label-for="estacionamento-vaga">
                 <b-form-input id="estacionamento-vaga" type="text"
                     v-model="estacionamento.vaga" required
                     :readonly="mode === 'remove'"
-                    placeholder="Informe o número da vaga..." />
+                    placeholder="Enter the vacancy number..." />
             </b-form-group>
             <b-form-group 
-                label="Apartamento:" label-for="estacionamento-apartamento">
+                label="Apartment:" label-for="estacionamento-apartamento">
                 <b-form-input id="estacionamento-apartamento" type="text"
                     v-model="estacionamento.apartamento"
                     :readonly="mode === 'remove'"
-                    placeholder="Informe o apartamento do responsável pela vaga..." />
+                    placeholder="Inform the person responsible for the vacancy's apartment..." />
             </b-form-group>
             <b-form-group 
-                label="Nome do Responsável:" label-for="estacionamento-nome">
+                label="Name of Responsible:" label-for="estacionamento-nome">
                 <b-form-input id="estacionamento-nome" type="text"
                     v-model="estacionamento.nome"
                     :readonly="mode === 'remove'"
-                    placeholder="Informe o nome do responsável pela vaga..." />
+                    placeholder="Enter the name of the person responsible for the vacancy..." />
             </b-form-group>
             <b-form-group v-if="mode === 'save'" 
                 label="Menu:" label-for="estacionamento-categoryId">
@@ -28,20 +28,20 @@
                     :options="categories" v-model="estacionamento.categoryId" />
             </b-form-group>
             <b-form-group v-if="mode === 'save'" 
-                label="Autor:" label-for="estacionamento-userId">
+                label="Author:" label-for="estacionamento-userId">
                 <b-form-select id="estacionamento-userId"
                     :options="users" v-model="estacionamento.userId" />
             </b-form-group>
             <b-form-group v-if="mode === 'save'"
-                label="Observação" label-for="estacionamento-obs">
+                label="Observation" label-for="estacionamento-obs">
                 <VueEditor v-model="estacionamento.obs"
-                    placeholder="Digite caso haja observações..." />
+                    placeholder="Enter if there are remarks..." />
             </b-form-group>
             <b-button variant="primary" v-if="mode === 'save'"
-                @click="save">Salvar</b-button>
+                @click="save">Save</b-button>
             <b-button variant="danger" v-if="mode === 'remove'"
-                @click="remove">Excluir</b-button>
-            <b-button class="ml-2" @click="reset">Cancelar</b-button>
+                @click="remove">Delete</b-button>
+            <b-button class="ml-2" @click="reset">Cancel</b-button>
         </b-form>
         <hr>
         <b-table hover striped :items="estacionamentos" :fields="fields">
@@ -77,11 +77,11 @@ data: function() {
             limit: 0,
             count: 0,
             fields: [
-                { key: 'vaga', label: 'Vaga', sortable: true },
-                { key: 'apartamento', label: 'Apartamento', sortable: true },
-                { key: 'nome', label: 'Nome do Responsável', sortable: true },
-                { key: 'obs', label: 'Observação', sortable: true },
-                { key: 'actions', label: 'Ações' }
+                { key: 'vaga', label: 'Vacancy', sortable: true },
+                { key: 'apartamento', label: 'Apartment', sortable: true },
+                { key: 'nome', label: 'Name of Responsible', sortable: true },
+                { key: 'obs', label: 'Observation', sortable: true },
+                { key: 'actions', label: 'Actions' }
             ]
         }
     },

@@ -13,7 +13,7 @@
                 <h2>{{ aviso.title }}</h2>
                 <p>{{ aviso.content }}</p>
                 <span class="aviso-item-author">
-                    <strong>Autor: </strong>{{ aviso.author }}
+                    <strong>Author: </strong>{{ aviso.author }}
                 </span>
             </div>
         </router-link>

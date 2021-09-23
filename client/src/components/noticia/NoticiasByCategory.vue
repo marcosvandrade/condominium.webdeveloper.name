@@ -10,7 +10,7 @@
         <div class="load-more">
             <button v-if="loadMore"
                 class="btn btn-lg btn-outline-primary"
-                @click="getNoticias">Carregar Mais Notícias</button>
+                @click="getNoticias">Load More News</button>
         </div>
     </div>
 </template>

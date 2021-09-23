@@ -4,19 +4,19 @@
             <input id="user-id" type="hidden" v-model="user.id" />
             <b-row>
                 <b-col md="6" sm="12">
-                    <b-form-group label="Nome:" label-for="user-name">
+                    <b-form-group label="Name:" label-for="user-name">
                         <b-form-input id="user-name" type="text"
                             v-model="user.name" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe o Nome do morador..." />
+                            placeholder="Enter the name of the resident..." />
                     </b-form-group>
                 </b-col>
                 <b-col md="6" sm="12">
-                    <b-form-group label="E-mail:" label-for="user-email">
+                    <b-form-group label="Email:" label-for="user-email">
                         <b-form-input id="user-email" type="text"
                             v-model="user.email" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe o E-mail do morador..." />
+                            placeholder="Enter the resident's email..." />
                     </b-form-group>
                 </b-col>
             </b-row>
@@ -30,50 +30,50 @@
                     </b-form-group>
                 </b-col>
                 <b-col md="6" sm="12">
-                    <b-form-group label="Apartamento:" label-for="user-apartamento">
+                    <b-form-group label="Apartment:" label-for="user-apartamento">
                         <b-form-input id="user-apartamento" type="text"
                             v-model="user.apartamento" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe o apartamento do morador..." />
+                            placeholder="Inform the resident's apartment..." />
                     </b-form-group>
                 </b-col>
                 <b-col md="6" sm="12">
-                    <b-form-group label="Contato:" label-for="user-contato">
+                    <b-form-group label="Contact:" label-for="user-contato">
                         <b-form-input id="user-contato" type="text"
                             v-model="user.contato" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe o contato do morador..." />
+                            placeholder="Inform the resident's contact..." />
                     </b-form-group>
                 </b-col>
             </b-row>
             <b-form-checkbox id="user-admin" v-show="mode === 'save'"
                 v-model="user.admin" class="mt-3 mb-3">
-                Administrador?
+                Administrator?
             </b-form-checkbox>
             <b-row v-show="mode === 'save'">
                 <b-col md="6" sm="12">
-                    <b-form-group label="Senha:" label-for="user-password">
+                    <b-form-group label="Password:" label-for="user-password">
                         <b-form-input id="user-password" type="password"
                             v-model="user.password" required
-                            placeholder="Informe a Senha do Usuário..." />
+                            placeholder="Enter User Password..." />
                     </b-form-group>
                 </b-col>
                 <b-col md="6" sm="12">
-                    <b-form-group label="Confirmação de Senha:" 
+                    <b-form-group label="Password Confirmation:" 
                         label-for="user-confirm-password">
                         <b-form-input id="user-confirm-password" type="password"
                             v-model="user.confirmPassword" required
-                            placeholder="Confirme a Senha do Usuário..." />
+                            placeholder="Confirm User Password..." />
                     </b-form-group>
                 </b-col>
             </b-row>
             <b-row>
                 <b-col xs="12">
                     <b-button variant="primary" v-if="mode === 'save'"
-                        @click="save">Salvar</b-button>
+                        @click="save">Save</b-button>
                     <b-button variant="danger" v-if="mode === 'remove'"
-                        @click="remove">Excluir</b-button>
-                    <b-button class="ml-2" @click="reset">Cancelar</b-button>
+                        @click="remove">Delete</b-button>
+                    <b-button class="ml-2" @click="reset">Cancel</b-button>
                 </b-col>
             </b-row>
         </b-form>
@@ -103,15 +103,15 @@ export default {
             user: {},
             users: [],
             fields: [
-                { key: 'id', label: 'Código', sortable: true },
-                { key: 'name', label: 'Nome', sortable: true },
-                { key: 'email', label: 'E-mail', sortable: true },
+                { key: 'id', label: 'Code', sortable: true },
+                { key: 'name', label: 'Name', sortable: true },
+                { key: 'email', label: 'Email', sortable: true },
                 { key: 'cpf', label: 'CPF', sortable: true },
-                { key: 'apartamento', label: 'Apartamento', sortable: true },
-                { key: 'contato', label: 'Contato', sortable: true },
-                { key: 'admin', label: 'Administrador', sortable: true,
-                    formatter: value => value ? 'Sim' : 'Não' },
-                { key: 'actions', label: 'Ações' }
+                { key: 'apartamento', label: 'Apartment', sortable: true },
+                { key: 'contato', label: 'Contact', sortable: true },
+                { key: 'admin', label: 'Administrator', sortable: true,
+                    formatter: value => value ? 'Yes' : 'No' },
+                { key: 'actions', label: 'Action' }
             ]
         }
     },

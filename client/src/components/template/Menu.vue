@@ -3,7 +3,7 @@
         <div v-if="user.admin" v-on="Mobile()" v-bind:class="[isMobile ? 'mobile' : '']">
             <div class="menu-filter">
                     <i class="fa fa-search fa-lg"></i>
-                    <input type="text" placeholder="Digite para pesquisar..."
+                    <input type="text" placeholder="Type to search..."
                         class="filter-field">
             </div>
             <div class="user-admin">
@@ -17,37 +17,37 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Assinar a Newsletter</a>
+                        <a class="nav-link" href="/maintenance">Subscribe to Newsletter</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/categories/3/avisos">Avisos</a>
+                        <a class="nav-link" href="/categories/3/avisos">Notices</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/categories/13/noticias">Notícias</a>
+                        <a class="nav-link" href="/categories/13/noticias">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Responder Chamados</a>
+                        <a class="nav-link" href="/maintenance">Answer Tickets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/categories/5/condominos">Condôminos</a>
+                        <a class="nav-link" href="/categories/5/condominos">Owners</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Consumo Água/Energia</a>
+                        <a class="nav-link" href="/maintenance">Water/Energy Consumption</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Documentos</a>
+                        <a class="nav-link" href="/maintenance">Documents</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/categories/7/estacionamentos">Estacionamento</a>
+                        <a class="nav-link" href="/categories/7/estacionamentos">Parking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Funcionários</a>
+                        <a class="nav-link" href="/maintenance">Employees</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Legislação</a>
+                        <a class="nav-link" href="/maintenance">Legislation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Relatórios</a>
+                        <a class="nav-link" href="/maintenance">Reports</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/about">About Us</a>
@@ -59,7 +59,7 @@
         <div v-if="!user.admin" v-on="Mobile()" v-bind:class="[isMobile ? 'mobile' : '']">
             <div class="menu-filter">
                     <i class="fa fa-search fa-lg"></i>
-                    <input type="text" placeholder="Digite para pesquisar..."
+                    <input type="text" placeholder="Type to search..."
                         class="filter-field">
             </div>
             <div class="user-client">
@@ -77,22 +77,22 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Assinar a Newsletter</a>
+                        <a class="nav-link" href="/maintenance">Subscribe to Newsletter</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/categories/3/avisos">Avisos</a>
+                        <a class="nav-link" href="/categories/3/avisos">Notices</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/categories/13/noticias">Notícias</a>
+                        <a class="nav-link" href="/categories/13/noticias">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Abrir Chamados</a>
+                        <a class="nav-link" href="/maintenance">Open Tickets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Consumo Água/Energia</a>
+                        <a class="nav-link" href="/maintenance">Water/Energy Consumption</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/maintenance">Legislação</a>
+                        <a class="nav-link" href="/maintenance">Legislation</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/about">About</a>

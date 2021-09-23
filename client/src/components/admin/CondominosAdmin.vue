@@ -2,32 +2,32 @@
     <div class="condominos-admin">
         <b-form>
             <input id="condominos-id" type="hidden" v-model="condomino.id" />
-            <b-form-group label="Apartamento:" label-for="condomino-apartamento">
+            <b-form-group label="Apartment:" label-for="condomino-apartamento">
                 <b-form-input id="condomino-apartamento" type="text"
                     v-model="condomino.apartamento" required
                     :readonly="mode === 'remove'"
-                    placeholder="Informe o Condômino..." />
+                    placeholder="Inform the Owner..." />
             </b-form-group>
             <b-form-group 
-                label="Responsável:" label-for="condomino-responsavel">
+                label="Responsible:" label-for="condomino-responsavel">
                 <b-form-input id="condomino-responsavel" type="text"
                     v-model="condomino.responsavel"
                     :readonly="mode === 'remove'"
-                    placeholder="Informe o responsável pelo apartamento..." />
+                    placeholder="Inform the person responsible for the apartment..." />
             </b-form-group>
             <b-form-group 
-                label="Nome Completo:" label-for="condomino-nome">
+                label="Full name:" label-for="condomino-nome">
                 <b-form-input id="condomino-nome" type="text"
                     v-model="condomino.nome"
                     :readonly="mode === 'remove'"
-                    placeholder="Informe o nome do condômino..." />
+                    placeholder="Enter the name of the owner..." />
             </b-form-group>
             <b-form-group 
-                label="Parentesco:" label-for="condomino-parentesco">
+                label="Kinship:" label-for="condomino-parentesco">
                 <b-form-input id="condomino-parentesco" type="text"
                     v-model="condomino.parentesco"
                     :readonly="mode === 'remove'"
-                    placeholder="Informe o grau de parentesco do condômino..." />
+                    placeholder="Inform the family member's degree of kinship..." />
             </b-form-group>
             <b-form-group v-if="mode === 'save'" 
                 label="Menu:" label-for="condomino-categoryId">
@@ -35,20 +35,20 @@
                     :options="categories" v-model="condomino.categoryId" />
             </b-form-group>
             <b-form-group v-if="mode === 'save'" 
-                label="Autor:" label-for="condomino-userId">
+                label="Author:" label-for="condomino-userId">
                 <b-form-select id="condomino-userId"
                     :options="users" v-model="condomino.userId" />
             </b-form-group>
             <b-form-group v-if="mode === 'save'"
-                label="Observação" label-for="condomino-obs">
+                label="Observation" label-for="condomino-obs">
                 <VueEditor v-model="condomino.obs"
-                    placeholder="Digite caso haja observações..." />
+                    placeholder="Enter if there are remarks..." />
             </b-form-group>
             <b-button variant="primary" v-if="mode === 'save'"
-                @click="save">Salvar</b-button>
+                @click="save">Save</b-button>
             <b-button variant="danger" v-if="mode === 'remove'"
-                @click="remove">Excluir</b-button>
-            <b-button class="ml-2" @click="reset">Cancelar</b-button>
+                @click="remove">Delete</b-button>
+            <b-button class="ml-2" @click="reset">Cancel</b-button>
         </b-form>
         <hr>
         <b-table hover striped :items="condominos" :fields="fields">
@@ -84,12 +84,12 @@ data: function() {
             limit: 0,
             count: 0,
             fields: [
-                { key: 'id', label: 'Código', sortable: true },
-                { key: 'apartamento', label: 'apartamento', sortable: true },
-                { key: 'responsavel', label: 'Responsável', sortable: true },
-                { key: 'nome', label: 'Nome Completo:', sortable: true },
-                { key: 'parentesco', label: 'Parentesco', sortable: true },
-                { key: 'actions', label: 'Ações' }
+                { key: 'id', label: 'Code', sortable: true },
+                { key: 'apartamento', label: 'apartment', sortable: true },
+                { key: 'responsavel', label: 'Responsible', sortable: true },
+                { key: 'nome', label: 'Full name:', sortable: true },
+                { key: 'parentesco', label: 'Kinship', sortable: true },
+                { key: 'actions', label: 'Actions' }
             ]
         }
     },

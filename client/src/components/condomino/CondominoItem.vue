@@ -26,10 +26,10 @@ export default {
             count: 0,
             fields: [
                 // { key: 'id', label: 'Código', sortable: true },
-                { key: 'apartamento', label: 'apartamento', sortable: true },
-                { key: 'responsavel', label: 'Responsável', sortable: true },
-                { key: 'nome', label: 'Nome Completo:', sortable: true },
-                { key: 'parentesco', label: 'Parentesco', sortable: true },
+                { key: 'apartamento', label: 'apartment', sortable: true },
+                { key: 'responsavel', label: 'Responsible', sortable: true },
+                { key: 'nome', label: 'Full name:', sortable: true },
+                { key: 'parentesco', label: 'Kinship', sortable: true },
             ]
         }
     },

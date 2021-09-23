@@ -2,18 +2,18 @@
     <div class="avisos-admin">
         <b-form>
             <input id="avisos-id" type="hidden" v-model="aviso.id" />
-            <b-form-group label="Título:" label-for="aviso-title">
+            <b-form-group label="Title:" label-for="aviso-title">
                 <b-form-input id="aviso-title" type="text"
                     v-model="aviso.title" required
                     :readonly="mode === 'remove'"
-                    placeholder="Informe o Aviso..." />
+                    placeholder="Inform the Notice..." />
             </b-form-group>
             <b-form-group v-if="mode === 'save'"
-                label="Imagem (URL):" label-for="aviso-imageUrl">
+                label="Image (URL):" label-for="aviso-imageUrl">
                 <b-form-input id="aviso-imageUrl" type="text"
                     v-model="aviso.imageUrl"
                     :readonly="mode === 'remove'"
-                    placeholder="Informe a URL da Imagem..." />
+                    placeholder="Enter the Image URL..." />
             </b-form-group>
             <b-form-group v-if="mode === 'save'" 
                 label="Menu:" label-for="aviso-categoryId">
@@ -21,23 +21,23 @@
                     :options="categories" v-model="aviso.categoryId" />
             </b-form-group>
             <b-form-group v-if="mode === 'save'" 
-                label="Autor:" label-for="aviso-userId">
+                label="Author:" label-for="aviso-userId">
                 <b-form-select id="aviso-userId"
                     :options="users" v-model="aviso.userId" />
             </b-form-group>
             <b-form-group v-if="mode === 'save'"
-                label="Conteúdo" label-for="aviso-content">
+                label="Contents" label-for="aviso-content">
                 <VueEditor v-model="aviso.content"
-                    placeholder="Informe o Conteúdo do Aviso..." />
+                    placeholder="Inform the Content of the Notice..." />
             </b-form-group>
             <b-button variant="primary" v-if="mode === 'save'"
-                @click="save">Salvar</b-button>
+                @click="save">Save</b-button>
             <b-button variant="danger" v-if="mode === 'remove'"
-                @click="remove">Excluir</b-button>
-            <b-button class="ml-2" @click="reset">Cancelar</b-button>
+                @click="remove">Delete</b-button>
+            <b-button class="ml-2" @click="reset">Cancel</b-button>
         </b-form>
         <hr>
-        <b-table hover striped :items="avisos" :fields="fields">
+        <b-table hover striped :items="notices" :fields="fields">
             <template slot="actions" slot-scope="data">
                 <b-button variant="warning" @click="loadAviso(data.item)" class="mr-2">
                     <i class="fa fa-pencil"></i>
@@ -70,9 +70,9 @@ data: function() {
             limit: 0,
             count: 0,
             fields: [
-                { key: 'id', label: 'Código', sortable: true },
-                { key: 'title', label: 'Título', sortable: true },
-                { key: 'actions', label: 'Ações' }
+                { key: 'id', label: 'Code', sortable: true },
+                { key: 'title', label: 'Title', sortable: true },
+                { key: 'actions', label: 'Actions' }
             ]
         }
     },

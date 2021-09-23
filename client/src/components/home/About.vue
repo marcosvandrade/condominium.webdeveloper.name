@@ -2,15 +2,15 @@
    <div>
         <div class="about-section">
         <h1>About Us</h1>
-        <p>Encontre os Desenvolvedores</p>
-        <p>Esta equipe foi formada para o TCC do IFB Campus Brasília apoiados pelos docentes
-            daquela digníssima Instituição.
+        <p>Find the Developers</p>
+        <p>This team was formed for the TCC of the IFB Campus Brasília, supported by the professors
+             of that most dignified Institution.
         </p>
         </div>
 
-        <h2 style="text-align:center">Nosso Time</h2>
+        <!-- <h2 style="text-align:center">Our team</h2>
         <div class="row">
-        <div class="column">
+        <div class="column" style="text-align:center">
             <div class="card">
             <img src="@/assets/IFBVertical.png" alt="Jane" style="width:57%">
             <div class="container">
@@ -19,8 +19,9 @@
             </div>
             </div>
         </div>
+        </div> -->
 
-        <div class="column">
+        <!-- <div class="column">
             <div class="card">
             <img src="@/assets/jp.jpg" alt="jp" style="width:50%">
             <div class="container">
@@ -30,9 +31,9 @@
                 <p><button class="button">Contact</button></p>
             </div>
             </div>
-        </div>
+        </div> -->
 
-        <div class="column">
+        <!-- <div class="column">
             <div class="card">
             <img src="@/assets/mva.jpg" alt="mva" style="width:50%">
             <div class="container">
@@ -42,9 +43,9 @@
                 <p><button class="button">Contact</button></p>
             </div>
             </div>
+        </div> -->
         </div>
-        </div>
-   </div>
+
 </template>
 
 <script>
@@ -80,15 +81,16 @@ img {
 }
 
 .column {
-  float: left;
+  /* float: none; */
   width: 33.3%;
   margin-bottom: 16px;
+  margin-left: 50vh;
   padding: 0 8px;
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
+  margin-left: 8px;
 }
 
 .about-section {
