@@ -7,7 +7,7 @@
 
             <input v-if="showSignup" v-model="user.name" type="text" placeholder="Name">
             <input v-model="user.email" name="email" type="text" placeholder="Email">
-            <!-- <input v-if="showSignup" v-model="user.cpf" type="text" placeholder="CPF"> -->
+            <input v-if="showSignup" v-model="user.cpf" type="text" placeholder="CPF">
             <input v-if="showSignup" v-model="user.apartamento" type="text" placeholder="Apartment">
             <input v-if="showSignup" v-model="user.contato" type="text" placeholder="Contact">
             <input v-model="user.password" name="password" type="password" placeholder="Password">
