@@ -7,8 +7,8 @@ TCC IFB 2020
     
     Domínios criados
     
-    http://cliquesindico.com
-    http://cliquesindico.com.br
+    //cliquesindico.com
+    //cliquesindico.com.br
  
 -------------------------------------------------------------------------------------------------------------------------- 
  
@@ -21,7 +21,7 @@ Serviços de freelancer e trabalho remoto. Desenvolvo desde blogs, portfólios a
 
 Portifólio e Blog sobre Informática
 
-http://webcreatecode.com.br
+webcreatecode.com.br
 
 Redes Sociais
 
