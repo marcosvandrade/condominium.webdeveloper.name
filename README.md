@@ -1,39 +1,78 @@
-# sistema-condominio.herokuapp.com
-TCC IFB 2020
+# 🏢 Condominium Management Web Application
 
-   Repositório dedicado a confecção do Trabalho de Conclusão de Curso do IFB Campus Brasília, do Curso Superior de Sistemas para Internet, iniciado no ano de 2018.
+🎓 Instituto Federal de Brasília (IFB)
 
-   O projeto terá como tema o desenvovimento de um sistema de administração para condomínios personalizado, onde terá um portal para apresentação dos serviços e a aplicação será modularizada em subdomínios, que serão usados para a criação de subsistemas personalizados de condomínios, de acordo com a demanda...
-    
-    Domínios criados
-    
-    http://cliquesindico.com
-    http://cliquesindico.com.br
- 
--------------------------------------------------------------------------------------------------------------------------- 
- 
-APRESENTAÇÃO DE PORTIFÓLIO
+TCC IFB 2020 - Internet Systems
 
+This project is a **web-based application** designed for managing condominium properties. It offers a user-friendly interface and powerful tools for property managers and residents alike.
 
-Web Create Code
+## 🌟 Features
 
-Serviços de freelancer e trabalho remoto. Desenvolvo desde blogs, portfólios a sistemas completos personalizados, com banco de dados e hospedagem incluídos. Caso haja interesse os contratos para hospedagem e manutenção poderão ser renovados anualmente.
+- 📝 **Manage resident information**: Easily update and manage resident details.
+- 📊 **Financial management**: Track payments, generate invoices, and manage budgets.
+- 📅 **Event scheduling**: Organize meetings, maintenance schedules, and more.
+- 🔔 **Notifications**: Keep everyone informed with real-time notifications.
 
-Portifólio e Blog sobre Informática
+## 🛠️ Technologies Used
 
-http://webcreatecode.com.br
+- **Front-end**: Vue.js, Bootstrap
+- **Back-end**: Node.js
+- **Database**: MongoDB, Postgres
+- **Authentication**: JWT (JSON Web Token)
 
-Redes Sociais
+## 🚀 Getting Started
 
-linkedin
-https://www.linkedin.com/in/webcreatecode
+### Prerequisites
 
-facebook
-https://www.facebook.com/webcreatecode/
+- Node.js installed
+- MongoDB installed and running
+- Postgres installed and running
 
-youtube
-https://www.youtube.com/channel/UCddRV4GVHOWBoOWi7I9rAKg
+### Installation
 
-contato
-contato@webcreatecode.com.br
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/marcosvandrade/condominium.webdeveloper.name.git
+   ```
+2. Install dependencies:
+   ```bash
+   cd condominium.webdeveloper.name
+   npm install
+   ```
+
+### Running the Application
+
+1. Start the MongoDB server:
+   ```bash
+   mongod
+   ```
+2. Start the application:
+   ```bash
+   npm start
+   ```
+3. Open your browser and go to `http://localhost:3000`
+
+## 🧪 Running Tests
+
+To run the tests, use the following command:
+```bash
+npm test
+```
+
+## 📚 Documentation
+
+You can find detailed documentation [here](docs/README.md).
+
+## 🛡️ License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📬 Contact
+
+Feel free to contact me via [email](mailto:contact@dataengineer.net.br) if you have any questions or suggestions.
+
+---
+
+🌐 [Portfolio](https://dataengineer.net.br/) | 🐙 [GitHub](https://github.com/marcosvandrade/) | ✉️ [Email](mailto:contact@dataengineer.net.br)
+
 
